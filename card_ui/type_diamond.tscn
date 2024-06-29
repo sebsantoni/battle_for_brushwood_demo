@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cbt4c2ggbm512"]
+
+[node name="TypeDiamond" type="Line2D"]
+position = Vector2(0, 4)
+points = PackedVector2Array(-53, 13, -67, 32, -70, 67, -51, 82, -40, 68, -38, 33)
+closed = true
+width = 4.0
+default_color = Color(0.192157, 0.529412, 0.635294, 1)
