@@ -30,7 +30,7 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 anti_aliasing = false
 
-[node name="AttackCardDisplay" type="Control"]
+[node name="AttackCardVisuals" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 80.0
