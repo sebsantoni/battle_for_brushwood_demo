@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtyxobf7c1d8e"]
+
+[ext_resource type="Texture2D" uid="uid://8krrv8djaems" path="res://art/battle_for_brushwood_demo_encounter_bg.png" id="1_dte00"]
+[ext_resource type="Texture2D" uid="uid://bqa04pfr3v3vr" path="res://icon.svg" id="2_akvw8"]
+[ext_resource type="PackedScene" uid="uid://cc4gm4iiyhk8i" path="res://card_ui/card_test.tscn" id="3_p1qrc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfuuj"]
+size = Vector2(256, 100)
+
+[node name="Encounter" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(128, 72)
+texture = ExtResource("1_dte00")
+
+[node name="Hero" type="Sprite2D" parent="."]
+position = Vector2(25, 114)
+scale = Vector2(0.195313, 0.195313)
+texture = ExtResource("2_akvw8")
+
+[node name="Enemy" type="Sprite2D" parent="."]
+position = Vector2(196, 89)
+scale = Vector2(0.195313, 0.195313)
+texture = ExtResource("2_akvw8")
+
+[node name="CardDropArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea"]
+position = Vector2(128, 50)
+shape = SubResource("RectangleShape2D_qfuuj")
+
+[node name="EncounterUI" type="CanvasLayer" parent="."]
+
+[node name="Hand" type="HBoxContainer" parent="EncounterUI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -30.0
+offset_right = 75.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="CardTest" parent="EncounterUI/Hand" instance=ExtResource("3_p1qrc")]
+layout_mode = 2
+
+[node name="CardTest2" parent="EncounterUI/Hand" instance=ExtResource("3_p1qrc")]
+layout_mode = 2
+
+[node name="CardTest3" parent="EncounterUI/Hand" instance=ExtResource("3_p1qrc")]
+layout_mode = 2
+
+[node name="CardTest4" parent="EncounterUI/Hand" instance=ExtResource("3_p1qrc")]
+layout_mode = 2

@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtyxobf7c1d8e"]
-
-[ext_resource type="Texture2D" uid="uid://8krrv8djaems" path="res://art/battle_for_brushwood_demo_encounter_bg.png" id="1_nwekv"]
-
-[node name="Encounter" type="Node2D"]
-
-[node name="Background" type="Sprite2D" parent="."]
-position = Vector2(128, 72)
-texture = ExtResource("1_nwekv")
