@@ -1,29 +1,17 @@
 [gd_scene load_steps=9 format=3 uid="uid://cc4gm4iiyhk8i"]
 
-[ext_resource type="Script" path="res://card_ui/card_test.gd" id="1_ed5up"]
+[ext_resource type="Script" path="res://card_ui/card_ui.gd" id="1_ed5up"]
 [ext_resource type="Script" path="res://card_ui/card_state_machine.gd" id="1_jgfex"]
 [ext_resource type="Script" path="res://card_ui/idle_card_state.gd" id="3_x413l"]
 [ext_resource type="Script" path="res://card_ui/hovered_card_state_node.gd" id="4_xv0dm"]
 [ext_resource type="Script" path="res://card_ui/selected_card_state_node.gd" id="5_lp2jx"]
 [ext_resource type="Script" path="res://card_ui/released_card_state_node.gd" id="6_ur0bd"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eso6i"]
-bg_color = Color(0.270588, 0.278431, 0.294118, 1)
-border_width_left = 1
-border_width_top = 2
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.192157, 0.529412, 0.635294, 1)
-corner_radius_top_left = 1
-corner_radius_top_right = 1
-corner_radius_bottom_right = 1
-corner_radius_bottom_left = 1
-anti_aliasing = false
+[ext_resource type="PackedScene" uid="uid://csk6m6hxi8rf5" path="res://card_ui/card_visuals.tscn" id="7_pvtpx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ufbqr"]
 size = Vector2(25, 30)
 
-[node name="CardTest" type="Control"]
+[node name="CardUI" type="Control"]
 custom_minimum_size = Vector2(25, 30)
 layout_mode = 3
 anchors_preset = 15
@@ -36,14 +24,16 @@ grow_vertical = 2
 script = ExtResource("1_ed5up")
 
 [node name="CardBackground" type="Panel" parent="."]
-custom_minimum_size = Vector2(25, 30)
-layout_mode = 0
-offset_right = 25.0
-offset_bottom = 30.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_eso6i")
+
+[node name="CardVisuals" parent="CardBackground" instance=ExtResource("7_pvtpx")]
+visible = false
 
 [node name="Detector" type="Area2D" parent="."]
 collision_mask = 2

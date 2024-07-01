@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://encounter/encounter.gd" id="1_dg5hd"]
 [ext_resource type="Texture2D" uid="uid://8krrv8djaems" path="res://art/battle_for_brushwood_demo_encounter_bg.png" id="1_dte00"]
 [ext_resource type="Texture2D" uid="uid://bqa04pfr3v3vr" path="res://icon.svg" id="2_akvw8"]
-[ext_resource type="PackedScene" uid="uid://cc4gm4iiyhk8i" path="res://card_ui/card_test.tscn" id="3_p1qrc"]
+[ext_resource type="PackedScene" uid="uid://cc4gm4iiyhk8i" path="res://card_ui/card_ui.tscn" id="3_p1qrc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfuuj"]
 size = Vector2(256, 100)
@@ -47,14 +47,14 @@ grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
 
-[node name="CardTest" parent="EncounterUI/Hand" instance=ExtResource("3_p1qrc")]
+[node name="CardUI1" parent="EncounterUI/Hand" instance=ExtResource("3_p1qrc")]
 layout_mode = 2
 
-[node name="CardTest2" parent="EncounterUI/Hand" instance=ExtResource("3_p1qrc")]
+[node name="CardUI2" parent="EncounterUI/Hand" instance=ExtResource("3_p1qrc")]
 layout_mode = 2
 
-[node name="CardTest3" parent="EncounterUI/Hand" instance=ExtResource("3_p1qrc")]
+[node name="CardUI3" parent="EncounterUI/Hand" instance=ExtResource("3_p1qrc")]
 layout_mode = 2
 
-[node name="CardTest4" parent="EncounterUI/Hand" instance=ExtResource("3_p1qrc")]
+[node name="CardUI4" parent="EncounterUI/Hand" instance=ExtResource("3_p1qrc")]
 layout_mode = 2

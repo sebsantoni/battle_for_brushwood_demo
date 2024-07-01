@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cs6fpaibf32ac"]
+[gd_scene load_steps=6 format=3 uid="uid://cs6fpaibf32ac"]
 
 [ext_resource type="Theme" uid="uid://bydp08q78nl2i" path="res://main_theme.tres" id="1_kuqfj"]
 [ext_resource type="Texture2D" uid="uid://cvwli0wsjue2p" path="res://capy.jpg" id="2_nf68u"]
@@ -30,9 +30,6 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 anti_aliasing = false
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6u4u0"]
-size = Vector2(78, 120)
-
 [node name="AttackCardVisuals" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -48,20 +45,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_pnc8x")
 
-[node name="IconContainer" type="Control" parent="."]
-custom_minimum_size = Vector2(80, 64)
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 64.0
-grow_horizontal = 2
-
-[node name="IconPolygon" type="Polygon2D" parent="IconContainer"]
+[node name="IconPolygon" type="Polygon2D" parent="."]
 clip_children = 1
 texture_scale = Vector2(0.5, 0.5)
 polygon = PackedVector2Array(74, 4, 74, 10, 78, 14, 78, 49, 40, 63, 2, 49, 2, 14, 3, 13, 4, 13, 5, 13, 6, 13, 9, 12, 13, 8, 14, 4)
 
-[node name="CardArt" type="TextureRect" parent="IconContainer/IconPolygon"]
+[node name="CardArt" type="TextureRect" parent="IconPolygon"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -157,11 +146,3 @@ rotation = -0.785398
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_q4tot")
 metadata/_edit_use_anchors_ = true
-
-[node name="TouchDetector" type="Area2D" parent="."]
-collision_mask = 2
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TouchDetector"]
-position = Vector2(40, 61)
-shape = SubResource("RectangleShape2D_6u4u0")

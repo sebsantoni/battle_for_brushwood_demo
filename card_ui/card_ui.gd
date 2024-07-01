@@ -1,9 +1,8 @@
-class_name CardTest
+class_name CardUI
 extends Control
 
-signal return_to_hand(card: CardTest)
+signal return_to_hand(card: CardUI)
 
-@onready var card_background: Panel = $CardBackground
 @onready var card_state_machine: CardStateMachine = $CardStateMachine
 
 

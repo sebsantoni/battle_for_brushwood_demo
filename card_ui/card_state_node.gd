@@ -6,7 +6,7 @@ signal transition_requested(from: CardStateNode, to: CardState)
 enum CardState {Idle, Hovered, Selected, Released}
 @export var state: CardState
 
-var card: CardTest
+var card: CardUI
 
 
 func enter() -> void:

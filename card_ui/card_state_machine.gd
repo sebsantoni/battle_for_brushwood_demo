@@ -5,7 +5,7 @@ extends Node
 
 var current_node: CardStateNode
 var states: Dictionary = {} # maps a CardState to the CardStateNode that handles it
-func init(card: CardTest) -> void:
+func init(card: CardUI) -> void:
 	for child in self.get_children():
 		if child is CardStateNode:
 			states[child.state] = child
