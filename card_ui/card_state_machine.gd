@@ -4,13 +4,11 @@ extends Node
 @export var starting_node: CardStateNode
 
 var current_node: CardStateNode
-var nodes: Dictionary = {} # maps CardStateNodes to CardStates
-
-
+var states: Dictionary = {} # maps a CardState to the CardStateNode that handles it
 func init(card: CardTest) -> void:
 	for child in self.get_children():
 		if child is CardStateNode:
-			nodes[child] = child.state
+			states[child.state] = child
 			child.transition_requested.connect(_on_transition_requested)
 			child.card = card
 
@@ -39,10 +37,11 @@ func _on_mouse_exited() -> void:
 		current_node._on_mouse_exited()
 
 
-func _on_transition_requested(from: CardStateNode, to: CardStateNode) -> void:
-	if not from or from != current_node or from.state not in nodes or to.state not in nodes:
+func _on_transition_requested(from: CardStateNode, to: CardStateNode.CardState) -> void:
+	if not from or from != current_node or from.state not in states or to not in states:
 		return
 	
-	var new_node = nodes[to]
+	var new_node = states[to]
+	
 	current_node.exit()
 	new_node.enter()

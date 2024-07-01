@@ -1,7 +1,7 @@
 class_name CardStateNode
 extends Node
 
-signal transition_requested(from: CardStateNode, to: CardStateNode)
+signal transition_requested(from: CardStateNode, to: CardState)
 
 enum CardState {Idle, Hovered, Clicked, Dragged, Released}
 @export var state: CardState
@@ -17,11 +17,11 @@ func exit() -> void:
 	pass 
 
 
-func _on_input(event: InputEvent) -> void:
+func _on_input(_event: InputEvent) -> void:
 	pass
 
 
-func _on_gui_input(event: InputEvent) -> void:
+func _on_gui_input(_event: InputEvent) -> void:
 	pass
 
 
