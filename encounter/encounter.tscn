@@ -26,7 +26,6 @@ scale = Vector2(0.195313, 0.195313)
 texture = ExtResource("2_akvw8")
 
 [node name="CardDropArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CardDropArea"]

@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cc4gm4iiyhk8i"]
+[gd_scene load_steps=9 format=3 uid="uid://cc4gm4iiyhk8i"]
 
 [ext_resource type="Script" path="res://card_ui/card_test.gd" id="1_ed5up"]
 [ext_resource type="Script" path="res://card_ui/card_state_machine.gd" id="1_jgfex"]
 [ext_resource type="Script" path="res://card_ui/idle_card_state.gd" id="3_x413l"]
 [ext_resource type="Script" path="res://card_ui/hovered_card_state_node.gd" id="4_xv0dm"]
+[ext_resource type="Script" path="res://card_ui/selected_card_state_node.gd" id="5_lp2jx"]
+[ext_resource type="Script" path="res://card_ui/released_card_state_node.gd" id="6_ur0bd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eso6i"]
 bg_color = Color(0.270588, 0.278431, 0.294118, 1)
@@ -59,12 +61,15 @@ script = ExtResource("3_x413l")
 
 [node name="HoveredCardStateNode" type="Node" parent="CardStateMachine"]
 script = ExtResource("4_xv0dm")
+state = 1
 
-[node name="ClickedCardStateNode" type="Node" parent="CardStateMachine"]
-
-[node name="DraggedCardStateNode" type="Node" parent="CardStateMachine"]
+[node name="SelectedCardStateNode" type="Node" parent="CardStateMachine"]
+script = ExtResource("5_lp2jx")
+state = 2
 
 [node name="ReleasedCardStateNode" type="Node" parent="CardStateMachine"]
+script = ExtResource("6_ur0bd")
+state = 3
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

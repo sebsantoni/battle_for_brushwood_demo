@@ -2,24 +2,14 @@ extends CardStateNode
 
 
 func enter() -> void:
-	pass
+	card.position.y -= 10
 
 
-func exit() -> void:
-	pass 
-
-
-func _on_input(_event: InputEvent) -> void:
-	pass
-
-
-func _on_gui_input(_event: InputEvent) -> void:
-	pass
-
-
-func _on_mouse_entered() -> void:
-	pass
+func _on_gui_input(event: InputEvent) -> void:
+	if event.is_action_pressed("left_click"):
+		transition_requested.emit(self, CardState.Selected)
 
 
 func _on_mouse_exited() -> void:
-	pass
+	card.position.y += 10
+	transition_requested.emit(self, CardState.Idle)
