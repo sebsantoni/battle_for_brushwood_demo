@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://g6noauwqpvno"]
+
+[ext_resource type="Script" path="res://scenes/card_state_machine/card_state_machine.gd" id="1_ai6nd"]
+[ext_resource type="Script" path="res://scenes/card_state_machine/idle_card_state.gd" id="2_rcfl6"]
+[ext_resource type="Script" path="res://scenes/card_state_machine/hovered_card_state_node.gd" id="3_2t6n8"]
+[ext_resource type="Script" path="res://scenes/card_state_machine/selected_card_state_node.gd" id="4_0tyi8"]
+[ext_resource type="Script" path="res://scenes/card_state_machine/released_card_state_node.gd" id="5_yhdup"]
+
+[node name="CardStateMachine" type="Node" node_paths=PackedStringArray("starting_node")]
+script = ExtResource("1_ai6nd")
+starting_node = NodePath("IdleCardStateNode")
+
+[node name="IdleCardStateNode" type="Node" parent="."]
+script = ExtResource("2_rcfl6")
+
+[node name="HoveredCardStateNode" type="Node" parent="."]
+script = ExtResource("3_2t6n8")
+state = 1
+
+[node name="SelectedCardStateNode" type="Node" parent="."]
+script = ExtResource("4_0tyi8")
+state = 2
+
+[node name="ReleasedCardStateNode" type="Node" parent="."]
+script = ExtResource("5_yhdup")
+state = 3

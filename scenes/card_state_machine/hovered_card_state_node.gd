@@ -2,7 +2,7 @@ extends CardStateNode
 
 
 func enter() -> void:
-	card.position.y -= 10
+	card_ui.position.y -= 10
 
 
 func _on_gui_input(event: InputEvent) -> void:
@@ -11,6 +11,5 @@ func _on_gui_input(event: InputEvent) -> void:
 
 
 func _on_mouse_exited() -> void:
-	print("exited")
-	card.position.y += 10
+	card_ui.position.y += 10
 	transition_requested.emit(self, CardState.Idle)

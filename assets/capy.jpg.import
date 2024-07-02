@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8krrv8djaems"
-path="res://.godot/imported/battle_for_brushwood_demo_encounter_bg.png-f5e79fd56865748be3599bb3b25fe31a.ctex"
+uid="uid://cvwli0wsjue2p"
+path="res://.godot/imported/capy.jpg-a85d3803588170f35329193c468f578a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/battle_for_brushwood_demo_encounter_bg.png"
-dest_files=["res://.godot/imported/battle_for_brushwood_demo_encounter_bg.png-f5e79fd56865748be3599bb3b25fe31a.ctex"]
+source_file="res://assets/capy.jpg"
+dest_files=["res://.godot/imported/capy.jpg-a85d3803588170f35329193c468f578a.ctex"]
 
 [params]
 

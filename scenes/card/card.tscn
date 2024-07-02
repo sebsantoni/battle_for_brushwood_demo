@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://cc4gm4iiyhk8i"]
+
+[ext_resource type="Script" path="res://scenes/card/card.gd" id="1_u7neb"]
+[ext_resource type="Script" path="res://scenes/card_ui/card_ui.gd" id="3_vpayl"]
+[ext_resource type="PackedScene" uid="uid://g6noauwqpvno" path="res://scenes/card_state_machine/card_state_machine.tscn" id="3_x6trq"]
+[ext_resource type="PackedScene" uid="uid://csk6m6hxi8rf5" path="res://scenes/card_ui/card_ui.tscn" id="7_pvtpx"]
+
+[node name="Card" type="Control"]
+custom_minimum_size = Vector2(25, 30)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -231.0
+offset_bottom = -114.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u7neb")
+
+[node name="CardUI" parent="." instance=ExtResource("7_pvtpx")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_vpayl")
+
+[node name="CardStateMachine" parent="." instance=ExtResource("3_x6trq")]
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

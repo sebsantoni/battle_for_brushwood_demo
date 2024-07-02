@@ -2,10 +2,10 @@ extends CardStateNode
 
 
 func enter() -> void:
-	if not card.is_node_ready():
+	if not card_ui.is_node_ready():
 		await ready 
 	
-	card.return_to_hand.emit(card)
+	card_ui.return_to_hand.emit(card_ui)
 
 
 func _on_mouse_entered() -> void:

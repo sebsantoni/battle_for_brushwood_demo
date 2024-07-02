@@ -6,7 +6,7 @@ func _on_input(event: InputEvent) -> void:
 		transition_requested.emit(self, CardState.Idle)
 	
 	if event is InputEventMouseMotion:
-		card.global_position = card.get_global_mouse_position() - card.size/2
+		card_ui.global_position = card_ui.get_global_mouse_position() - card_ui.size/2
 	
 	if event.is_action_released("left_click"):
 		transition_requested.emit(self, CardState.Released)
