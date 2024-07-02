@@ -8,7 +8,9 @@ func _ready() -> void:
 
 
 func _on_card_released(card_ui: CardUI) -> void:
-	print(card_in_drop_area(card_ui))
+	if card_in_drop_area(card_ui):
+		var card: Card = card_ui.get_parent()
+		# attempt to play the card
 
 
 func card_in_drop_area(card_ui: CardUI) -> bool:
