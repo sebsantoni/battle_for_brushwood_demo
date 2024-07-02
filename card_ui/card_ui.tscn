@@ -23,17 +23,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ed5up")
 
-[node name="CardBackground" type="Panel" parent="."]
+[node name="CardVisuals" parent="." instance=ExtResource("7_pvtpx")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
-
-[node name="CardVisuals" parent="CardBackground" instance=ExtResource("7_pvtpx")]
-visible = false
 
 [node name="Detector" type="Area2D" parent="."]
 collision_mask = 2
