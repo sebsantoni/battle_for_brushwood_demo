@@ -1,16 +1,49 @@
 class_name Encounter
 extends Node2D
 
+'''
+Responsible for handling the Encounter scene during a battle. 
+When a card is released, the encounter scene should process
+the information in the scene and send it over to the Card class
+to process what happened. 
+
+The Encounter scene knows the card drop area, the units in the scene, 
+and the hand/cards being played.
+'''
+
+
+@onready var enemy_handler = $EnemyHandler
 @onready var card_drop_area = $CardDropArea
+
+var enemies: Array[Enemy] = []
 
 func _ready() -> void:
 	Events.card_released.connect(_on_card_released)
+	
+	for enemy: Enemy in enemy_handler.get_children():
+		enemies.append(enemy)
 
 
 func _on_card_released(card_ui: CardUI) -> void:
-	if card_in_drop_area(card_ui):
-		var card: Card = card_ui.get_parent()
-		# attempt to play the card
+	# we want to know what the targets of the card are and pass that over
+	# the card itself should handle the logic
+	# the encounter is only responsible for passing on the info of the battle
+	# what info is needed?: 
+	# is the card in the drop area?
+	# was the card released on a unit (enemy/hero/character?)
+	
+	# should enemies always be in the drop area? for now, not necessarily...
+	# we simply gather if in drop area and if on a unit
+	# if unit, pass on the unit as well
+	
+	# how are units gonna work? is that a class itself? 
+	# let's stick to enemies for now
+	
+	var in_drop_area = card_in_drop_area(card_ui)
+	var enemy = targeted_enemy(card_ui)
+	
+	var card: Card = card_ui.get_parent() # can be improved by passing card in later on
+	card.play(in_drop_area, enemy)
 
 
 func card_in_drop_area(card_ui: CardUI) -> bool:
@@ -19,3 +52,16 @@ func card_in_drop_area(card_ui: CardUI) -> bool:
 			return true
 	
 	return false
+
+
+func targeted_enemy(card_ui) -> Enemy:
+	# assume the card is played on a single enemy for now...
+	# returns the enemy targeted by the card on release.
+	# if no enemy is targeted, returns null
+	var target: Enemy = null
+	
+	for enemy in enemies:
+		if card_ui.card_area in enemy.hitbox.get_overlapping_areas():
+			target = enemy
+	
+	return target

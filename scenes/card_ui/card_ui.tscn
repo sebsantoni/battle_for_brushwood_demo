@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://csk6m6hxi8rf5"]
+[gd_scene load_steps=10 format=3 uid="uid://csk6m6hxi8rf5"]
 
 [ext_resource type="Theme" uid="uid://bydp08q78nl2i" path="res://main_theme.tres" id="1_1m4nd"]
 [ext_resource type="StyleBox" uid="uid://dvw8io7teuu2a" path="res://card_visuals.tres" id="2_adkgq"]
+[ext_resource type="Script" path="res://scenes/card_ui/card_ui.gd" id="2_py45d"]
 [ext_resource type="Texture2D" uid="uid://c7pb6k2ir7o2f" path="res://assets/pen_jab2.png" id="3_btgoc"]
 [ext_resource type="Texture2D" uid="uid://c44dvjx273s32" path="res://assets/pixil-frame-0.png" id="4_yo0io"]
 
@@ -30,6 +31,7 @@ layout_mode = 3
 anchors_preset = 0
 mouse_filter = 2
 theme = ExtResource("1_1m4nd")
+script = ExtResource("2_py45d")
 
 [node name="CardBackground" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(25, 30)

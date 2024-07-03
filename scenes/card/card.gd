@@ -4,6 +4,15 @@ extends Control
 @onready var card_ui = $CardUI
 @onready var card_state_machine: CardStateMachine = $CardStateMachine
 
+enum CardType {Attack, Spell, Aura, Character}
+enum TargetType {Self, All_Enemies, Everyone, Enemy}
+
+@export var card_type: CardType
+@export var cost: int
+@export var targeted: bool
+@export var target_type: TargetType
+
+
 
 func _ready() -> void:
 	card_state_machine.init(card_ui)
@@ -25,22 +34,17 @@ func _on_mouse_exited():
 	card_state_machine._on_mouse_exited()
 
 
-
-#class_name Card
-#extends Resource
-#
-#enum Type {Attack, Spell, Aura, Character}
-#
-#@export_group("Gameplay Attributes")
-#var type: Type
-#var cost: int
-#
-#@export_group("Visual Attributes")
-#var art: TextureRect
-#var name_: String
-#var description: String
-#
-#
-#func play() -> void:
-	## called when the card is played
-	#pass
+func play(dropped: bool, target: Enemy) -> void:
+	if targeted:
+		if not target:
+			return
+		else:
+			print("card played on target: ", target)
+	else:
+		if target or not dropped:
+			return
+		else:
+			print("non-targeted card played")
+		
+	
+	
