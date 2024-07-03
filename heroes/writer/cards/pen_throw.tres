@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cxo4qw1ig145t"]
+
+[ext_resource type="Script" path="res://heroes/writer/cards/pen_throw.gd" id="1_2hodg"]
+
+[resource]
+script = ExtResource("1_2hodg")
+card_type = 0
+cost = 0
+targeted = false
+target_type = 0
+rarity = 0
+name = ""
+description = ""

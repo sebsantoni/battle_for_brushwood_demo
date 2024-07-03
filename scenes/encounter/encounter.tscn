@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/encounter/encounter.gd" id="1_dg5hd"]
 [ext_resource type="Texture2D" uid="uid://8krrv8djaems" path="res://assets/battle_for_brushwood_demo_encounter_bg.png" id="1_dte00"]
 [ext_resource type="Texture2D" uid="uid://bqa04pfr3v3vr" path="res://assets/icon.svg" id="2_akvw8"]
-[ext_resource type="PackedScene" uid="uid://cc4gm4iiyhk8i" path="res://scenes/card/card.tscn" id="3_p1qrc"]
+[ext_resource type="PackedScene" uid="uid://cc4gm4iiyhk8i" path="res://scenes/card/card_scene.tscn" id="3_p1qrc"]
 [ext_resource type="PackedScene" uid="uid://b74tvaqqeu0qe" path="res://scenes/enemy.tscn" id="4_q0k21"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfuuj"]
