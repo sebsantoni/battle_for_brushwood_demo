@@ -11,9 +11,9 @@ The Encounter scene knows the card drop area, the units in the scene,
 and the hand/cards being played.
 '''
 
-
 @onready var enemy_handler = $EnemyHandler
 @onready var card_drop_area = $CardDropArea
+@onready var player = $AllyHandler/Player
 
 var enemies: Array[Enemy] = []
 
@@ -40,10 +40,10 @@ func _on_card_released(card_ui: CardUI) -> void:
 	# let's stick to enemies for now
 	
 	var in_drop_area = card_in_drop_area(card_ui)
-	var enemy = targeted_enemy(card_ui)
+	var enemy = targeted_enemy(card_ui) # can be expanded to unit instead of enemy
 	
-	var card: CardScene = card_ui.get_parent() # can be improved by passing card in later on
-	card.play(in_drop_area, enemy)
+	# we will be passing it onto the player, actually!
+	player.play(card_ui.card, in_drop_area, enemy)
 
 
 func card_in_drop_area(card_ui: CardUI) -> bool:

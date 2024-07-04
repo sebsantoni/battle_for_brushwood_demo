@@ -28,5 +28,5 @@ func _on_mouse_exited():
 	card_state_machine._on_mouse_exited()
 
 
-func play(dropped, target) -> void:
-	card.play(dropped, target)
+func play(player: Player, dropped: bool, target: Enemy) -> void:
+	card.play(player, dropped, target)

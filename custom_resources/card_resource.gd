@@ -15,8 +15,8 @@ enum Rarity {Common, Uncommon, Rare}
 @export var rarity: Rarity
 @export var art: Texture
 @export var name: String
-@export var description: String
+@export_multiline var description: String
 
 
-func play(_dropped: bool, _target: Enemy) -> void:
+func play(_player: Player, _dropped: bool, _target: Enemy) -> void:
 	pass

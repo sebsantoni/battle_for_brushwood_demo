@@ -1,7 +1,7 @@
 extends CardResource
 
 
-func play(dropped: bool, target: Enemy) -> void:
+func play(_player: Player, dropped: bool, target: Enemy) -> void:
 	if targeted:
 		if not target:
 			return
