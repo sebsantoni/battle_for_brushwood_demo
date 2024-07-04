@@ -42,7 +42,7 @@ func _on_card_released(card_ui: CardUI) -> void:
 	var in_drop_area = card_in_drop_area(card_ui)
 	var enemy = targeted_enemy(card_ui)
 	
-	var card: Card = card_ui.get_parent() # can be improved by passing card in later on
+	var card: CardScene = card_ui.get_parent() # can be improved by passing card in later on
 	card.play(in_drop_area, enemy)
 
 

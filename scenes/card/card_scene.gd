@@ -8,9 +8,6 @@ extends Control
 
 func _ready() -> void:
 	card_state_machine.init(card_ui)
-
-
-func load_ui() -> void:
 	card_ui.card = card
 	card_ui.load_ui()
 

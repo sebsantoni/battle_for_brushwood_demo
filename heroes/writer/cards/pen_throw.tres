@@ -1,13 +1,15 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cxo4qw1ig145t"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cxo4qw1ig145t"]
 
 [ext_resource type="Script" path="res://heroes/writer/cards/pen_throw.gd" id="1_2hodg"]
+[ext_resource type="Texture2D" uid="uid://c7pb6k2ir7o2f" path="res://assets/pen_jab2.png" id="1_7pqb7"]
 
 [resource]
 script = ExtResource("1_2hodg")
 card_type = 0
-cost = 0
-targeted = false
-target_type = 0
+cost = 1
+targeted = true
+target_type = 3
 rarity = 0
-name = ""
-description = ""
+art = ExtResource("1_7pqb7")
+name = "Pen Throw"
+description = "Deal 6 damage to an enemy."

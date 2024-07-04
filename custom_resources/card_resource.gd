@@ -18,5 +18,5 @@ enum Rarity {Common, Uncommon, Rare}
 @export var description: String
 
 
-func play(dropped: bool, target: Enemy) -> void:
+func play(_dropped: bool, _target: Enemy) -> void:
 	pass
