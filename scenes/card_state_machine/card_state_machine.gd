@@ -5,12 +5,13 @@ extends Node
 
 var current_node: CardStateNode
 var states: Dictionary = {} # maps a CardState to the CardStateNode that handles it
-func init(card_ui: CardUI) -> void:
+func init(card_handler: CardHandler) -> void:
 	for child in self.get_children():
 		if child is CardStateNode:
 			states[child.state] = child
 			child.transition_requested.connect(_on_transition_requested)
-			child.card_ui = card_ui
+			child.card_handler = card_handler
+			child.card_ui = card_handler.card_ui
 
 	if starting_node:
 		starting_node.enter()
@@ -44,6 +45,8 @@ func _on_transition_requested(from: CardStateNode, to: CardStateNode.CardState) 
 	var new_node = states[to]
 	
 	current_node.exit()
+	#print(CardStateNode.CardState.keys()[new_node.state])
 	new_node.enter()
+	
 	
 	current_node = new_node

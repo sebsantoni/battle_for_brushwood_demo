@@ -14,9 +14,8 @@ extends Control
 @onready var aura_art_container = $CardBackground/ArtContainer/AuraArtContainer
 @onready var character_art_container = $CardBackground/ArtContainer/CharacterArtContainer
 
-signal return_to_hand(card_ui: CardUI)
-
 var card: CardResource
+var card_handler: CardHandler
 
 var rarity_colors = {
 	'Common': Color(795548, 255),

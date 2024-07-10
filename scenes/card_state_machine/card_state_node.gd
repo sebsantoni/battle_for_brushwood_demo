@@ -6,6 +6,7 @@ signal transition_requested(from: CardStateNode, to: CardState)
 enum CardState {Idle, Hovered, Selected, Released}
 @export var state: CardState
 
+var card_handler: CardHandler
 var card_ui: CardUI
 
 

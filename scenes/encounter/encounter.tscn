@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/encounter/encounter.gd" id="1_dg5hd"]
 [ext_resource type="Texture2D" uid="uid://8krrv8djaems" path="res://assets/battle_for_brushwood_demo_encounter_bg.png" id="1_dte00"]
 [ext_resource type="PackedScene" uid="uid://csu3ntbxsjk2f" path="res://scenes/player/player.tscn" id="3_asfwf"]
-[ext_resource type="PackedScene" uid="uid://cc4gm4iiyhk8i" path="res://scenes/card/card_scene.tscn" id="3_p1qrc"]
+[ext_resource type="PackedScene" uid="uid://cc4gm4iiyhk8i" path="res://scenes/card/card_handler.tscn" id="3_p1qrc"]
 [ext_resource type="PackedScene" uid="uid://b74tvaqqeu0qe" path="res://scenes/enemy.tscn" id="4_q0k21"]
 [ext_resource type="Resource" uid="uid://cmjyd4rras5mm" path="res://heroes/writer/writer.tres" id="4_vpivo"]
 [ext_resource type="Resource" uid="uid://cxo4qw1ig145t" path="res://heroes/writer/cards/pen_throw.tres" id="6_fjx0y"]
@@ -52,20 +52,25 @@ offset_top = -30.0
 offset_right = 75.0
 grow_horizontal = 2
 grow_vertical = 0
+mouse_filter = 2
 alignment = 1
 
 [node name="Card1" parent="EncounterUI/Hand" instance=ExtResource("3_p1qrc")]
 layout_mode = 2
+mouse_filter = 1
 card = ExtResource("6_fjx0y")
 
 [node name="Card2" parent="EncounterUI/Hand" instance=ExtResource("3_p1qrc")]
 layout_mode = 2
+mouse_filter = 1
 card = ExtResource("6_fjx0y")
 
 [node name="Card3" parent="EncounterUI/Hand" instance=ExtResource("3_p1qrc")]
 layout_mode = 2
+mouse_filter = 1
 card = ExtResource("6_fjx0y")
 
 [node name="Card4" parent="EncounterUI/Hand" instance=ExtResource("3_p1qrc")]
 layout_mode = 2
+mouse_filter = 1
 card = ExtResource("6_fjx0y")

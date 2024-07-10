@@ -18,5 +18,6 @@ enum Rarity {Common, Uncommon, Rare}
 @export_multiline var description: String
 
 
-func play(_player: Player, _dropped: bool, _target: Enemy) -> void:
-	pass
+func play(_player: Player, _dropped: bool, _target: Enemy) -> bool:
+	'''Returns whether this card was successfully played'''
+	return true

@@ -14,6 +14,7 @@ and the hand/cards being played.
 @onready var enemy_handler = $EnemyHandler
 @onready var card_drop_area = $CardDropArea
 @onready var player = $AllyHandler/Player
+@onready var hand = $EncounterUI/Hand
 
 var enemies: Array[Enemy] = []
 
@@ -22,6 +23,9 @@ func _ready() -> void:
 	
 	for enemy: Enemy in enemy_handler.get_children():
 		enemies.append(enemy)
+	
+	for card_handler: CardHandler in hand.get_children():
+		card_handler.return_to_hand.connect(_on_return_to_hand)
 
 
 func _on_card_released(card_ui: CardUI) -> void:
@@ -43,7 +47,7 @@ func _on_card_released(card_ui: CardUI) -> void:
 	var enemy = targeted_enemy(card_ui) # can be expanded to unit instead of enemy
 	
 	# we will be passing it onto the player, actually!
-	player.play(card_ui.card, in_drop_area, enemy)
+	player.play(card_ui.card_handler, in_drop_area, enemy)
 
 
 func card_in_drop_area(card_ui: CardUI) -> bool:
@@ -65,3 +69,8 @@ func targeted_enemy(card_ui) -> Enemy:
 			target = enemy
 	
 	return target
+
+
+func _on_return_to_hand(card_handler: CardHandler) -> void:
+	card_handler.card_ui.position = Vector2(0,0)
+	

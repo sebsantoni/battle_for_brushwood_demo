@@ -1,14 +1,17 @@
-class_name CardScene
+class_name CardHandler
 extends Control
 
 @onready var card_ui = $CardUI
 @onready var card_state_machine: CardStateMachine = $CardStateMachine
 @export var card: CardResource
 
+signal return_to_hand(card_handler: CardHandler)
+
 
 func _ready() -> void:
-	card_state_machine.init(card_ui)
+	card_state_machine.init(self)
 	card_ui.card = card
+	card_ui.card_handler = self
 	card_ui.load_ui()
 
 
@@ -28,5 +31,15 @@ func _on_mouse_exited():
 	card_state_machine._on_mouse_exited()
 
 
-func play(player: Player, dropped: bool, target: Enemy) -> void:
-	card.play(player, dropped, target)
+func play(player: Player, dropped: bool, target: Enemy) -> bool:
+	'''Returns whether the card was successfully played'''
+	var success: bool = card.play(player, dropped, target)
+	
+	if not success:
+		return_to_hand.emit(self)
+	else:
+		self.queue_free()
+	
+	return success
+
+

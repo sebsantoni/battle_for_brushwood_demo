@@ -1,14 +1,16 @@
 extends CardResource
 
 
-func play(_player: Player, dropped: bool, target: Enemy) -> void:
+func play(_player: Player, dropped: bool, target: Enemy) ->bool:
 	if targeted:
 		if not target:
-			return
+			return false
 		else:
 			print("card played on target: ", target)
+			return true
 	else:
 		if target or not dropped:
-			return
+			return false
 		else:
 			print("non-targeted card played")
+			return true

@@ -11,7 +11,7 @@ extends Sprite2D
 @export var gold: int
 
 
-func play(card: CardResource, dropped: bool, enemy: Enemy) -> void:
+func play(card_handler: CardHandler, dropped: bool, enemy: Enemy) -> void:
 	'''
 	Plays the given card on the given targets (if any...)
 	WHO should be responsible for the logic of determining targets, etc...?
@@ -22,11 +22,15 @@ func play(card: CardResource, dropped: bool, enemy: Enemy) -> void:
 	# for now, assume the only restriction is mana (no effects which limit
 	# number of playable cards per turn, etc., all of which can probably
 	# modify the Hero anyway...)
+	var success = false
+	if card_handler.card.cost <= self.mana:
+		success = card_handler.play(self, dropped, enemy)
 	
-	if self.mana >= card.cost:
-		self.mana -= card.cost
-		card.play(self, dropped, enemy)
-	
+	if success:
+		self.mana -= card_handler.card.cost
+	else:
+		card_handler.return_to_hand.emit(card_handler)
+
 '''
 Player HAS a hero, since this hero is chosen by the player
 In addition, they have temporary stats rather than max ones:
