@@ -16,12 +16,12 @@ and the hand/cards being played.
 @onready var player = $AllyHandler/Player
 @onready var hand = $EncounterUI/Hand
 
-var enemies: Array[Enemy] = []
+var enemies: Array[Unit] = []
 
 func _ready() -> void:
 	Events.card_released.connect(_on_card_released)
 	
-	for enemy: Enemy in enemy_handler.get_children():
+	for enemy: Unit in enemy_handler.get_children():
 		enemies.append(enemy)
 	
 	for card_handler: CardHandler in hand.get_children():
@@ -57,12 +57,11 @@ func card_in_drop_area(card_ui: CardUI) -> bool:
 	
 	return false
 
-
-func targeted_enemy(card_ui) -> Enemy:
+func targeted_enemy(card_ui) -> Unit:
 	# assume the card is played on a single enemy for now...
 	# returns the enemy targeted by the card on release.
 	# if no enemy is targeted, returns null
-	var target: Enemy = null
+	var target: Unit = null
 	
 	for enemy in enemies:
 		if card_ui.card_area in enemy.hitbox.get_overlapping_areas():

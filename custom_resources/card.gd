@@ -1,4 +1,4 @@
-class_name CardResource
+class_name Card
 extends Resource
 
 enum CardType {Attack, Spell, Aura, Character}
@@ -18,6 +18,6 @@ enum Rarity {Common, Uncommon, Rare}
 @export_multiline var description: String
 
 
-func play(_player: Player, _dropped: bool, _target: Enemy) -> bool:
+func play(_player: Player, _dropped: bool, _target: Unit) -> bool:
 	'''Returns whether this card was successfully played'''
 	return true

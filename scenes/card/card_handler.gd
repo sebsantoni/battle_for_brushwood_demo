@@ -3,7 +3,7 @@ extends Control
 
 @onready var card_ui = $CardUI
 @onready var card_state_machine: CardStateMachine = $CardStateMachine
-@export var card: CardResource
+@export var card: Card
 
 signal return_to_hand(card_handler: CardHandler)
 
@@ -31,7 +31,7 @@ func _on_mouse_exited():
 	card_state_machine._on_mouse_exited()
 
 
-func play(player: Player, dropped: bool, target: Enemy) -> bool:
+func play(player: Player, dropped: bool, target: Unit) -> bool:
 	'''Returns whether the card was successfully played'''
 	var success: bool = card.play(player, dropped, target)
 	

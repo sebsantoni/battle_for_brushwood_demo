@@ -1,7 +1,7 @@
-extends CardResource
+extends Card
 
 
-func play(_player: Player, dropped: bool, target: Enemy) ->bool:
+func play(_player: Player, dropped: bool, target: Unit) ->bool:
 	if targeted:
 		if not target:
 			return false

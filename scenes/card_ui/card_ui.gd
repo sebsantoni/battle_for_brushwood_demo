@@ -14,7 +14,7 @@ extends Control
 @onready var aura_art_container = $CardBackground/ArtContainer/AuraArtContainer
 @onready var character_art_container = $CardBackground/ArtContainer/CharacterArtContainer
 
-var card: CardResource
+var card: Card
 var card_handler: CardHandler
 
 var rarity_colors = {
@@ -46,8 +46,8 @@ func load_ui() -> void:
 	description.text = card.description 
 
 
-func display_card_type(card_type: CardResource.CardType, card_art: Texture) -> void:
-	var type = CardResource.CardType.keys()[card_type]
+func display_card_type(card_type: Card.CardType, card_art: Texture) -> void:
+	var type = Card.CardType.keys()[card_type]
 	var container = get_container_by_type(type)
 	
 	set_type_diamond(type_colors[type], type_icons[type])
@@ -78,8 +78,8 @@ func display_art(container: Control, card_art: Texture) -> void:
 	container.get_child(0).get_child(0).texture = card_art
 
 
-func update_mana_icon(rarity: CardResource.Rarity, cost: int) -> void:
+func update_mana_icon(rarity: Card.Rarity, cost: int) -> void:
 	var stylebox: StyleBoxFlat = get_theme_stylebox("mana_icon").duplicate()
-	stylebox.set("bg_color", rarity_colors[CardResource.Rarity.keys()[rarity]])
+	stylebox.set("bg_color", rarity_colors[Card.Rarity.keys()[rarity]])
 	cost_icon.add_theme_stylebox_override("mana_icon", stylebox)
 	cost_label.text = str(card.cost)

@@ -11,7 +11,7 @@ extends Sprite2D
 @export var gold: int
 
 
-func play(card_handler: CardHandler, dropped: bool, enemy: Enemy) -> void:
+func play(card_handler: CardHandler, dropped: bool, enemy: Unit) -> void:
 	'''
 	Plays the given card on the given targets (if any...)
 	WHO should be responsible for the logic of determining targets, etc...?

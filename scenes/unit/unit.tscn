@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://diisfdg42k8he"]
+
+[ext_resource type="Texture2D" uid="uid://bqa04pfr3v3vr" path="res://assets/icon.svg" id="1_ryo13"]
+[ext_resource type="Script" path="res://scenes/unit/unit.gd" id="2_gycxh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ihapj"]
+size = Vector2(133.12, 133.12)
+
+[node name="Unit" type="Sprite2D"]
+texture = ExtResource("1_ryo13")
+script = ExtResource("2_gycxh")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-5.18797e-06, -5.18797e-06)
+shape = SubResource("RectangleShape2D_ihapj")
