@@ -1,10 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://csu3ntbxsjk2f"]
+[gd_scene load_steps=4 format=3 uid="uid://csu3ntbxsjk2f"]
 
 [ext_resource type="Texture2D" uid="uid://bqa04pfr3v3vr" path="res://assets/icon.svg" id="1_ob1lc"]
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="2_h230n"]
+[ext_resource type="PackedScene" uid="uid://vfew7l2hp267" path="res://scenes/ui/StatBar.tscn" id="3_o2s8i"]
 
 [node name="Player" type="Sprite2D"]
 position = Vector2(25, 114)
 scale = Vector2(0.195313, 0.195313)
 texture = ExtResource("1_ob1lc")
 script = ExtResource("2_h230n")
+
+[node name="StatBar" parent="." instance=ExtResource("3_o2s8i")]
+offset_left = -92.1598
+offset_top = 71.6798
+offset_right = -199.16
+offset_bottom = -51.3202

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://diisfdg42k8he"]
+[gd_scene load_steps=5 format=3 uid="uid://diisfdg42k8he"]
 
 [ext_resource type="Texture2D" uid="uid://bqa04pfr3v3vr" path="res://assets/icon.svg" id="1_ryo13"]
 [ext_resource type="Script" path="res://scenes/unit/unit.gd" id="2_gycxh"]
+[ext_resource type="PackedScene" uid="uid://vfew7l2hp267" path="res://scenes/ui/StatBar.tscn" id="3_bfgw5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ihapj"]
 size = Vector2(133.12, 133.12)
@@ -16,3 +17,9 @@ script = ExtResource("2_gycxh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(-5.18797e-06, -5.18797e-06)
 shape = SubResource("RectangleShape2D_ihapj")
+
+[node name="StatBar" parent="." instance=ExtResource("3_bfgw5")]
+offset_left = -97.4359
+offset_top = 71.7949
+offset_right = -204.436
+offset_bottom = -51.2051

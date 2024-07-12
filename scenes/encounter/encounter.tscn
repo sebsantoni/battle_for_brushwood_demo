@@ -30,17 +30,17 @@ block = null
 gold = 100
 
 [node name="Character" parent="AllyHandler" instance=ExtResource("5_r3ti5")]
-position = Vector2(56, 96)
+position = Vector2(56, 89)
 species = ExtResource("6_666on")
 
 [node name="EnemyHandler" type="Node2D" parent="."]
 
 [node name="Enemy1" parent="EnemyHandler" instance=ExtResource("5_r3ti5")]
-position = Vector2(213, 81)
+position = Vector2(235, 88)
 species = ExtResource("6_666on")
 
 [node name="Enemy2" parent="EnemyHandler" instance=ExtResource("5_r3ti5")]
-position = Vector2(178, 96)
+position = Vector2(199, 80)
 species = ExtResource("7_4gl3k")
 
 [node name="CardDropArea" type="Area2D" parent="."]
