@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="Move" load_steps=2 format=3 uid="uid://7e72gbccffl7"]
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://7e72gbccffl7"]
 
-[ext_resource type="Script" path="res://custom_resources/move.gd" id="1_ytn68"]
+[ext_resource type="Script" path="res://moves/fairy_dart.gd" id="1_x6anx"]
 
 [resource]
-script = ExtResource("1_ytn68")
-target_type = 0
+script = ExtResource("1_x6anx")
+target_type = 2

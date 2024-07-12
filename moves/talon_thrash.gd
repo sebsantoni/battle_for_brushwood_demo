@@ -1,6 +1,6 @@
 extends Move
 
 
-func execute(_unit: Unit, targets: Array[Unit]) -> void:
+func execute(_unit: Unit, targets: Array) -> void:
 	for target in targets:
 		print("deal 6 damage to:", target)

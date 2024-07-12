@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource("1_7j3qs")
-target_type = 0
+target_type = 2

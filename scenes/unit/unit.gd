@@ -7,8 +7,8 @@ extends Node
 var hp: int
 var block: int
 
-var allies: Array[Unit]
-var enemies: Array[Unit]
+var allies: Array
+var enemies: Array
 
 
 func move() -> void:

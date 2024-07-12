@@ -5,7 +5,7 @@ extends Resource
 var total_weight: float = 0.0
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
-func _ready() -> void:
+func init() -> void:
 	if total_weight == 0.0:
 		set_total_weight()
 
@@ -22,11 +22,11 @@ func get_move() -> Move:
 		rand_wgt -= move_pool[move]
 		if rand_wgt < 0:
 			return move
-
+	
 	return move_pool.keys()[0]
 
 
-func get_targets(unit: Unit, move: Move, allies: Array[Unit], enemies: Array[Unit]) -> Array[Unit]:
+func get_targets(unit: Unit, move: Move, allies: Array, enemies: Array) -> Array:
 	match move.target_type:
 		move.TargetType.Self:
 			return [unit]
@@ -44,7 +44,7 @@ func get_targets(unit: Unit, move: Move, allies: Array[Unit], enemies: Array[Uni
 			return []
 
 
-func get_single_target(targets: Array[Unit]) -> Unit:
+func get_single_target(targets: Array):
 	# for now, this is random! can, in future, make it
 	# specifically avoid the player, bosses, etc.
 	var rnd_indx = rng.randi_range(0, len(targets) - 1)

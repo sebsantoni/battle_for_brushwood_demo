@@ -18,8 +18,8 @@ and the hand/cards being played.
 @onready var player = $AllyHandler/Player
 @onready var hand = $EncounterUI/Hand
 
-var enemies: Array[Unit] = []
-var allies: Array[Unit] = []
+var enemies: Array = []
+var allies: Array = []
 
 func _ready() -> void:
 	Events.card_released.connect(_on_card_released)
@@ -33,15 +33,19 @@ func _ready() -> void:
 	for enemy: Unit in enemy_handler.get_children():
 		enemy.allies = enemies
 		enemy.enemies = allies
+		enemy.species.move_handler.init()
 	
 	for ally in ally_handler.get_children():
 		if ally is Unit:
 			ally.allies = allies
 			ally.enemies = enemies
+			ally.species.move_handler.init()
 	
 	for card_handler: CardHandler in hand.get_children():
 		card_handler.return_to_hand.connect(_on_return_to_hand)
-
+	
+	for enemy: Unit in enemy_handler.get_children():
+		enemy.move()
 
 func _on_card_released(card_ui: CardUI) -> void:
 	# we want to know what the targets of the card are and pass that over

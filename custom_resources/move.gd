@@ -9,5 +9,5 @@ enum TargetType {
 
 @export var target_type: TargetType
 
-func execute(_unit: Unit, _targets: Array[Unit]) -> void:
+func execute(_unit: Unit, _targets: Array) -> void:
 	pass
