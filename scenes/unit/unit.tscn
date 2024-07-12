@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://diisfdg42k8he"]
+[gd_scene load_steps=7 format=3 uid="uid://diisfdg42k8he"]
 
 [ext_resource type="Texture2D" uid="uid://bqa04pfr3v3vr" path="res://assets/icon.svg" id="1_ryo13"]
 [ext_resource type="Script" path="res://scenes/unit/unit.gd" id="2_gycxh"]
-[ext_resource type="PackedScene" uid="uid://vfew7l2hp267" path="res://scenes/ui/StatBar.tscn" id="3_bfgw5"]
+[ext_resource type="PackedScene" uid="uid://vfew7l2hp267" path="res://scenes/ui/stat_bar.tscn" id="3_ts8e2"]
+[ext_resource type="Script" path="res://scenes/unit/intent_handler.gd" id="4_c5uhv"]
+[ext_resource type="PackedScene" uid="uid://o8m30crb1uxe" path="res://scenes/ui/intent_ui.tscn" id="4_rpnbn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ihapj"]
 size = Vector2(133.12, 133.12)
@@ -18,8 +20,36 @@ script = ExtResource("2_gycxh")
 position = Vector2(-5.18797e-06, -5.18797e-06)
 shape = SubResource("RectangleShape2D_ihapj")
 
-[node name="StatBar" parent="." instance=ExtResource("3_bfgw5")]
-offset_left = -97.4359
-offset_top = 71.7949
-offset_right = -204.436
-offset_bottom = -51.2051
+[node name="StatBar" parent="." instance=ExtResource("3_ts8e2")]
+offset_left = -102.564
+offset_top = 76.9231
+offset_right = -209.564
+offset_bottom = -46.0769
+
+[node name="IntentHandler" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -64.0
+offset_right = -64.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_c5uhv")
+
+[node name="IntentUI" parent="IntentHandler" instance=ExtResource("4_rpnbn")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 7.58974
+offset_top = -59.0769
+offset_right = 18.5897
+offset_bottom = -54.0769
+grow_horizontal = 1
+grow_vertical = 1
+
+[connection signal="mouse_entered" from="IntentHandler" to="IntentHandler" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="IntentHandler" to="IntentHandler" method="_on_mouse_exited"]

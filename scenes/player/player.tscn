@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bqa04pfr3v3vr" path="res://assets/icon.svg" id="1_ob1lc"]
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="2_h230n"]
-[ext_resource type="PackedScene" uid="uid://vfew7l2hp267" path="res://scenes/ui/StatBar.tscn" id="3_o2s8i"]
+[ext_resource type="PackedScene" uid="uid://vfew7l2hp267" path="res://scenes/ui/stat_bar.tscn" id="3_o2s8i"]
 
 [node name="Player" type="Sprite2D"]
 position = Vector2(25, 114)

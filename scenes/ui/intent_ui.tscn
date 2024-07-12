@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://o8m30crb1uxe"]
 
-[ext_resource type="Texture2D" uid="uid://bcjys4tn3aflh" path="res://assets/hp_icon.png" id="1_g8k5w"]
+[ext_resource type="Texture2D" uid="uid://deg7r3nv7hlbf" path="res://assets/shield_icon.png" id="1_3w1sp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tg5q8"]
 font_size = 80
 
-[node name="StatUI" type="HBoxContainer"]
+[node name="IntentUI" type="HBoxContainer"]
 custom_minimum_size = Vector2(10, 5)
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,6 +14,7 @@ offset_right = -245.0
 offset_bottom = -139.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(10, 10)
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/separation = 1
@@ -21,7 +22,7 @@ alignment = 1
 
 [node name="Icon" type="TextureRect" parent="."]
 layout_mode = 2
-texture = ExtResource("1_g8k5w")
+texture = ExtResource("1_3w1sp")
 expand_mode = 3
 stretch_mode = 5
 
@@ -39,7 +40,7 @@ offset_bottom = 92.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.05, 0.05)
-text = "10"
+text = "12"
 label_settings = SubResource("LabelSettings_tg5q8")
 horizontal_alignment = 1
 vertical_alignment = 1
