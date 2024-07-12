@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b6dsy3j3ic5ey"]
+
+[ext_resource type="Script" path="res://moves/pollen_punch.gd" id="1_7j3qs"]
+
+[resource]
+script = ExtResource("1_7j3qs")
+target_type = 0

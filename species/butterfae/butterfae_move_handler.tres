@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MoveHandler" load_steps=5 format=3 uid="uid://dhcd1t5h8tqbm"]
+
+[ext_resource type="Script" path="res://custom_resources/move_handler.gd" id="1_arabt"]
+[ext_resource type="Resource" uid="uid://b6dsy3j3ic5ey" path="res://moves/pollen_punch.tres" id="1_x4of6"]
+[ext_resource type="Resource" uid="uid://7e72gbccffl7" path="res://moves/fairy_dart.tres" id="2_m0cyq"]
+[ext_resource type="Resource" uid="uid://cqqs0v1t6boik" path="res://moves/fairy_dust.tres" id="3_367lu"]
+
+[resource]
+script = ExtResource("1_arabt")
+move_pool = {
+ExtResource("1_x4of6"): 3.0,
+ExtResource("2_m0cyq"): 3.0,
+ExtResource("3_367lu"): 4.0
+}

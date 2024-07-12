@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://c4x3mcyd2ryos"]
+
+[ext_resource type="Script" path="res://moves/hone.gd" id="1_a2crx"]
+
+[resource]
+script = ExtResource("1_a2crx")
+target_type = 0

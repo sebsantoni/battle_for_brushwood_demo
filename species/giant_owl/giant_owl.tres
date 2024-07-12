@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Species" load_steps=4 format=3 uid="uid://3tpjj5i0yxrm"]
+
+[ext_resource type="Script" path="res://custom_resources/species.gd" id="1_2frey"]
+[ext_resource type="Resource" uid="uid://ma34gv0136kb" path="res://species/giant_owl/giant_owl_move_handler.tres" id="1_8c75v"]
+[ext_resource type="Texture2D" uid="uid://cvwli0wsjue2p" path="res://assets/capy.jpg" id="3_c30ul"]
+
+[resource]
+script = ExtResource("1_2frey")
+sprite = ExtResource("3_c30ul")
+max_hp = 20
+move_handler = ExtResource("1_8c75v")

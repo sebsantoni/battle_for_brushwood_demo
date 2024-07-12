@@ -12,17 +12,32 @@ and the hand/cards being played.
 '''
 
 @onready var enemy_handler = $EnemyHandler
+@onready var ally_handler = $AllyHandler
+
 @onready var card_drop_area = $CardDropArea
 @onready var player = $AllyHandler/Player
 @onready var hand = $EncounterUI/Hand
 
 var enemies: Array[Unit] = []
+var allies: Array[Unit] = []
 
 func _ready() -> void:
 	Events.card_released.connect(_on_card_released)
 	
 	for enemy: Unit in enemy_handler.get_children():
 		enemies.append(enemy)
+	
+	for ally in ally_handler.get_children():
+		allies.append(ally)
+	
+	for enemy: Unit in enemy_handler.get_children():
+		enemy.allies = enemies
+		enemy.enemies = allies
+	
+	for ally in ally_handler.get_children():
+		if ally is Unit:
+			ally.allies = allies
+			ally.enemies = enemies
 	
 	for card_handler: CardHandler in hand.get_children():
 		card_handler.return_to_hand.connect(_on_return_to_hand)

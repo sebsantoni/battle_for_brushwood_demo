@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cop4qv8daniad"]
+
+[ext_resource type="Script" path="res://moves/talon_thrash.gd" id="1_r8m7m"]
+
+[resource]
+script = ExtResource("1_r8m7m")
+target_type = 4

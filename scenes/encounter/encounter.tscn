@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dtyxobf7c1d8e"]
+[gd_scene load_steps=11 format=3 uid="uid://dtyxobf7c1d8e"]
 
 [ext_resource type="Script" path="res://scenes/encounter/encounter.gd" id="1_dg5hd"]
 [ext_resource type="Texture2D" uid="uid://8krrv8djaems" path="res://assets/battle_for_brushwood_demo_encounter_bg.png" id="1_dte00"]
@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://cc4gm4iiyhk8i" path="res://scenes/card/card_handler.tscn" id="3_p1qrc"]
 [ext_resource type="Resource" uid="uid://cmjyd4rras5mm" path="res://heroes/writer/writer.tres" id="4_vpivo"]
 [ext_resource type="PackedScene" uid="uid://diisfdg42k8he" path="res://scenes/unit/unit.tscn" id="5_r3ti5"]
+[ext_resource type="Resource" uid="uid://c1q7s4q8mxoqh" path="res://species/butterfae/butterfae.tres" id="6_666on"]
 [ext_resource type="Resource" uid="uid://cxo4qw1ig145t" path="res://heroes/writer/cards/pen_throw.tres" id="6_fjx0y"]
+[ext_resource type="Resource" uid="uid://3tpjj5i0yxrm" path="res://species/giant_owl/giant_owl.tres" id="7_4gl3k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfuuj"]
 size = Vector2(256, 100)
@@ -27,11 +29,19 @@ mana = 3
 block = null
 gold = 100
 
+[node name="Character" parent="AllyHandler" instance=ExtResource("5_r3ti5")]
+position = Vector2(56, 96)
+species = ExtResource("6_666on")
+
 [node name="EnemyHandler" type="Node2D" parent="."]
 
-[node name="Enemy" parent="EnemyHandler" instance=ExtResource("5_r3ti5")]
+[node name="Enemy1" parent="EnemyHandler" instance=ExtResource("5_r3ti5")]
 position = Vector2(213, 81)
-scale = Vector2(0.195, 0.195)
+species = ExtResource("6_666on")
+
+[node name="Enemy2" parent="EnemyHandler" instance=ExtResource("5_r3ti5")]
+position = Vector2(178, 96)
+species = ExtResource("7_4gl3k")
 
 [node name="CardDropArea" type="Area2D" parent="."]
 collision_layer = 2

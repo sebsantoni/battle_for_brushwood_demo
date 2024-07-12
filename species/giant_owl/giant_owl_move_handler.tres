@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MoveHandler" load_steps=5 format=3 uid="uid://ma34gv0136kb"]
+
+[ext_resource type="Resource" uid="uid://c4x3mcyd2ryos" path="res://moves/hone.tres" id="1_6ddhj"]
+[ext_resource type="Script" path="res://custom_resources/move_handler.gd" id="1_63c8t"]
+[ext_resource type="Resource" uid="uid://cop4qv8daniad" path="res://moves/talon_thrash.tres" id="2_8nwc2"]
+[ext_resource type="Resource" uid="uid://e2qc8avihcut" path="res://moves/peck.tres" id="3_aahsh"]
+
+[resource]
+script = ExtResource("1_63c8t")
+move_pool = {
+ExtResource("1_6ddhj"): 2.0,
+ExtResource("2_8nwc2"): 3.0,
+ExtResource("3_aahsh"): 4.0
+}

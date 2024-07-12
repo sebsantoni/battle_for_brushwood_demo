@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://e2qc8avihcut"]
+
+[ext_resource type="Script" path="res://moves/peck.gd" id="1_5pkoe"]
+
+[resource]
+script = ExtResource("1_5pkoe")
+target_type = 2
