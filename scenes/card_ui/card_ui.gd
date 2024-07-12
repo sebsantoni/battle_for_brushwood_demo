@@ -31,7 +31,7 @@ var type_colors = {
 }
 
 var type_icons = {
-	'Attack': preload("res://assets/pixil-frame-0.png"),
+	'Attack': preload("res://assets/dagger_icon.png"),
 	'Spell': preload("res://assets/pixil-frame-0.png"),
 	'Aura': preload("res://assets/pixil-frame-0.png"),
 	'Character': preload("res://assets/pixil-frame-0.png")

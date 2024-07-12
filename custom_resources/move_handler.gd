@@ -5,15 +5,21 @@ extends Resource
 var total_weight: float = 0.0
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
+var current_move: Move
+var current_targets: Array
+
 func init() -> void:
 	if total_weight == 0.0:
 		set_total_weight()
+	
+
+func prepare(unit, allies, enemies) -> void:
+	current_move = get_move()
+	current_targets = get_targets(unit, current_move, allies, enemies)
 
 
-func execute(unit, allies, enemies) -> void:
-	var move =  get_move()
-	var targets = get_targets(unit, move, allies, enemies)
-	move.execute(unit, targets)
+func execute(unit) -> void:
+	current_move.execute(unit, current_targets)
 
 
 func get_move() -> Move:

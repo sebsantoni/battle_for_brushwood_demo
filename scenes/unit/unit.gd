@@ -11,5 +11,8 @@ var allies: Array
 var enemies: Array
 
 
+func prepare() -> void:
+	species.move_handler.prepare(self, allies, enemies)
+
 func move() -> void:
-	species.move_handler.execute(self, allies, enemies)
+	species.move_handler.execute(self)

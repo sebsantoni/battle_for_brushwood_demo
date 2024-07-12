@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://o8m30crb1uxe"]
 
-[ext_resource type="Texture2D" uid="uid://deg7r3nv7hlbf" path="res://assets/shield_icon.png" id="1_3w1sp"]
+[ext_resource type="Texture2D" uid="uid://dhyiw33lqum8t" path="res://assets/dagger_icon.png" id="1_2h7hx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tg5q8"]
 font_size = 80
@@ -17,12 +17,12 @@ grow_vertical = 2
 scale = Vector2(10, 10)
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_constants/separation = 1
+theme_override_constants/separation = 0
 alignment = 1
 
 [node name="Icon" type="TextureRect" parent="."]
 layout_mode = 2
-texture = ExtResource("1_3w1sp")
+texture = ExtResource("1_2h7hx")
 expand_mode = 3
 stretch_mode = 5
 

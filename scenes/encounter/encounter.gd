@@ -45,6 +45,7 @@ func _ready() -> void:
 		card_handler.return_to_hand.connect(_on_return_to_hand)
 	
 	for enemy: Unit in enemy_handler.get_children():
+		enemy.prepare()
 		enemy.move()
 
 func _on_card_released(card_ui: CardUI) -> void:
