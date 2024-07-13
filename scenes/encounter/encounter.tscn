@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://cc4gm4iiyhk8i" path="res://scenes/card/card_handler.tscn" id="3_p1qrc"]
 [ext_resource type="Resource" uid="uid://cmjyd4rras5mm" path="res://heroes/writer/writer.tres" id="4_vpivo"]
 [ext_resource type="PackedScene" uid="uid://diisfdg42k8he" path="res://scenes/unit/unit.tscn" id="5_r3ti5"]
-[ext_resource type="Resource" uid="uid://c1q7s4q8mxoqh" path="res://species/butterfae/butterfae.tres" id="6_666on"]
 [ext_resource type="Resource" uid="uid://cxo4qw1ig145t" path="res://heroes/writer/cards/pen_throw.tres" id="6_fjx0y"]
 [ext_resource type="Resource" uid="uid://3tpjj5i0yxrm" path="res://species/giant_owl/giant_owl.tres" id="7_4gl3k"]
+[ext_resource type="Script" path="res://scenes/encounter/test.gd" id="10_si42p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfuuj"]
 size = Vector2(256, 100)
@@ -31,13 +31,11 @@ gold = 100
 
 [node name="Character" parent="AllyHandler" instance=ExtResource("5_r3ti5")]
 position = Vector2(56, 89)
-species = ExtResource("6_666on")
 
 [node name="EnemyHandler" type="Node2D" parent="."]
 
 [node name="Enemy1" parent="EnemyHandler" instance=ExtResource("5_r3ti5")]
 position = Vector2(235, 88)
-species = ExtResource("6_666on")
 
 [node name="Enemy2" parent="EnemyHandler" instance=ExtResource("5_r3ti5")]
 position = Vector2(199, 80)
@@ -86,3 +84,13 @@ card = ExtResource("6_fjx0y")
 layout_mode = 2
 mouse_filter = 1
 card = ExtResource("6_fjx0y")
+
+[node name="IntentArrows" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="IntentArrowDrawer" type="Control" parent="IntentArrows"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("10_si42p")

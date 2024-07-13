@@ -1,30 +1,17 @@
 extends Control
 
-@onready var intent_ui = $IntentUI
-
-var targets: Array
-@onready var unit = $".."
-
-func _draw() -> void:
-	var unit_pos = unit.global_position
-	
-	for target in targets:
-		if target != unit:
-			var target_pos = target.global_position
-			draw_line(unit_pos, target_pos, Color.WHITE, 2)
+var unit: Unit
+var move_handler: MoveHandler
+var intent_ui: HBoxContainer
 
 
 func _on_mouse_entered():
-	pass # Replace with function body.
+	Events.unit_hovered.emit(unit)
 
 
 func _on_mouse_exited():
-	pass # Replace with function body.
+	Events.unit_unhovered.emit()
 
 
 func update_ui() -> void:
-	pass
-	
-
-func draw_target_arrows() -> void:
 	pass

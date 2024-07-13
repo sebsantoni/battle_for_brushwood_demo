@@ -18,11 +18,16 @@ and the hand/cards being played.
 @onready var player = $AllyHandler/Player
 @onready var hand = $EncounterUI/Hand
 
+@onready var intent_arrow_drawer: IntentArrowDrawer = $IntentArrows/IntentArrowDrawer
+
 var enemies: Array = []
 var allies: Array = []
 
+
 func _ready() -> void:
 	Events.card_released.connect(_on_card_released)
+	Events.unit_hovered.connect(_on_unit_hovered)
+	Events.unit_unhovered.connect(_on_unit_unhovered)
 	
 	for enemy: Unit in enemy_handler.get_children():
 		enemies.append(enemy)
@@ -47,6 +52,7 @@ func _ready() -> void:
 	for enemy: Unit in enemy_handler.get_children():
 		enemy.prepare()
 		enemy.move()
+
 
 func _on_card_released(card_ui: CardUI) -> void:
 	# we want to know what the targets of the card are and pass that over
@@ -92,4 +98,12 @@ func targeted_enemy(card_ui) -> Unit:
 
 func _on_return_to_hand(card_handler: CardHandler) -> void:
 	card_handler.card_ui.position = Vector2(0,0)
-	
+
+
+func _on_unit_hovered(unit: Unit) -> void:
+	intent_arrow_drawer.draw_target_lines(unit)
+
+
+func _on_unit_unhovered() -> void:
+	intent_arrow_drawer.hide_target_lines()
+

@@ -5,8 +5,8 @@ extends Resource
 var total_weight: float = 0.0
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
-var current_move: Move
-var current_targets: Array
+var current_move: Move = null
+var current_targets: Array = []
 
 func init() -> void:
 	if total_weight == 0.0:
