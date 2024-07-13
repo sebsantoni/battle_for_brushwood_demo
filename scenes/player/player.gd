@@ -10,9 +10,11 @@ var block: int = 0
 @export_group("Non-Battle Attributes")
 @export var gold: int
 
+@onready var stat_bar = $StatBar
 
 func _ready() -> void:
 	init_stats()
+	update_ui()
 
 
 func play(card_handler: CardHandler, dropped: bool, enemy: Unit) -> void:
@@ -39,6 +41,11 @@ func play(card_handler: CardHandler, dropped: bool, enemy: Unit) -> void:
 func init_stats() -> void:
 	hp = hero.max_hp
 	mana = hero.max_mana
+	
+
+func update_ui() -> void:
+	stat_bar.update_health_label(hp)
+	stat_bar.update_block_label(block)
 
 
 func take_damage(amount: int) -> void:
@@ -49,7 +56,8 @@ func take_damage(amount: int) -> void:
 	else:
 		hp -= amount
 		print(self, " has ", hp, " hp remaining!")
-
+	
+	stat_bar.update_health_label(hp)
 
 '''
 Player HAS a hero, since this hero is chosen by the player

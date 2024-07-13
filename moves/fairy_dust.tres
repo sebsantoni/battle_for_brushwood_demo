@@ -5,3 +5,4 @@
 [resource]
 script = ExtResource("1_d0qt6")
 target_type = 4
+effect_type = 2

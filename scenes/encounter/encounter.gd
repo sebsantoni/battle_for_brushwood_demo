@@ -51,6 +51,7 @@ func _ready() -> void:
 	
 	for enemy: Unit in enemy_handler.get_children():
 		enemy.prepare()
+		enemy.intent_handler.update_ui()
 		enemy.move()
 
 
@@ -90,8 +91,9 @@ func targeted_enemy(card_ui) -> Unit:
 	var target: Unit = null
 	
 	for enemy in enemies:
-		if card_ui.card_area in enemy.hitbox.get_overlapping_areas():
-			target = enemy
+		if enemy != null:
+			if card_ui.card_area in enemy.hitbox.get_overlapping_areas():
+				target = enemy
 	
 	return target
 

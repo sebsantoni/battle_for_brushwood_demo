@@ -4,6 +4,7 @@ extends Node
 @onready var hitbox = $Hitbox
 @onready var intent_ui = $IntentUI
 @onready var intent_handler = $IntentHandler
+@onready var stat_bar = $StatBar
 
 @export var species: Species
 var hp: int
@@ -16,6 +17,7 @@ var enemies: Array
 func _ready() -> void:
 	intent_handler.init(self)
 	init_stats()
+	update_ui()
 
 
 func prepare() -> void:
@@ -33,7 +35,13 @@ func take_damage(amount: int) -> void:
 	else:
 		hp -= amount
 		print(self, " has ", hp, " hp remaining!")
-
+	
+	stat_bar.update_health_label(hp)
 
 func init_stats() -> void:
 	hp = species.max_hp
+
+
+func update_ui() -> void:
+	stat_bar.update_health_label(hp)
+	stat_bar.update_block_label(block)

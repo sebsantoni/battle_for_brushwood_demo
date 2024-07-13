@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_x6anx")
-base_damage = 8
-statused_damage = 12
+damage = 8
+bonus_damage = 12
 target_type = 2
+effect_type = 1
