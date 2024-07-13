@@ -91,6 +91,4 @@ layer = 2
 [node name="IntentArrowDrawer" type="Control" parent="IntentArrows"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 script = ExtResource("10_si42p")

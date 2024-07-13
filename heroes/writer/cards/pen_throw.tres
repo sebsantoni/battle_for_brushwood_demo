@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_2hodg")
+damage = 6
 card_type = 0
 cost = 1
 targeted = true

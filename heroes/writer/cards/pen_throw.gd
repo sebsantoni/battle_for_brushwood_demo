@@ -1,5 +1,6 @@
 extends Card
 
+@export var damage: int
 
 func play(_player: Player, dropped: bool, target: Unit) ->bool:
 	if targeted:
@@ -7,6 +8,9 @@ func play(_player: Player, dropped: bool, target: Unit) ->bool:
 			return false
 		else:
 			print("card played on target: ", target)
+			var dmg_effect = DamageEffect.new()
+			dmg_effect.set_amount(damage)
+			dmg_effect.apply_effect(self, target)
 			return true
 	else:
 		if target or not dropped:

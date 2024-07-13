@@ -7,19 +7,33 @@ extends Node
 
 @export var species: Species
 var hp: int
-var block: int
+var block: int = 0
 
 var allies: Array
 var enemies: Array
 
 
 func _ready() -> void:
-	intent_handler.unit = self
-	intent_handler.move_handler = species.move_handler
-	intent_handler.intent_ui = intent_ui
+	intent_handler.init(self)
+	init_stats()
+
 
 func prepare() -> void:
 	species.move_handler.prepare(self, allies, enemies)
 
 func move() -> void:
 	species.move_handler.execute(self)
+
+
+func take_damage(amount: int) -> void:
+	print(self, " took ", amount, " damage!")
+	if amount >= hp:
+		print(self, "died!")
+		self.queue_free()
+	else:
+		hp -= amount
+		print(self, " has ", hp, " hp remaining!")
+
+
+func init_stats() -> void:
+	hp = species.max_hp
