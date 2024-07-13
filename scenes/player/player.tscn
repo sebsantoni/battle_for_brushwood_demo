@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://csu3ntbxsjk2f"]
+[gd_scene load_steps=6 format=3 uid="uid://csu3ntbxsjk2f"]
 
 [ext_resource type="Texture2D" uid="uid://bqa04pfr3v3vr" path="res://assets/icon.svg" id="1_ob1lc"]
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="2_h230n"]
 [ext_resource type="Resource" uid="uid://cmjyd4rras5mm" path="res://heroes/writer/writer.tres" id="3_ipmqi"]
 [ext_resource type="PackedScene" uid="uid://vfew7l2hp267" path="res://scenes/ui/stat_bar.tscn" id="3_o2s8i"]
+[ext_resource type="PackedScene" uid="uid://cepbv1hggl6qj" path="res://scenes/status_handler/status_handler.tscn" id="5_bfx1g"]
 
 [node name="Player" type="Sprite2D"]
 position = Vector2(25, 114)
@@ -17,3 +18,5 @@ offset_left = -92.1598
 offset_top = 71.6798
 offset_right = -199.16
 offset_bottom = -51.3202
+
+[node name="StatusHandler" parent="." instance=ExtResource("5_bfx1g")]

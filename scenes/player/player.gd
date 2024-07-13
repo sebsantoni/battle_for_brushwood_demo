@@ -11,6 +11,8 @@ var block: int = 0
 @export var gold: int
 
 @onready var stat_bar = $StatBar
+@onready var status_handler: StatusHandler = $StatusHandler
+
 
 func _ready() -> void:
 	init_stats()

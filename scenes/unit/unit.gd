@@ -5,6 +5,7 @@ extends Node
 @onready var intent_ui = $IntentUI
 @onready var intent_handler = $IntentHandler
 @onready var stat_bar = $StatBar
+@onready var status_handler: StatusHandler = $StatusHandler
 
 @export var species: Species
 var hp: int

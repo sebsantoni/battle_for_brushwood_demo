@@ -30,9 +30,11 @@ func _ready() -> void:
 	Events.unit_unhovered.connect(_on_unit_unhovered)
 	
 	for enemy: Unit in enemy_handler.get_children():
+		enemy.status_handler.status_owner = enemy
 		enemies.append(enemy)
 	
 	for ally in ally_handler.get_children():
+		ally.status_handler.status_owner = ally
 		allies.append(ally)
 	
 	for enemy: Unit in enemy_handler.get_children():
@@ -104,6 +106,7 @@ func _on_return_to_hand(card_handler: CardHandler) -> void:
 
 func _on_unit_hovered(unit: Unit) -> void:
 	intent_arrow_drawer.draw_target_lines(unit)
+	print(unit.status_handler.statuses)
 
 
 func _on_unit_unhovered() -> void:

@@ -5,5 +5,6 @@
 [resource]
 script = ExtResource("1_7j3qs")
 damage = 6
+stacks = 1
 target_type = 2
 effect_type = 4

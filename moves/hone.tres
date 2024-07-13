@@ -4,5 +4,6 @@
 
 [resource]
 script = ExtResource("1_a2crx")
+stacks = 5
 target_type = 0
 effect_type = 3

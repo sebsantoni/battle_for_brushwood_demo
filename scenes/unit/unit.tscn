@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://diisfdg42k8he"]
+[gd_scene load_steps=9 format=3 uid="uid://diisfdg42k8he"]
 
 [ext_resource type="Texture2D" uid="uid://bqa04pfr3v3vr" path="res://assets/icon.svg" id="1_ryo13"]
 [ext_resource type="Script" path="res://scenes/unit/unit.gd" id="2_gycxh"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://vfew7l2hp267" path="res://scenes/ui/stat_bar.tscn" id="3_ts8e2"]
 [ext_resource type="Script" path="res://scenes/unit/intent_handler.gd" id="4_c5uhv"]
 [ext_resource type="PackedScene" uid="uid://o8m30crb1uxe" path="res://scenes/ui/intent_ui.tscn" id="4_rpnbn"]
+[ext_resource type="PackedScene" uid="uid://cepbv1hggl6qj" path="res://scenes/status_handler/status_handler.tscn" id="7_x1h6f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ihapj"]
 size = Vector2(133.12, 133.12)
@@ -53,6 +54,8 @@ offset_right = -40.2821
 offset_bottom = -118.077
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="StatusHandler" parent="." instance=ExtResource("7_x1h6f")]
 
 [connection signal="mouse_entered" from="IntentHandler" to="IntentHandler" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="IntentHandler" to="IntentHandler" method="_on_mouse_exited"]
