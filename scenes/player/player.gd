@@ -2,13 +2,17 @@ class_name Player
 extends Sprite2D
 
 @export_group("Battle Attributes")
-@export var chosen_hero: Hero
-@export var hp: int
-@export var mana: int
-@export var block: int
+@export var hero: Hero
+var hp: int
+var mana: int
+var block: int = 0
 
 @export_group("Non-Battle Attributes")
 @export var gold: int
+
+
+func _ready() -> void:
+	init_stats()
 
 
 func play(card_handler: CardHandler, dropped: bool, enemy: Unit) -> void:
@@ -30,6 +34,22 @@ func play(card_handler: CardHandler, dropped: bool, enemy: Unit) -> void:
 		self.mana -= card_handler.card.cost
 	else:
 		card_handler.return_to_hand.emit(card_handler)
+
+
+func init_stats() -> void:
+	hp = hero.max_hp
+	mana = hero.max_mana
+
+
+func take_damage(amount: int) -> void:
+	print(self, " took ", amount, " damage!")
+	if amount >= hp:
+		print(self, "died!")
+		self.queue_free()
+	else:
+		hp -= amount
+		print(self, " has ", hp, " hp remaining!")
+
 
 '''
 Player HAS a hero, since this hero is chosen by the player

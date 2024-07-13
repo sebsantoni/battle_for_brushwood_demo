@@ -1,7 +1,11 @@
 extends Move
 
+@export var base_damage: int
+@export var statused_damage: int
 
 func execute(_unit: Unit, targets: Array) -> void:
 	for target in targets:
-		print("deal 8 damage to:", target)
-		print("if statused, deal 12 damage instead")
+		var dmg_effect = DamageEffect.new()
+		dmg_effect.set_amount(base_damage)
+		dmg_effect.apply_effect(self, target)
+		print("if statused, would have dealt: ", statused_damage)

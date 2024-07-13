@@ -4,4 +4,5 @@
 
 [resource]
 script = ExtResource("1_5pkoe")
+damage = 10
 target_type = 2
