@@ -1,0 +1,106 @@
+[gd_scene load_steps=6 format=3 uid="uid://wrkgvoxjch4x"]
+
+[ext_resource type="Script" path="res://scenes/card_pile/card_pile_ui.gd" id="1_bnire"]
+[ext_resource type="Texture2D" uid="uid://bpusytqhvtxka" path="res://assets/exhaust_pile.png" id="2_m22lw"]
+[ext_resource type="StyleBox" uid="uid://hefc00myqevy" path="res://scenes/card_ui/card_pile_icon.tres" id="3_nuciv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_llycq"]
+size = Vector2(32, 20)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qe4ex"]
+line_spacing = 0.0
+font_size = 48
+
+[node name="CardPileUI" type="Control"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -224.0
+offset_bottom = -112.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bnire")
+
+[node name="Area" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
+position = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_llycq")
+
+[node name="CardPileSprite" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_m22lw")
+stretch_mode = 5
+
+[node name="CountIconLeft" type="Panel" parent="."]
+visible = false
+custom_minimum_size = Vector2(5, 5)
+layout_mode = 0
+offset_left = -2.0
+offset_top = 14.0
+offset_right = 4.0
+offset_bottom = 20.0
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("3_nuciv")
+
+[node name="CountLabelLeft" type="Label" parent="CountIconLeft"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -3.2
+offset_right = 56.0
+offset_bottom = 55.8
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+mouse_filter = 1
+text = "2"
+label_settings = SubResource("LabelSettings_qe4ex")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CountIconRight" type="Panel" parent="."]
+visible = false
+custom_minimum_size = Vector2(5, 5)
+layout_mode = 0
+offset_left = 29.0
+offset_top = 14.0
+offset_right = 35.0
+offset_bottom = 20.0
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("3_nuciv")
+
+[node name="CountLabelRight" type="Label" parent="CountIconRight"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -3.2
+offset_right = 56.0
+offset_bottom = 55.8
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.1, 0.1)
+mouse_filter = 1
+text = "2"
+label_settings = SubResource("LabelSettings_qe4ex")
+horizontal_alignment = 1
+vertical_alignment = 1

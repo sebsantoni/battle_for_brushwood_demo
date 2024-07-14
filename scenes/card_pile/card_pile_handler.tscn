@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bet53ce76yvgq"]
+
+[ext_resource type="Script" path="res://scenes/card_pile/card_pile_handler.gd" id="1_7mb7f"]
+[ext_resource type="PackedScene" uid="uid://wrkgvoxjch4x" path="res://scenes/card_pile/card_pile_ui.tscn" id="1_luipc"]
+[ext_resource type="PackedScene" uid="uid://dafsp0qjlnyks" path="res://scenes/card_pile/card_pile_view.tscn" id="2_18hts"]
+
+[node name="CardPileHandler" type="Control"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -224.0
+offset_bottom = -112.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7mb7f")
+
+[node name="CardPileUI" parent="." instance=ExtResource("1_luipc")]
+layout_mode = 1
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="CardPileView" parent="." instance=ExtResource("2_18hts")]
+layout_mode = 1

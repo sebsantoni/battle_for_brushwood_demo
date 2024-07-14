@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dtyxobf7c1d8e"]
+[gd_scene load_steps=17 format=3 uid="uid://dtyxobf7c1d8e"]
 
 [ext_resource type="Script" path="res://scenes/encounter/encounter.gd" id="1_dg5hd"]
 [ext_resource type="Texture2D" uid="uid://8krrv8djaems" path="res://assets/battle_for_brushwood_demo_encounter_bg.png" id="1_dte00"]
@@ -7,7 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://diisfdg42k8he" path="res://scenes/unit/unit.tscn" id="5_r3ti5"]
 [ext_resource type="Resource" uid="uid://cxo4qw1ig145t" path="res://heroes/writer/cards/pen_throw.tres" id="6_fjx0y"]
 [ext_resource type="Resource" uid="uid://3tpjj5i0yxrm" path="res://species/giant_owl/giant_owl.tres" id="7_4gl3k"]
+[ext_resource type="PackedScene" uid="uid://bet53ce76yvgq" path="res://scenes/card_pile/card_pile_handler.tscn" id="8_2mlyr"]
+[ext_resource type="Resource" uid="uid://ddbi2l2apmtf6" path="res://card_piles/draw_pile.tres" id="9_6kpde"]
+[ext_resource type="Texture2D" uid="uid://cx82c8trplb56" path="res://assets/draw_pile.png" id="9_cvykl"]
 [ext_resource type="Script" path="res://scenes/encounter/test.gd" id="10_si42p"]
+[ext_resource type="Resource" uid="uid://dc5j2e1bura03" path="res://card_piles/discard_pile.tres" id="11_s4gtd"]
+[ext_resource type="Texture2D" uid="uid://cauf8k3r0qfto" path="res://assets/discard_pile.png" id="12_vflg6"]
+[ext_resource type="Resource" uid="uid://wj0cgj0llff4" path="res://card_piles/exhaust_pile.tres" id="13_dej20"]
+[ext_resource type="Texture2D" uid="uid://bpusytqhvtxka" path="res://assets/exhaust_pile.png" id="14_lyeb2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfuuj"]
 size = Vector2(256, 100)
@@ -22,10 +29,11 @@ texture = ExtResource("1_dte00")
 [node name="AllyHandler" type="Node2D" parent="."]
 
 [node name="Player" parent="AllyHandler" instance=ExtResource("3_asfwf")]
+position = Vector2(25, 93)
 gold = 100
 
 [node name="Character" parent="AllyHandler" instance=ExtResource("5_r3ti5")]
-position = Vector2(56, 89)
+position = Vector2(65, 87)
 
 [node name="EnemyHandler" type="Node2D" parent="."]
 
@@ -79,6 +87,30 @@ card = ExtResource("6_fjx0y")
 layout_mode = 2
 mouse_filter = 1
 card = ExtResource("6_fjx0y")
+
+[node name="DrawPile" parent="EncounterUI" instance=ExtResource("8_2mlyr")]
+offset_left = 3.0
+offset_top = 115.0
+offset_right = -221.0
+offset_bottom = 3.0
+card_pile = ExtResource("9_6kpde")
+card_pile_icon = ExtResource("9_cvykl")
+
+[node name="DiscardPile" parent="EncounterUI" instance=ExtResource("8_2mlyr")]
+offset_left = 188.0
+offset_top = 114.0
+offset_right = -36.0
+offset_bottom = 2.0
+card_pile = ExtResource("11_s4gtd")
+card_pile_icon = ExtResource("12_vflg6")
+
+[node name="ExhaustPile" parent="EncounterUI" instance=ExtResource("8_2mlyr")]
+offset_left = 222.0
+offset_top = 114.0
+offset_right = -2.0
+offset_bottom = 2.0
+card_pile = ExtResource("13_dej20")
+card_pile_icon = ExtResource("14_lyeb2")
 
 [node name="IntentArrows" type="CanvasLayer" parent="."]
 layer = 2

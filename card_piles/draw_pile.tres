@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CardPile" load_steps=3 format=3 uid="uid://ddbi2l2apmtf6"]
+
+[ext_resource type="Script" path="res://custom_resources/card_pile.gd" id="1_c4w27"]
+[ext_resource type="Resource" uid="uid://cxo4qw1ig145t" path="res://heroes/writer/cards/pen_throw.tres" id="1_xpjtt"]
+
+[resource]
+script = ExtResource("1_c4w27")
+cards = Array[Resource]([ExtResource("1_xpjtt")])
+label_right = true
