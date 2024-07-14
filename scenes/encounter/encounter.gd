@@ -17,6 +17,7 @@ and the hand/cards being played.
 @onready var card_drop_area = $CardDropArea
 @onready var player = $AllyHandler/Player
 @onready var hand = $EncounterUI/Hand
+@onready var mana_icon = $EncounterUI/ManaIcon
 
 @onready var intent_arrow_drawer: IntentArrowDrawer = $IntentArrows/IntentArrowDrawer
 
@@ -55,6 +56,8 @@ func _ready() -> void:
 		enemy.prepare()
 		enemy.intent_handler.update_ui()
 		enemy.move()
+	
+	mana_icon.update_mana(player)
 
 
 func _on_card_released(card_ui: CardUI) -> void:

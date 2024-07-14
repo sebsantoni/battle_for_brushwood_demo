@@ -3,8 +3,8 @@ extends Control
 
 const Time_ = StatusEffect.StackType.Time
 
-const Round_Start = StatusEffect.ActivationType.Round_Start
-const Round_End = StatusEffect.ActivationType.Round_End
+const Turn_Start = StatusEffect.ActivationType.Turn_Start
+const Turn_End = StatusEffect.ActivationType.Turn_End
 const Non_Activable = StatusEffect.ActivationType.Non_Activable
 
 var statuses: Dictionary = {} # status name : status effect
@@ -25,12 +25,12 @@ func apply_status(status, stacks: int) -> void:
 		statuses[status.name].increase_stacks(stacks)
 
 
-func activate_round_start() -> void:
-	activate_statuses_by_activation_type(Round_Start)
+func activate_turn_start() -> void:
+	activate_statuses_by_activation_type(Turn_Start)
 
 
-func activate_round_end() -> void:
-	activate_statuses_by_activation_type(Round_End)
+func activate_turn_end() -> void:
+	activate_statuses_by_activation_type(Turn_End)
 
 
 func activate_statuses_by_activation_type(type: StatusEffect.ActivationType) -> void:

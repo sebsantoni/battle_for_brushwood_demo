@@ -2,7 +2,7 @@ class_name StatusEffect
 extends Resource
 
 enum StackType {Time, Magnitude, Non_Stackable}
-enum ActivationType {Round_Start, Round_End, Non_Activable}
+enum ActivationType {Turn_Start, Turn_End, Non_Activable}
 # non activable = modifier!
 
 var stacks: int

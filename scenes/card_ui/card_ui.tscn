@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://scenes/card_ui/card_ui.gd" id="2_py45d"]
 [ext_resource type="Texture2D" uid="uid://c7pb6k2ir7o2f" path="res://assets/pen_jab2.png" id="3_btgoc"]
 [ext_resource type="Texture2D" uid="uid://c44dvjx273s32" path="res://assets/pixil-frame-0.png" id="4_yo0io"]
-[ext_resource type="StyleBox" uid="uid://huto8dpnstu6" path="res://scenes/card_ui/mana_icon.tres" id="5_45mbm"]
+[ext_resource type="StyleBox" uid="uid://huto8dpnstu6" path="res://scenes/card_ui/cost_icon.tres" id="5_45mbm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xp382"]
 font_size = 80
