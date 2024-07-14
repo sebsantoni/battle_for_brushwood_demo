@@ -3,6 +3,12 @@ extends Panel
 
 @onready var mana_label = $ManaLabel
 
+@export var player: Player # the player this icon is associated with
 
-func update_mana(player: Player) -> void:
+
+func _ready() -> void:
+	player.mana_changed.connect(update_mana)
+	update_mana()
+
+func update_mana() -> void:
 	mana_label.text = str(player.mana) + "/" + str(player.hero.max_mana)

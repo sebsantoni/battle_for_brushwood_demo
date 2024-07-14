@@ -1,6 +1,8 @@
 class_name Player
 extends Sprite2D
 
+signal mana_changed
+
 @export_group("Battle Attributes")
 @export var hero: Hero
 var hp: int
@@ -36,6 +38,7 @@ func play(card_handler: CardHandler, dropped: bool, enemy: Unit) -> void:
 	
 	if success:
 		self.mana -= card_handler.card.cost
+		mana_changed.emit()
 	else:
 		card_handler.return_to_hand.emit(card_handler)
 

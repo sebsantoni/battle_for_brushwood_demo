@@ -113,11 +113,12 @@ offset_bottom = 2.0
 card_pile = ExtResource("13_dej20")
 card_pile_icon = ExtResource("14_lyeb2")
 
-[node name="ManaIcon" parent="EncounterUI" instance=ExtResource("15_t88gb")]
+[node name="ManaIcon" parent="EncounterUI" node_paths=PackedStringArray("player") instance=ExtResource("15_t88gb")]
 offset_left = 1.0
 offset_top = 117.0
 offset_right = 33.0
 offset_bottom = 149.0
+player = NodePath("../../AllyHandler/Player")
 
 [node name="IntentArrows" type="CanvasLayer" parent="."]
 layer = 2

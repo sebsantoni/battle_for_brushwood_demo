@@ -56,8 +56,6 @@ func _ready() -> void:
 		enemy.prepare()
 		enemy.intent_handler.update_ui()
 		enemy.move()
-	
-	mana_icon.update_mana(player)
 
 
 func _on_card_released(card_ui: CardUI) -> void:
