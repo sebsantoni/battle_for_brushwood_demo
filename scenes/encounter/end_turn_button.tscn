@@ -1,9 +1,24 @@
-[gd_scene format=3 uid="uid://ctbfvs0813ybe"]
+[gd_scene load_steps=3 format=3 uid="uid://ctbfvs0813ybe"]
 
-[node name="EndTurnButton" type="Control"]
-layout_mode = 3
+[ext_resource type="Theme" uid="uid://bydp08q78nl2i" path="res://main_theme.tres" id="1_548e7"]
+[ext_resource type="Script" path="res://scenes/encounter/end_turn_button.gd" id="2_m5k5y"]
+
+[node name="EndTurnButton" type="Button"]
+texture_filter = 1
+custom_minimum_size = Vector2(24, 12)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -80.0
+offset_bottom = -102.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+theme = ExtResource("1_548e7")
+action_mode = 0
+text = "End Turn"
+script = ExtResource("2_m5k5y")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -1,7 +1,13 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://bydp08q78nl2i"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://bydp08q78nl2i"]
 
+[ext_resource type="StyleBox" uid="uid://hwj6ueqxtlug" path="res://scenes/encounter/base_button.tres" id="1_4lepn"]
 [ext_resource type="FontFile" uid="uid://c2ecs3t284mc4" path="res://assets/pixel_rpg.ttf" id="1_oq3w0"]
+[ext_resource type="StyleBox" uid="uid://cog6ctnyu02y6" path="res://scenes/encounter/hover_button.tres" id="1_scl7h"]
+[ext_resource type="StyleBox" uid="uid://uo4n840xhu8" path="res://scenes/encounter/disabled_button.tres" id="1_t58c8"]
 [ext_resource type="FontFile" uid="uid://dl5mbwl8adqke" path="res://assets/pixelated_font.ttf" id="1_xjbuf"]
+[ext_resource type="StyleBox" uid="uid://1ssobb3gwr7r" path="res://scenes/encounter/pressed_button.tres" id="3_5650c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_68pbl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hodte"]
 content_margin_left = 4.0
@@ -34,6 +40,12 @@ content_margin_bottom = 0.0
 default_base_scale = 0.05
 default_font = ExtResource("1_oq3w0")
 default_font_size = 32
+Button/font_sizes/font_size = 30
+Button/styles/disabled = ExtResource("1_t58c8")
+Button/styles/focus = SubResource("StyleBoxEmpty_68pbl")
+Button/styles/hover = ExtResource("1_scl7h")
+Button/styles/normal = ExtResource("1_4lepn")
+Button/styles/pressed = ExtResource("3_5650c")
 Label/font_sizes/font_size = 32
 Label/fonts/font = ExtResource("1_xjbuf")
 PanelContainer/styles/panel = null

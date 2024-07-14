@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dtyxobf7c1d8e"]
+[gd_scene load_steps=19 format=3 uid="uid://dtyxobf7c1d8e"]
 
 [ext_resource type="Script" path="res://scenes/encounter/encounter.gd" id="1_dg5hd"]
 [ext_resource type="Texture2D" uid="uid://8krrv8djaems" path="res://assets/battle_for_brushwood_demo_encounter_bg.png" id="1_dte00"]
@@ -16,6 +16,7 @@
 [ext_resource type="Resource" uid="uid://wj0cgj0llff4" path="res://card_piles/exhaust_pile.tres" id="13_dej20"]
 [ext_resource type="Texture2D" uid="uid://bpusytqhvtxka" path="res://assets/exhaust_pile.png" id="14_lyeb2"]
 [ext_resource type="PackedScene" uid="uid://bifykv8cqiqdx" path="res://scenes/encounter/mana_icon.tscn" id="15_t88gb"]
+[ext_resource type="PackedScene" uid="uid://ctbfvs0813ybe" path="res://scenes/encounter/end_turn_button.tscn" id="16_fl6ay"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfuuj"]
 size = Vector2(256, 100)
@@ -119,6 +120,17 @@ offset_top = 117.0
 offset_right = 33.0
 offset_bottom = 149.0
 player = NodePath("../../AllyHandler/Player")
+
+[node name="EndTurnButton" parent="." instance=ExtResource("16_fl6ay")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 104.0
+offset_top = 84.0
+offset_right = 277.0
+offset_bottom = 123.0
 
 [node name="IntentArrows" type="CanvasLayer" parent="."]
 layer = 2
