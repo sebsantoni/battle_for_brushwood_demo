@@ -8,20 +8,19 @@ extends Node
 @onready var status_handler: StatusHandler = $StatusHandler
 
 @export var species: Species
+
 var hp: int
 var block: int = 0
-
-var allies: Array
-var enemies: Array
 
 
 func _ready() -> void:
 	intent_handler.init(self)
 	init_stats()
 	update_ui()
+	status_handler.status_owner = self
+	species.move_handler.init()
 
-
-func prepare() -> void:
+func prepare(allies, enemies) -> void:
 	species.move_handler.prepare(self, allies, enemies)
 
 func move() -> void:

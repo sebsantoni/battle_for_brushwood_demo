@@ -4,50 +4,63 @@ extends Control
 # should we just get Encounter as the reference?
 # turns can only be played in an encounter!
 
-# need references to:
-# ally_handler
-# enemy_handler
-# player?
-# hand
-# draw_pile
-# discard_pile
-# endturnbutton
-# -- 
-# should these be created as a new class? or share a common script
-# for handling units within them... then we can have player separately
-# --
+var character_handler: UnitHandler
+var enemy_handler: UnitHandler
+
+var player: Player
+
+var end_turn_button: Button
+
 
 func _ready() -> void:
+	end_turn_button.pressed.connect(end_turn)
+	
 	start_turn()
 
 
 func start_turn() -> void:
 	# Stage 1: Start of Turn actions
-	# activate Turn_Start Statuses in AllyHandler
-	# activate Turn_Start Statuses in EnemyHandler
-	# draw and disable the player's cards
+	character_handler.activate_turn_start_statuses()
+	enemy_handler.activate_turn_start_statuses()
+	
+	# disable and draw the player's cards
+	# --
+	
 	# refill the player's mana
-	# prepare units in AllyHandler
-	# prepare units in EnemyHandler
+	player.set_mana(player.hero.max_mana)
+	
+	character_handler.declare_intents()
+	enemy_handler.declare_intents()
 	
 	# Stage 2: Player regains control
 	# Enable cards in the player's hand
-	# Enable EndTurnButton
-	pass
+	# --
+	
+	end_turn_button.disabled = false
 
 
 func end_turn() -> void:
 	# Disable EndTurnButton
-	# Disable all cards in the player's hand
-	# Discard all cards in the player's hand
-	# Activate Turn_End Statuses in AllyHandler
-	# Activate Turn_End Statuses in EnemyHandler
-	# execute moves in AllyHandler
-	# execute moves in EnemyHandler
-	# start_turn() iff EnemyHandler and AllyHandler are not empty
-	# (if EnemyHandler empty, win!, if AllyHandler empty, lose!)
+	end_turn_button.disabled = true
+	
+	# disable and discard the player's hand
+	# --
+	
+	character_handler.activate_turn_end_statuses()
+	enemy_handler.activate_turn_end_statuses()
+	
+	character_handler.trigger_moves()
+	enemy_handler.trigger_moves()
+	
+	if not player:
+		print("battle lost!")
+		return
+	
+	if enemy_handler.is_empty():
+		print("battle won!")
+		return
+		
 	start_turn()
-
 
 '''
 Start of Turn:
@@ -84,3 +97,16 @@ End of Turn:
 		Call Start_of_Turn if battle not won (check later)
 		
 '''
+
+# need references to:
+# ally_handler
+# enemy_handler
+# player?
+# hand
+# draw_pile
+# discard_pile
+# endturnbutton
+# -- 
+# should these be created as a new class? or share a common script
+# for handling units within them... then we can have player separately
+# --

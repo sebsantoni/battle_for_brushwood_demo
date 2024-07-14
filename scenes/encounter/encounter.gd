@@ -12,10 +12,10 @@ and the hand/cards being played.
 '''
 
 @onready var enemy_handler = $EnemyHandler
-@onready var ally_handler = $AllyHandler
+@onready var character_handler = $CharacterHandler
 
 @onready var card_drop_area = $CardDropArea
-@onready var player = $AllyHandler/Player
+@onready var player: Player = $Player
 @onready var hand = $EncounterUI/Hand
 @onready var mana_icon = $EncounterUI/ManaIcon
 
@@ -30,32 +30,17 @@ func _ready() -> void:
 	Events.unit_hovered.connect(_on_unit_hovered)
 	Events.unit_unhovered.connect(_on_unit_unhovered)
 	
-	for enemy: Unit in enemy_handler.get_children():
-		enemy.status_handler.status_owner = enemy
-		enemies.append(enemy)
+	allies = character_handler.get_children() + [player]
+	enemies = enemy_handler.get_children()
 	
-	for ally in ally_handler.get_children():
-		ally.status_handler.status_owner = ally
-		allies.append(ally)
+	character_handler.allies = allies
+	character_handler.enemies = enemies
 	
-	for enemy: Unit in enemy_handler.get_children():
-		enemy.allies = enemies
-		enemy.enemies = allies
-		enemy.species.move_handler.init()
-	
-	for ally in ally_handler.get_children():
-		if ally is Unit:
-			ally.allies = allies
-			ally.enemies = enemies
-			ally.species.move_handler.init()
+	enemy_handler.allies = enemies
+	enemy_handler.enemies = allies
 	
 	for card_handler: CardHandler in hand.get_children():
 		card_handler.return_to_hand.connect(_on_return_to_hand)
-	
-	for enemy: Unit in enemy_handler.get_children():
-		enemy.prepare()
-		enemy.intent_handler.update_ui()
-		enemy.move()
 
 
 func _on_card_released(card_ui: CardUI) -> void:

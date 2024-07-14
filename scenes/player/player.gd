@@ -19,6 +19,7 @@ var block: int = 0
 func _ready() -> void:
 	init_stats()
 	update_ui()
+	status_handler.status_owner = self
 
 
 func play(card_handler: CardHandler, dropped: bool, enemy: Unit) -> void:
@@ -63,6 +64,11 @@ func take_damage(amount: int) -> void:
 		print(self, " has ", hp, " hp remaining!")
 	
 	stat_bar.update_health_label(hp)
+
+
+func set_mana(amount: int) -> void:
+	self.mana = amount
+
 
 '''
 Player HAS a hero, since this hero is chosen by the player

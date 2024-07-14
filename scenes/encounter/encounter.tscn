@@ -1,9 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://dtyxobf7c1d8e"]
+[gd_scene load_steps=21 format=3 uid="uid://dtyxobf7c1d8e"]
 
 [ext_resource type="Script" path="res://scenes/encounter/encounter.gd" id="1_dg5hd"]
 [ext_resource type="Texture2D" uid="uid://8krrv8djaems" path="res://assets/battle_for_brushwood_demo_encounter_bg.png" id="1_dte00"]
 [ext_resource type="PackedScene" uid="uid://csu3ntbxsjk2f" path="res://scenes/player/player.tscn" id="3_asfwf"]
 [ext_resource type="PackedScene" uid="uid://cc4gm4iiyhk8i" path="res://scenes/card/card_handler.tscn" id="3_p1qrc"]
+[ext_resource type="Script" path="res://scenes/encounter/unit_handler.gd" id="4_hsm72"]
 [ext_resource type="PackedScene" uid="uid://diisfdg42k8he" path="res://scenes/unit/unit.tscn" id="5_r3ti5"]
 [ext_resource type="Resource" uid="uid://cxo4qw1ig145t" path="res://heroes/writer/cards/pen_throw.tres" id="6_fjx0y"]
 [ext_resource type="PackedScene" uid="uid://dga5mcaep6xqj" path="res://scenes/encounter/turn_manager.tscn" id="6_yj30r"]
@@ -29,16 +30,18 @@ script = ExtResource("1_dg5hd")
 position = Vector2(128, 72)
 texture = ExtResource("1_dte00")
 
-[node name="AllyHandler" type="Node2D" parent="."]
-
-[node name="Player" parent="AllyHandler" instance=ExtResource("3_asfwf")]
+[node name="Player" parent="." instance=ExtResource("3_asfwf")]
 position = Vector2(25, 93)
 gold = 100
 
-[node name="Character" parent="AllyHandler" instance=ExtResource("5_r3ti5")]
+[node name="CharacterHandler" type="Node2D" parent="."]
+script = ExtResource("4_hsm72")
+
+[node name="Character" parent="CharacterHandler" instance=ExtResource("5_r3ti5")]
 position = Vector2(65, 87)
 
 [node name="EnemyHandler" type="Node2D" parent="."]
+script = ExtResource("4_hsm72")
 
 [node name="Enemy1" parent="EnemyHandler" instance=ExtResource("5_r3ti5")]
 position = Vector2(235, 88)
@@ -122,7 +125,7 @@ offset_left = 1.0
 offset_top = 117.0
 offset_right = 33.0
 offset_bottom = 149.0
-player = NodePath("../../AllyHandler/Player")
+player = NodePath("../../Player")
 
 [node name="EndTurnButton" parent="." instance=ExtResource("16_fl6ay")]
 anchors_preset = 8

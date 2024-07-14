@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://ctbfvs0813ybe"]
+[gd_scene load_steps=2 format=3 uid="uid://ctbfvs0813ybe"]
 
 [ext_resource type="Theme" uid="uid://bydp08q78nl2i" path="res://main_theme.tres" id="1_548e7"]
-[ext_resource type="Script" path="res://scenes/encounter/end_turn_button.gd" id="2_m5k5y"]
 
 [node name="EndTurnButton" type="Button"]
 texture_filter = 1
@@ -20,6 +19,3 @@ theme = ExtResource("1_548e7")
 disabled = true
 action_mode = 0
 text = "End Turn"
-script = ExtResource("2_m5k5y")
-
-[connection signal="pressed" from="." to="." method="_on_pressed"]
