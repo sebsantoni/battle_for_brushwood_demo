@@ -40,6 +40,7 @@ func play(card_handler: CardHandler, dropped: bool, enemy: Unit) -> void:
 	if success:
 		self.mana -= card_handler.card.cost
 		mana_changed.emit()
+		card_handler.card_played.emit(card_handler)
 	else:
 		card_handler.return_to_hand.emit(card_handler)
 

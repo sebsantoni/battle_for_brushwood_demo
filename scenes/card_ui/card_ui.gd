@@ -2,10 +2,14 @@ class_name CardUI
 extends Control
 
 @onready var card_area: Area2D = $CardArea
+@onready var collision_area: CollisionShape2D = $CardArea/CollisionArea
+
 @onready var type_diamond = $TypeDiamond
 @onready var type_icon = $TypeDiamond/TypeIconContainer/TypeIcon
+
 @onready var cost_icon = $CostIcon
 @onready var cost_label = $CostIcon/CostLabel
+
 @onready var name_label = $CardBackground/TextContainer/NameLabel
 @onready var description = $CardBackground/TextContainer/Description
 

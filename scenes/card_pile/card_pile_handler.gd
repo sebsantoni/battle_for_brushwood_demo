@@ -1,7 +1,6 @@
 class_name CardPileHandler
 extends Control
 
-
 @export var card_pile: CardPile
 @export var card_pile_icon: Texture
 
@@ -19,3 +18,14 @@ func _ready() -> void:
 
 func _on_card_pile_size_changed() -> void:
 	card_pile_ui.update_count()
+
+
+func add_to_pile(cards: Array[Card]) -> void:
+	card_pile.add_cards(cards)
+	card_pile.card_pile_size_changed.emit()
+
+
+func draw_from_pile(num_cards: int) -> Array[Card]:
+	var cards = card_pile.draw_cards(num_cards)
+	card_pile.card_pile_size_changed.emit()
+	return cards

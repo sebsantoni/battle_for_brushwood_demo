@@ -6,6 +6,7 @@ extends Control
 @export var card: Card
 
 signal return_to_hand(card_handler: CardHandler)
+signal card_played(card_handler: CardHandler)
 
 
 func _ready() -> void:
@@ -42,4 +43,11 @@ func play(player: Player, dropped: bool, target: Unit) -> bool:
 	
 	return success
 
+
+func disable() -> void:
+	card_ui.collision_area.set_deferred("disabled", true)
+
+
+func enable() -> void:
+	card_ui.collision_area.set_deferred("disabled", false)
 

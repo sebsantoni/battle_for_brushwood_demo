@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dtyxobf7c1d8e"]
+[gd_scene load_steps=22 format=3 uid="uid://dtyxobf7c1d8e"]
 
 [ext_resource type="Script" path="res://scenes/encounter/encounter.gd" id="1_dg5hd"]
 [ext_resource type="Texture2D" uid="uid://8krrv8djaems" path="res://assets/battle_for_brushwood_demo_encounter_bg.png" id="1_dte00"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dga5mcaep6xqj" path="res://scenes/encounter/turn_manager.tscn" id="6_yj30r"]
 [ext_resource type="Resource" uid="uid://3tpjj5i0yxrm" path="res://species/giant_owl/giant_owl.tres" id="7_4gl3k"]
 [ext_resource type="PackedScene" uid="uid://bet53ce76yvgq" path="res://scenes/card_pile/card_pile_handler.tscn" id="8_2mlyr"]
+[ext_resource type="Script" path="res://scenes/encounter/hand.gd" id="8_3r3gv"]
 [ext_resource type="Resource" uid="uid://ddbi2l2apmtf6" path="res://card_piles/draw_pile.tres" id="9_6kpde"]
 [ext_resource type="Texture2D" uid="uid://cx82c8trplb56" path="res://assets/draw_pile.png" id="9_cvykl"]
 [ext_resource type="Script" path="res://scenes/encounter/intent_arrow_drawer.gd" id="10_si42p"]
@@ -58,7 +59,8 @@ monitorable = false
 position = Vector2(128, 50)
 shape = SubResource("RectangleShape2D_qfuuj")
 
-[node name="TurnManager" parent="." instance=ExtResource("6_yj30r")]
+[node name="TurnManager" parent="." node_paths=PackedStringArray("end_turn_button") instance=ExtResource("6_yj30r")]
+end_turn_button = NodePath("../EndTurnButton")
 
 [node name="EncounterUI" type="CanvasLayer" parent="."]
 
@@ -75,6 +77,7 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
 alignment = 1
+script = ExtResource("8_3r3gv")
 
 [node name="Card1" parent="EncounterUI/Hand" instance=ExtResource("3_p1qrc")]
 layout_mode = 2

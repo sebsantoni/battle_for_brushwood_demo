@@ -10,14 +10,21 @@ to process what happened.
 The Encounter scene knows the card drop area, the units in the scene, 
 and the hand/cards being played.
 '''
+@onready var player: Player = $Player
 
-@onready var enemy_handler = $EnemyHandler
-@onready var character_handler = $CharacterHandler
+@onready var enemy_handler: UnitHandler = $EnemyHandler
+@onready var character_handler: UnitHandler = $CharacterHandler
+
+@onready var turn_manager: TurnManager = $TurnManager
 
 @onready var card_drop_area = $CardDropArea
-@onready var player: Player = $Player
-@onready var hand = $EncounterUI/Hand
-@onready var mana_icon = $EncounterUI/ManaIcon
+@onready var hand: Hand = $EncounterUI/Hand
+
+@onready var draw_pile = $EncounterUI/DrawPile
+@onready var discard_pile = $EncounterUI/DiscardPile
+
+@onready var mana_icon: ManaIcon = $EncounterUI/ManaIcon
+@onready var end_turn_button = $EndTurnButton
 
 @onready var intent_arrow_drawer: IntentArrowDrawer = $IntentArrows/IntentArrowDrawer
 
@@ -30,6 +37,17 @@ func _ready() -> void:
 	Events.unit_hovered.connect(_on_unit_hovered)
 	Events.unit_unhovered.connect(_on_unit_unhovered)
 	
+	init_unit_handlers()
+	
+	for card_handler: CardHandler in hand.get_children():
+		card_handler.return_to_hand.connect(_on_return_to_hand)
+	
+	init_turn_manager()
+	
+	turn_manager.start_turn()
+
+
+func init_unit_handlers() -> void:
 	allies = character_handler.get_children() + [player]
 	enemies = enemy_handler.get_children()
 	
@@ -38,9 +56,15 @@ func _ready() -> void:
 	
 	enemy_handler.allies = enemies
 	enemy_handler.enemies = allies
-	
-	for card_handler: CardHandler in hand.get_children():
-		card_handler.return_to_hand.connect(_on_return_to_hand)
+
+
+func init_turn_manager() -> void:
+	turn_manager.character_handler = character_handler
+	turn_manager.enemy_handler = enemy_handler
+	turn_manager.player = player
+	turn_manager.hand = hand
+	turn_manager.draw_pile = draw_pile
+	turn_manager.discard_pile = discard_pile
 
 
 func _on_card_released(card_ui: CardUI) -> void:

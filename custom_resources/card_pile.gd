@@ -9,12 +9,30 @@ signal card_pile_size_changed
 
 func add_card(card: Card) -> void:
 	cards.append(card)
-	card_pile_size_changed.emit()
+	cards.shuffle()
+
+
+func add_cards(card_arr: Array[Card]) -> void:
+	cards += card_arr
+	cards.shuffle()
 
 
 func delete_card(card: Card) -> void:
 	cards.erase(card)
-	card_pile_size_changed.emit()
+
+
+func draw_cards(num_cards: int) -> Array[Card]:
+	if size() < num_cards:
+		return []
+	
+	cards.shuffle()
+	var cards_: Array[Card] = []
+	
+	while num_cards > 0:
+		cards_.append(cards.pop_back())
+		num_cards -= 1
+	
+	return cards_
 
 
 func size() -> int:

@@ -50,7 +50,7 @@ func activate_statuses_by_activation_type(type: StatusEffect.ActivationType) -> 
 
 
 func get_statuses_by_activation_type(type: StatusEffect.ActivationType) -> Array[StatusEffect]:
-	var statuses_arr: Array = []
+	var statuses_arr: Array[StatusEffect] = []
 	
 	for status: StatusEffect in statuses.values():
 		if status.activation_type == type:
