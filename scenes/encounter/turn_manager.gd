@@ -22,8 +22,7 @@ func start_turn() -> void:
 	character_handler.activate_turn_start_statuses()
 	enemy_handler.activate_turn_start_statuses()
 	
-	hand.add_to_hand(draw_pile, player.hero.cards_per_turn)
-	hand.disable()
+	draw_cards()
 	
 	player.set_mana(player.hero.max_mana)
 	
@@ -37,8 +36,7 @@ func start_turn() -> void:
 func end_turn() -> void:
 	end_turn_button.disabled = true
 	
-	hand.disable()
-	hand.remove_from_hand(discard_pile, hand.card_handlers)
+	discard_hand()
 	
 	character_handler.activate_turn_end_statuses()
 	enemy_handler.activate_turn_end_statuses()
@@ -59,3 +57,18 @@ func end_turn() -> void:
 		return
 		
 	start_turn()
+
+
+func draw_cards() -> void:
+	var num_cards = player.hero.cards_per_turn
+	
+	if num_cards > draw_pile.size():
+		draw_pile.add_to_pile(discard_pile.draw_from_pile(discard_pile.size()))
+	
+	hand.add_to_hand(draw_pile, num_cards)
+	hand.disable()
+
+
+func discard_hand() -> void:
+	hand.disable()
+	hand.remove_from_hand(discard_pile, hand.card_handlers)

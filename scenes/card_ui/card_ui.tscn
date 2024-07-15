@@ -288,7 +288,6 @@ expand_mode = 4
 stretch_mode = 5
 
 [node name="CardArea" type="Area2D" parent="."]
-visible = false
 collision_mask = 2
 monitoring = false
 

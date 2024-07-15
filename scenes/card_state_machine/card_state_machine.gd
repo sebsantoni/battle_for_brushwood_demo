@@ -2,10 +2,14 @@ class_name CardStateMachine
 extends Node
 
 @export var starting_node: CardStateNode
+@onready var idle_card_state_node = $IdleCardStateNode
+
 
 var current_node: CardStateNode
 var states: Dictionary = {} # maps a CardState to the CardStateNode that handles it
 func init(card_handler: CardHandler) -> void:
+	starting_node = idle_card_state_node
+	
 	for child in self.get_children():
 		if child is CardStateNode:
 			states[child.state] = child

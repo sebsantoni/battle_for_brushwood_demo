@@ -8,9 +8,13 @@ extends Control
 @onready var card_pile_view = $CardPileView
 
 
-func _ready() -> void:
+func init(card_pile_: CardPile) -> void:
+	card_pile = card_pile_
 	card_pile.card_pile_size_changed.connect(_on_card_pile_size_changed)
 	
+	if not card_pile_ui.is_node_ready():
+		await ready
+		
 	card_pile_ui.card_pile = card_pile
 	card_pile_ui.card_pile_handler = self
 	card_pile_ui.load_ui()
@@ -29,3 +33,7 @@ func draw_from_pile(num_cards: int) -> Array[Card]:
 	var cards = card_pile.draw_cards(num_cards)
 	card_pile.card_pile_size_changed.emit()
 	return cards
+
+
+func size() -> int:
+	return card_pile.size()

@@ -38,14 +38,12 @@ func _ready() -> void:
 	Events.unit_unhovered.connect(_on_unit_unhovered)
 	
 	init_unit_handlers()
-	
-	for card_handler: CardHandler in hand.get_children():
-		card_handler.return_to_hand.connect(_on_return_to_hand)
-	
 	init_turn_manager()
 	
 	turn_manager.start_turn()
-
+	
+	draw_pile.init(preload("res://heroes/writer/warrior_starting_deck.tres"))
+	discard_pile.init(preload("res://card_piles/discard_pile.tres"))
 
 func init_unit_handlers() -> void:
 	allies = character_handler.get_children() + [player]
@@ -111,8 +109,7 @@ func targeted_enemy(card_ui) -> Unit:
 	return target
 
 
-func _on_return_to_hand(card_handler: CardHandler) -> void:
-	card_handler.card_ui.position = Vector2(0,0)
+
 
 
 func _on_unit_hovered(unit: Unit) -> void:
