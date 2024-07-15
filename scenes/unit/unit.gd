@@ -30,11 +30,13 @@ func move() -> void:
 func take_damage(amount: int) -> void:
 	if amount >= hp:
 		Events.unit_died.emit(self)
+		for child in self.get_children():
+			child.queue_free()
 		self.queue_free()
 	else:
 		hp -= amount
 	
-	stat_bar.update_health_label(hp)
+	update_ui()
 
 func init_stats() -> void:
 	hp = species.max_hp
@@ -43,3 +45,6 @@ func init_stats() -> void:
 func update_ui() -> void:
 	stat_bar.update_health_label(hp)
 	stat_bar.update_block_label(block)
+	stat_bar.update_drowsy_label(status_handler.get_status_stacks("Drowsy"))
+	stat_bar.update_asleep_label(status_handler.get_status_stacks("Asleep"))
+	stat_bar.update_strength_label(status_handler.get_status_stacks("Strength"))

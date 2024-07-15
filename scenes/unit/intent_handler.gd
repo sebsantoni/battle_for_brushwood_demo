@@ -32,17 +32,19 @@ func update_ui() -> void:
 	var effect = Move.EffectType.keys()[move.effect_type]
 	
 	var text: String = ""
+	var strength_boost = unit.status_handler.get_status_stacks("Strength")
+	
 	match effect:
 		'Damage':
-			text = str(move.damage)
+			text = str(move.damage + strength_boost)
 		'Damage_Boosted':
-			text = str(move.damage)
+			text = str(move.damage + strength_boost) + "-" + str(move.bonus_damage + strength_boost)
 		'Debuff':
 			pass
 		'Buff':
 			pass
 		'Damage_Debuff':
-			text = str(move.damage)
+			text = str(move.damage + strength_boost)
 	
 	intent_ui.icon.texture = Effect_Icons[effect]
 	intent_ui.label.text = text

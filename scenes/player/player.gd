@@ -12,7 +12,7 @@ var block: int = 0
 @export_group("Non-Battle Attributes")
 @export var gold: int
 
-@onready var stat_bar = $StatBar
+@onready var stat_bar: StatBar = $StatBar
 @onready var status_handler: StatusHandler = $StatusHandler
 
 
@@ -53,7 +53,10 @@ func init_stats() -> void:
 func update_ui() -> void:
 	stat_bar.update_health_label(hp)
 	stat_bar.update_block_label(block)
-
+	stat_bar.update_drowsy_label(status_handler.get_status_stacks("Drowsy"))
+	stat_bar.update_asleep_label(status_handler.get_status_stacks("Asleep"))
+	stat_bar.update_strength_label(status_handler.get_status_stacks("Strength"))
+	
 
 func take_damage(amount: int) -> void:
 	if amount >= hp:
@@ -62,7 +65,7 @@ func take_damage(amount: int) -> void:
 	else:
 		hp -= amount
 	
-	stat_bar.update_health_label(hp)
+	update_ui()
 
 
 func set_mana(amount: int) -> void:

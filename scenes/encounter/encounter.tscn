@@ -30,24 +30,24 @@ position = Vector2(128, 72)
 texture = ExtResource("1_dte00")
 
 [node name="Player" parent="." instance=ExtResource("3_asfwf")]
-position = Vector2(25, 93)
+position = Vector2(23, 90)
 gold = 100
 
 [node name="CharacterHandler" type="Node2D" parent="."]
 script = ExtResource("4_hsm72")
 
 [node name="Character" parent="CharacterHandler" instance=ExtResource("5_r3ti5")]
-position = Vector2(65, 87)
+position = Vector2(78, 85)
 
 [node name="EnemyHandler" type="Node2D" parent="."]
 script = ExtResource("4_hsm72")
 
 [node name="Enemy1" parent="EnemyHandler" instance=ExtResource("5_r3ti5")]
-position = Vector2(235, 88)
+position = Vector2(174, 83)
+species = ExtResource("7_4gl3k")
 
 [node name="Enemy2" parent="EnemyHandler" instance=ExtResource("5_r3ti5")]
-position = Vector2(199, 80)
-species = ExtResource("7_4gl3k")
+position = Vector2(218, 72)
 
 [node name="CardDropArea" type="Area2D" parent="."]
 collision_layer = 2

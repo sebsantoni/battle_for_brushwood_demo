@@ -23,6 +23,8 @@ func apply_status(status, stacks: int) -> void:
 	else:
 		statuses[status.name] = status.duplicate()
 		statuses[status.name].increase_stacks(stacks)
+	
+	status_owner.update_ui()
 
 
 func activate_turn_start() -> void:
@@ -68,3 +70,9 @@ func is_statused() -> bool:
 func has_status(status: String) -> bool:
 	return status in statuses
 
+
+func get_status_stacks(status: String) -> int:
+	if not has_status(status):
+		return 0
+	else:
+		return statuses[status].stacks
