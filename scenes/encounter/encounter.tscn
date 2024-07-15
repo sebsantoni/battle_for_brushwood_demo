@@ -30,14 +30,11 @@ position = Vector2(128, 72)
 texture = ExtResource("1_dte00")
 
 [node name="Player" parent="." instance=ExtResource("3_asfwf")]
-position = Vector2(23, 90)
+position = Vector2(41, 86)
 gold = 100
 
 [node name="CharacterHandler" type="Node2D" parent="."]
 script = ExtResource("4_hsm72")
-
-[node name="Character" parent="CharacterHandler" instance=ExtResource("5_r3ti5")]
-position = Vector2(78, 85)
 
 [node name="EnemyHandler" type="Node2D" parent="."]
 script = ExtResource("4_hsm72")

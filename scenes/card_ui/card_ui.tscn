@@ -281,6 +281,7 @@ mouse_filter = 2
 alignment = 1
 
 [node name="TypeIcon" type="TextureRect" parent="TypeDiamond/TypeIconContainer"]
+visible = false
 layout_mode = 2
 mouse_filter = 2
 texture = ExtResource("4_yo0io")

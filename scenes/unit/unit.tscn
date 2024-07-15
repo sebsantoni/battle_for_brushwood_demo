@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://diisfdg42k8he"]
 
-[ext_resource type="Texture2D" uid="uid://bqa04pfr3v3vr" path="res://assets/icon.svg" id="1_ryo13"]
+[ext_resource type="Texture2D" uid="uid://dfa8t17kxdln5" path="res://assets/butterfae.png" id="1_wo3po"]
 [ext_resource type="Script" path="res://scenes/unit/unit.gd" id="2_gycxh"]
 [ext_resource type="Resource" uid="uid://c1q7s4q8mxoqh" path="res://species/butterfae/butterfae.tres" id="3_dwy6f"]
 [ext_resource type="PackedScene" uid="uid://vfew7l2hp267" path="res://scenes/ui/stat_bar.tscn" id="3_ts8e2"]
@@ -12,9 +12,8 @@
 size = Vector2(133.12, 133.12)
 
 [node name="Unit" type="Sprite2D"]
-position = Vector2(24, 32)
 scale = Vector2(0.195, 0.195)
-texture = ExtResource("1_ryo13")
+texture = ExtResource("1_wo3po")
 script = ExtResource("2_gycxh")
 species = ExtResource("3_dwy6f")
 
@@ -30,10 +29,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -67.1667
-offset_top = -67.1667
-offset_right = -62.1667
-offset_bottom = -62.1667
+offset_left = -66.6667
+offset_top = -66.6667
+offset_right = 34.3333
+offset_bottom = 34.3333
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_c5uhv")

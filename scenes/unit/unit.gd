@@ -19,6 +19,8 @@ func _ready() -> void:
 	update_ui()
 	status_handler.status_owner = self
 	species.move_handler.init()
+	self.texture = species.sprite
+
 
 func prepare(allies, enemies) -> void:
 	species.move_handler.prepare(self, allies, enemies)
