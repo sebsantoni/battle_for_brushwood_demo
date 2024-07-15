@@ -56,13 +56,11 @@ func update_ui() -> void:
 
 
 func take_damage(amount: int) -> void:
-	print(self, " took ", amount, " damage!")
 	if amount >= hp:
-		print(self, "died!")
+		Events.player_died.emit(self)
 		self.queue_free()
 	else:
 		hp -= amount
-		print(self, " has ", hp, " hp remaining!")
 	
 	stat_bar.update_health_label(hp)
 

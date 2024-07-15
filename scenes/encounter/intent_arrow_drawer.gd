@@ -2,11 +2,16 @@ class_name IntentArrowDrawer
 extends Control
 
 
+func _ready() -> void:
+	Events.unit_died.connect(_on_entity_died)
+	Events.player_died.connect(_on_entity_died)
+
+
 func draw_target_lines(unit: Unit) -> void:
 	'''Draws lines between unit and its targets'''
 	var targets = unit.species.move_handler.current_targets
 	for target in targets:
-		if target == unit:
+		if target == unit or not target:
 			continue
 			
 		var line: Line2D = Line2D.new()
@@ -33,3 +38,7 @@ func get_sprite_vertex(sprite, direction: int) -> Vector2:
 func hide_target_lines() -> void:
 	for line in self.get_children():
 		line.queue_free()
+
+
+func _on_entity_died(_entity) -> void:
+	hide_target_lines()

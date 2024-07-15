@@ -5,4 +5,5 @@
 
 [resource]
 script = ExtResource("1_s3wdu")
-cards = Array[Resource("res://custom_resources/card.gd")]([ExtResource("1_ggrsb"), ExtResource("1_ggrsb"), ExtResource("1_ggrsb"), null, null, null, null, null, null, null])
+cards = Array[Resource("res://custom_resources/card.gd")]([ExtResource("1_ggrsb"), ExtResource("1_ggrsb"), ExtResource("1_ggrsb"), ExtResource("1_ggrsb"), ExtResource("1_ggrsb"), ExtResource("1_ggrsb"), ExtResource("1_ggrsb"), ExtResource("1_ggrsb"), ExtResource("1_ggrsb"), ExtResource("1_ggrsb")])
+label_right = false

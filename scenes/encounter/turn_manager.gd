@@ -46,6 +46,10 @@ func end_turn() -> void:
 	character_handler.trigger_moves()
 	enemy_handler.trigger_moves()
 	
+	# these will be sent to whatever class(es) deal(s) with 
+	# battle win/loss conditions in the future! Maybe we just emit
+	# the signals here?
+	
 	if not player:
 		print("battle lost!")
 		return

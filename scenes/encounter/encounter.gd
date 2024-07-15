@@ -96,6 +96,7 @@ func card_in_drop_area(card_ui: CardUI) -> bool:
 	
 	return false
 
+
 func targeted_enemy(card_ui) -> Unit:
 	# assume the card is played on a single enemy for now...
 	# returns the enemy targeted by the card on release.

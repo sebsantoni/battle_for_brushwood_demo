@@ -28,13 +28,11 @@ func move() -> void:
 
 
 func take_damage(amount: int) -> void:
-	print(self, " took ", amount, " damage!")
 	if amount >= hp:
-		print(self, "died!")
+		Events.unit_died.emit(self)
 		self.queue_free()
 	else:
 		hp -= amount
-		print(self, " has ", hp, " hp remaining!")
 	
 	stat_bar.update_health_label(hp)
 

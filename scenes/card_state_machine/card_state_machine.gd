@@ -45,7 +45,6 @@ func _on_transition_requested(from: CardStateNode, to: CardStateNode.CardState) 
 	var new_node = states[to]
 	
 	current_node.exit()
-	#print(CardStateNode.CardState.keys()[new_node.state])
 	new_node.enter()
 	
 	

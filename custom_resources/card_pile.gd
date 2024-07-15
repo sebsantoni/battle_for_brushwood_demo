@@ -3,7 +3,7 @@ extends Resource
 
 signal card_pile_size_changed
 
-@export var cards: Array[Resource]
+@export var cards: Array[Card]
 @export var label_right: bool
 
 

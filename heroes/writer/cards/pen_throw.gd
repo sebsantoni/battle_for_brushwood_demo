@@ -7,7 +7,6 @@ func play(player: Player, dropped: bool, target: Unit) ->bool:
 		if not target:
 			return false
 		else:
-			print("card played on target: ", target)
 			var dmg_effect = DamageEffect.new()
 			dmg_effect.set_amount(damage)
 			dmg_effect.apply_effect(player, target)

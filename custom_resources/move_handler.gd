@@ -11,7 +11,7 @@ var current_targets: Array = []
 func init() -> void:
 	if total_weight == 0.0:
 		set_total_weight()
-	
+
 
 func prepare(unit, allies, enemies) -> void:
 	current_move = get_move()
@@ -19,7 +19,8 @@ func prepare(unit, allies, enemies) -> void:
 
 
 func execute(unit) -> void:
-	current_move.execute(unit, current_targets)
+	if not current_targets.is_empty():
+		current_move.execute(unit, current_targets)
 
 
 func get_move() -> Move:
@@ -39,9 +40,17 @@ func get_targets(unit: Unit, move: Move, allies: Array, enemies: Array) -> Array
 		move.TargetType.Everyone:
 			return allies + enemies
 		move.TargetType.Single_Enemy:
-			return [get_single_target(enemies)]
+			var target = get_single_target(enemies)
+			if target:
+				return [target]
+			else:
+				return []
 		move.TargetType.Single_Ally:
-			return [get_single_target(allies)]
+			var target = get_single_target(allies)
+			if target:
+				return [target]
+			else:
+				return []
 		move.TargetType.All_Enemies:
 			return enemies
 		move.TargetType.All_Allies:
@@ -53,6 +62,9 @@ func get_targets(unit: Unit, move: Move, allies: Array, enemies: Array) -> Array
 func get_single_target(targets: Array):
 	# for now, this is random! can, in future, make it
 	# specifically avoid the player, bosses, etc.
+	if len(targets) <= 0:
+		return null
+	
 	var rnd_indx = rng.randi_range(0, len(targets) - 1)
 	return targets[rnd_indx]
 
@@ -60,3 +72,7 @@ func get_single_target(targets: Array):
 func set_total_weight() -> void:
 	for weight in move_pool.values():
 		total_weight += weight
+
+
+func remove_target(target) -> void:
+	current_targets.erase(target)

@@ -31,7 +31,6 @@ func remove_from_hand(to: CardPileHandler, handlers: Array[CardHandler]) -> void
 	for handler in handlers:
 		card_handlers.erase(handler)
 		cards.erase(handler.card)
-		self.remove_child(handler)
 		handler.queue_free()
 	
 	to.add_to_pile(cards_)
@@ -55,5 +54,5 @@ func get_cards_from_handlers(handlers: Array[CardHandler]) -> Array[Card]:
 
 
 func _on_card_played(handler: CardHandler) -> void:
-	self.remove_child(handler)
+	card_handlers.erase(handler)
 	handler.queue_free()
