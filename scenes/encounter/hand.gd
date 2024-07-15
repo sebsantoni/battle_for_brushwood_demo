@@ -33,8 +33,9 @@ func add_to_hand(from: CardPileHandler, num_cards: int) -> void:
 
 func remove_from_hand(to: CardPileHandler, handlers: Array[CardHandler]) -> void:
 	var cards_ = get_cards_from_handlers(handlers)
-	for handler in handlers:
-		print(handler)
+	var handlers_ = handlers.duplicate()
+	for i in range(handlers.size()):
+		var handler = handlers_[i]
 		card_handlers.erase(handler)
 		cards.erase(handler.card)
 		handler.queue_free()
