@@ -19,12 +19,12 @@ func _ready() -> void:
 
 func activate_turn_start_statuses() -> void:
 	for unit in units:
-		unit.status_handler.activate_statuses_by_activation_type(Turn_Start)
+		unit.status_handler.activate_turn_start()
 
 
 func activate_turn_end_statuses() -> void:
 	for unit in units:
-		unit.status_handler.activate_statuses_by_activation_type(Turn_End)
+		unit.status_handler.activate_turn_end()
 
 
 func declare_intents() -> void:

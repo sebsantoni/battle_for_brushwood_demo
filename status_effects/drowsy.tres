@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="StatusEffect" load_steps=2 format=3 uid="uid://b72gffxwqv82l"]
+[gd_resource type="Resource" script_class="DrowsyStatus" load_steps=2 format=3 uid="uid://b72gffxwqv82l"]
 
-[ext_resource type="Script" path="res://custom_resources/status_effect.gd" id="1_icsxd"]
+[ext_resource type="Script" path="res://status_effects/drowsy.gd" id="1_86jnw"]
 
 [resource]
-script = ExtResource("1_icsxd")
+script = ExtResource("1_86jnw")
 name = "Drowsy"
 stack_type = 0
 activation_type = 1

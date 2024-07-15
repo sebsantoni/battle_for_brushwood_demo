@@ -109,12 +109,8 @@ func targeted_enemy(card_ui) -> Unit:
 	return target
 
 
-
-
-
 func _on_unit_hovered(unit: Unit) -> void:
 	intent_arrow_drawer.draw_target_lines(unit)
-	print(unit.status_handler.statuses)
 
 
 func _on_unit_unhovered() -> void:

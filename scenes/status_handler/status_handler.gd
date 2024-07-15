@@ -17,7 +17,14 @@ func apply_status(status, stacks: int) -> void:
 	Applies status to the status holder, either incrementing it
 	or adding it for the first time
 	'''
-	if status.name in statuses and not status.unique:
+	
+	if status.unique and status.name in statuses:
+		return
+	
+	if status.name == "Drowsy" and has_status("Asleep"):
+		return
+	
+	if status.name in statuses:
 		if stacks:
 			statuses[status.name].increase_stacks(stacks)
 	else:

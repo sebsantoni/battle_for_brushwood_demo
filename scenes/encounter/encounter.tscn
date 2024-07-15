@@ -43,11 +43,11 @@ position = Vector2(78, 85)
 script = ExtResource("4_hsm72")
 
 [node name="Enemy1" parent="EnemyHandler" instance=ExtResource("5_r3ti5")]
-position = Vector2(174, 83)
+position = Vector2(184, 65)
 species = ExtResource("7_4gl3k")
 
 [node name="Enemy2" parent="EnemyHandler" instance=ExtResource("5_r3ti5")]
-position = Vector2(218, 72)
+position = Vector2(230, 88)
 
 [node name="CardDropArea" type="Area2D" parent="."]
 collision_layer = 2

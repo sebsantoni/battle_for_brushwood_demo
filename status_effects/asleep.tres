@@ -1,10 +1,10 @@
-[gd_resource type="Resource" script_class="StatusEffect" load_steps=2 format=3 uid="uid://dkrliy0urm64n"]
+[gd_resource type="Resource" script_class="AsleepStatus" load_steps=2 format=3 uid="uid://dkrliy0urm64n"]
 
-[ext_resource type="Script" path="res://custom_resources/status_effect.gd" id="1_btsk3"]
+[ext_resource type="Script" path="res://status_effects/asleep.gd" id="1_2lnym"]
 
 [resource]
-script = ExtResource("1_btsk3")
+script = ExtResource("1_2lnym")
 name = "Asleep"
 stack_type = 0
-activation_type = 2
+activation_type = 1
 unique = false

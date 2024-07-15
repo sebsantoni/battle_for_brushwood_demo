@@ -16,20 +16,25 @@ var discard_pile: CardPileHandler
 
 func _ready() -> void:
 	end_turn_button.pressed.connect(end_turn)
+	Events.player_died.connect(_on_player_died)
 
 
 func start_turn() -> void:
+	if player:
+		player.status_handler.activate_turn_start()
+		player.set_mana(player.hero.max_mana)
+		
 	character_handler.activate_turn_start_statuses()
 	enemy_handler.activate_turn_start_statuses()
 	
 	draw_cards()
 	
-	player.set_mana(player.hero.max_mana)
-	
 	character_handler.declare_intents()
 	enemy_handler.declare_intents()
 	
-	hand.enable()
+	if not player.status_handler.has_status("Asleep"):
+		hand.enable()
+		
 	end_turn_button.disabled = false
 
 
@@ -38,15 +43,14 @@ func end_turn() -> void:
 	
 	discard_hand()
 	
+	if player:
+		player.status_handler.activate_turn_end()
+		
 	character_handler.activate_turn_end_statuses()
 	enemy_handler.activate_turn_end_statuses()
 	
 	character_handler.trigger_moves()
 	enemy_handler.trigger_moves()
-	
-	# these will be sent to whatever class(es) deal(s) with 
-	# battle win/loss conditions in the future! Maybe we just emit
-	# the signals here?
 	
 	if not player:
 		print("battle lost!")
@@ -72,3 +76,7 @@ func draw_cards() -> void:
 func discard_hand() -> void:
 	hand.disable()
 	hand.remove_from_hand(discard_pile, hand.card_handlers)
+
+
+func _on_player_died(_player) -> void:
+	player = null

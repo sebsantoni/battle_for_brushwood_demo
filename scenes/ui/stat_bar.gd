@@ -7,12 +7,6 @@ extends GridContainer
 @onready var strength_stat = $StrengthStat
 @onready var asleep_stat = $AsleepStat
 
-@onready var health_icon = $HealthStat/HealthIcon
-@onready var block_icon = $BlockStat/BlockIcon
-@onready var drowsy_icon = $DrowsyStat/DrowsyIcon
-@onready var asleep_icon = $AsleepStat/AsleepIcon
-@onready var strength_icon = $StrengthStat/StrengthIcon
-
 @onready var health_label = $HealthStat/Control/HealthLabel
 @onready var block_label = $BlockStat/Control/BlockLabel
 @onready var drowsy_label = $DrowsyStat/Control/DrowsyLabel
@@ -20,7 +14,7 @@ extends GridContainer
 @onready var strength_label = $StrengthStat/Control/StrengthLabel
 
 
-func update_label_text(icon: TextureRect, label: Label, amount: int) -> bool:
+func update_label_text(label: Label, amount: int) -> bool:
 	if amount == 0:
 		return false
 	else:
@@ -29,32 +23,32 @@ func update_label_text(icon: TextureRect, label: Label, amount: int) -> bool:
 
 
 func update_health_label(health: int) -> void:
-	if update_label_text(health_icon, health_label, health):
+	if update_label_text(health_label, health):
 		health_stat.show()
 	else:
 		health_stat.hide()
 
 
 func update_block_label(block: int) -> void:
-	update_label_text(block_icon, block_label, block)
+	update_label_text(block_label, block)
 
 
 func update_drowsy_label(stacks: int) -> void:
-	if update_label_text(drowsy_icon, drowsy_label, stacks):
+	if update_label_text(drowsy_label, stacks):
 		drowsy_stat.show()
 	else:
 		drowsy_stat.hide()
 
 
 func update_asleep_label(stacks: int) -> void:
-	if update_label_text(asleep_icon, asleep_label, stacks):
+	if update_label_text(asleep_label, stacks):
 		asleep_stat.show()
 	else:
 		asleep_stat.hide()
 
 
 func update_strength_label(stacks: int) -> void:
-	if update_label_text(strength_icon, strength_label, stacks):
+	if update_label_text(strength_label, stacks):
 		strength_stat.show()
 	else:
 		strength_stat.hide()
