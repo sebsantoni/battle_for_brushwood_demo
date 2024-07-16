@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_mmkbq")
-cards = Array[Resource("res://custom_resources/card.gd")]([])
+cards = Array[Resource]([])
 label_right = false

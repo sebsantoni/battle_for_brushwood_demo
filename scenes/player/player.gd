@@ -59,12 +59,19 @@ func update_ui() -> void:
 	
 
 func take_damage(amount: int) -> void:
-	if amount >= hp:
+	if amount >= hp + block:
 		Events.player_died.emit(self)
 		self.queue_free()
+	elif block >= amount:
+			pass
 	else:
-		hp -= amount
+		hp -= amount - block
 	
+	update_ui()
+
+
+func gain_block(amount: int) -> void:
+	self.block += amount
 	update_ui()
 
 

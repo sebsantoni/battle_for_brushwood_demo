@@ -75,6 +75,8 @@ func end_turn() -> void:
 		battle_result_label.text = "Battle Won!"
 		battle_result_label.visible = true
 		return
+	
+	player.block = 0
 		
 	start_turn()
 

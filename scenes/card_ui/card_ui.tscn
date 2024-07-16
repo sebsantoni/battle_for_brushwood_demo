@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://csk6m6hxi8rf5"]
+[gd_scene load_steps=11 format=3 uid="uid://csk6m6hxi8rf5"]
 
 [ext_resource type="Theme" uid="uid://bydp08q78nl2i" path="res://main_theme.tres" id="1_1m4nd"]
 [ext_resource type="StyleBox" uid="uid://dvw8io7teuu2a" path="res://card_visuals.tres" id="2_adkgq"]
 [ext_resource type="Script" path="res://scenes/card_ui/card_ui.gd" id="2_py45d"]
 [ext_resource type="Texture2D" uid="uid://c7pb6k2ir7o2f" path="res://assets/pen_jab2.png" id="3_btgoc"]
 [ext_resource type="Texture2D" uid="uid://c44dvjx273s32" path="res://assets/pixil-frame-0.png" id="4_yo0io"]
+[ext_resource type="Texture2D" uid="uid://bp8sm1oa8ge0j" path="res://assets/hard_cover.png" id="5_8xd6m"]
 [ext_resource type="StyleBox" uid="uid://huto8dpnstu6" path="res://scenes/card_ui/cost_icon.tres" id="5_45mbm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xp382"]
@@ -97,15 +98,15 @@ polygon = PackedVector2Array(23, 2, 23, 11, 20.5, 13.5, 17.5, 12, 14.5, 14, 11.5
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -9.0
-offset_top = 3.0
-offset_right = 27.0
-offset_bottom = 20.0
+offset_left = -20.0
+offset_top = 2.0
+offset_right = 33.0
+offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -0.261799
-scale = Vector2(1.1179, 1.1179)
-texture = ExtResource("3_btgoc")
+scale = Vector2(1.10733, 1.1334)
+texture = ExtResource("5_8xd6m")
 expand_mode = 2
 stretch_mode = 5
 

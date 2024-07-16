@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="BlockEffect" load_steps=2 format=3 uid="uid://8v87ff4857ld"]
+
+[ext_resource type="Script" path="res://effects/block_effect.gd" id="1_63q1o"]
+
+[resource]
+script = ExtResource("1_63q1o")

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dnqveyaacxtq"]
+
+[ext_resource type="Script" path="res://heroes/writer/cards/hard_cover.gd" id="1_sm04e"]
+[ext_resource type="Texture2D" uid="uid://bp8sm1oa8ge0j" path="res://assets/hard_cover.png" id="1_v12r3"]
+
+[resource]
+script = ExtResource("1_sm04e")
+block = 5
+card_type = 1
+cost = 1
+targeted = false
+target_type = 0
+rarity = 0
+art = ExtResource("1_v12r3")
+name = ""
+description = "Gain 5 block"

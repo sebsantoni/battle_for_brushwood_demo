@@ -40,6 +40,7 @@ func take_damage(amount: int) -> void:
 	
 	update_ui()
 
+
 func init_stats() -> void:
 	hp = species.max_hp
 
