@@ -13,6 +13,8 @@ var hand: Hand
 var draw_pile: CardPileHandler
 var discard_pile: CardPileHandler
 
+var battle_result_label
+
 
 func _ready() -> void:
 	end_turn_button.pressed.connect(end_turn)
@@ -36,6 +38,18 @@ func start_turn() -> void:
 		hand.enable()
 		
 	end_turn_button.disabled = false
+	
+	if not player:
+		end_turn_button.disabled = true
+		battle_result_label.text = "Battle Lost!"
+		battle_result_label.visible = true
+		return
+	
+	if enemy_handler.is_empty():
+		battle_result_label.text = "Battle Won!"
+		battle_result_label.visible = true
+		end_turn_button.disabled = true
+		return
 
 
 func end_turn() -> void:
@@ -53,11 +67,13 @@ func end_turn() -> void:
 	enemy_handler.trigger_moves()
 	
 	if not player:
-		print("battle lost!")
+		battle_result_label.text = "Battle Lost!"
+		battle_result_label.visible = true
 		return
 	
 	if enemy_handler.is_empty():
-		print("battle won!")
+		battle_result_label.text = "Battle Won!"
+		battle_result_label.visible = true
 		return
 		
 	start_turn()

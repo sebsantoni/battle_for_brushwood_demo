@@ -7,5 +7,5 @@
 [resource]
 script = ExtResource("1_2frey")
 sprite = ExtResource("3_p762o")
-max_hp = 20
+max_hp = 25
 move_handler = ExtResource("1_8c75v")

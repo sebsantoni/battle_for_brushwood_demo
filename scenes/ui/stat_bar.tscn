@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://vfew7l2hp267"]
+[gd_scene load_steps=8 format=3 uid="uid://vfew7l2hp267"]
 
 [ext_resource type="Script" path="res://scenes/ui/stat_bar.gd" id="1_7v0ek"]
 [ext_resource type="Texture2D" uid="uid://bcjys4tn3aflh" path="res://assets/hp_icon.png" id="1_pti21"]
 [ext_resource type="Texture2D" uid="uid://deg7r3nv7hlbf" path="res://assets/shield_icon.png" id="2_gkbx0"]
+[ext_resource type="Texture2D" uid="uid://bukh1qtvveyjs" path="res://assets/drowsy.png" id="4_hqlxx"]
+[ext_resource type="Texture2D" uid="uid://bnvbd0qx6taut" path="res://assets/asleep.png" id="5_6py2c"]
+[ext_resource type="Texture2D" uid="uid://dhyiw33lqum8t" path="res://assets/dagger_icon.png" id="6_kxhl8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_niug2"]
 font_size = 80
@@ -95,7 +98,7 @@ alignment = 1
 
 [node name="DrowsyIcon" type="TextureRect" parent="DrowsyStat"]
 layout_mode = 2
-texture = ExtResource("1_pti21")
+texture = ExtResource("4_hqlxx")
 expand_mode = 3
 stretch_mode = 5
 
@@ -127,7 +130,7 @@ alignment = 1
 
 [node name="AsleepIcon" type="TextureRect" parent="AsleepStat"]
 layout_mode = 2
-texture = ExtResource("1_pti21")
+texture = ExtResource("5_6py2c")
 expand_mode = 3
 stretch_mode = 5
 
@@ -159,7 +162,7 @@ alignment = 1
 
 [node name="StrengthIcon" type="TextureRect" parent="StrengthStat"]
 layout_mode = 2
-texture = ExtResource("1_pti21")
+texture = ExtResource("6_kxhl8")
 expand_mode = 3
 stretch_mode = 5
 

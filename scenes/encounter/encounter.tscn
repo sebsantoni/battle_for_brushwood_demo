@@ -124,3 +124,17 @@ layer = 2
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("10_si42p")
+
+[node name="BattleResultLabel" type="Label" parent="."]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 42.0
+offset_top = 37.0
+offset_right = 218.0
+offset_bottom = 76.0
+grow_horizontal = 2
+text = "Battle won!"
+horizontal_alignment = 1
+vertical_alignment = 1

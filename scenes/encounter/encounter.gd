@@ -28,6 +28,8 @@ and the hand/cards being played.
 
 @onready var intent_arrow_drawer: IntentArrowDrawer = $IntentArrows/IntentArrowDrawer
 
+@onready var battle_result_label = $BattleResultLabel
+
 var enemies: Array = []
 var allies: Array = []
 
@@ -63,6 +65,7 @@ func init_turn_manager() -> void:
 	turn_manager.hand = hand
 	turn_manager.draw_pile = draw_pile
 	turn_manager.discard_pile = discard_pile
+	turn_manager.battle_result_label = battle_result_label
 
 
 func _on_card_released(card_ui: CardUI) -> void:
