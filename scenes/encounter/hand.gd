@@ -3,6 +3,7 @@ extends HBoxContainer
 
 var card_handlers: Array[CardHandler]
 var cards: Array[Card]
+@onready var discard_pile: CardPileHandler = $"../DiscardPile"
 
 const Card_Handler_Scene = preload("res://scenes/card/card_handler.tscn")
 
@@ -63,6 +64,7 @@ func get_cards_from_handlers(handlers: Array[CardHandler]) -> Array[Card]:
 func _on_card_played(handler: CardHandler) -> void:
 	card_handlers.erase(handler)
 	cards.erase(handler.card)
+	discard_pile.add_to_pile([handler.card])
 	handler.queue_free()
 
 

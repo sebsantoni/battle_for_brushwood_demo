@@ -7,9 +7,9 @@ var intent_ui: HBoxContainer
 var Effect_Icons: Dictionary = {
 	'Damage': preload("res://assets/dagger_icon.png"),
 	'Damage_Boosted': preload("res://assets/dagger_icon.png"),
-	'Debuff': preload("res://assets/shield_icon.png"),
-	'Buff': preload("res://assets/shield_icon.png"),
-	'Damage_Debuff': preload("res://assets/dagger_icon.png")
+	'Debuff': preload("res://assets/debuff.png"),
+	'Buff': preload("res://assets/buff.png"),
+	'Damage_Debuff': preload("res://assets/dagger_debuff_icon.png")
 }
 
 

@@ -30,7 +30,8 @@ position = Vector2(128, 72)
 texture = ExtResource("1_dte00")
 
 [node name="Player" parent="." instance=ExtResource("3_asfwf")]
-position = Vector2(41, 86)
+position = Vector2(51, 82)
+scale = Vector2(1, 1)
 gold = 100
 
 [node name="CharacterHandler" type="Node2D" parent="."]

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Hero" load_steps=3 format=3 uid="uid://cmjyd4rras5mm"]
 
-[ext_resource type="Texture2D" uid="uid://bqa04pfr3v3vr" path="res://assets/icon.svg" id="1_a50gq"]
+[ext_resource type="Texture2D" uid="uid://d1am2na83lri2" path="res://assets/writer.png" id="1_khq82"]
 [ext_resource type="Script" path="res://custom_resources/hero.gd" id="2_g7tae"]
 
 [resource]
@@ -10,5 +10,5 @@ max_hp = 50
 cards_per_turn = 5
 starting_deck = ""
 name = "Writer"
-art = ExtResource("1_a50gq")
+art = ExtResource("1_khq82")
 description = ""
