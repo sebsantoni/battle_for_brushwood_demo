@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dgnakutavh7vj"]
+
+[ext_resource type="Script" path="res://moves/zap.gd" id="1_5fhxy"]
+
+[resource]
+script = ExtResource("1_5fhxy")
+damage = 6
+target_type = 2
+effect_type = 0

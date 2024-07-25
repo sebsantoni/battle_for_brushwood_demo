@@ -17,6 +17,9 @@ enum Rarity {Common, Uncommon, Rare}
 @export var name: String
 @export_multiline var description: String
 
+@export_group("Character Attributes")
+@export var species: Species
+
 
 func play(_player: Player, _dropped: bool, _target: Unit) -> bool:
 	'''Returns whether this card was successfully played'''

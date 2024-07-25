@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Species" load_steps=3 format=3 uid="uid://8ycgepkiwhkn"]
+
+[ext_resource type="Script" path="res://custom_resources/species.gd" id="1_m16qn"]
+[ext_resource type="Resource" uid="uid://c1qeu7mogb0g7" path="res://species/witch/witch_move_handler.tres" id="1_yeooq"]
+
+[resource]
+script = ExtResource("1_m16qn")
+max_hp = 10
+move_handler = ExtResource("1_yeooq")

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Species" load_steps=3 format=3 uid="uid://xob1rp1bfd0u"]
+
+[ext_resource type="Script" path="res://custom_resources/species.gd" id="1_6xg5s"]
+[ext_resource type="Resource" uid="uid://dn5i8kcer7mna" path="res://species/dragonling/dragonling_move_handler.tres" id="1_efaya"]
+
+[resource]
+script = ExtResource("1_6xg5s")
+max_hp = 5
+move_handler = ExtResource("1_efaya")

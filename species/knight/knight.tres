@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Species" load_steps=3 format=3 uid="uid://pdv5o4yn17tb"]
+
+[ext_resource type="Resource" uid="uid://1smu262xrmgf" path="res://species/knight/knight_move_handler.tres" id="1_2shrf"]
+[ext_resource type="Script" path="res://custom_resources/species.gd" id="1_wlgjj"]
+
+[resource]
+script = ExtResource("1_wlgjj")
+max_hp = 20
+move_handler = ExtResource("1_2shrf")

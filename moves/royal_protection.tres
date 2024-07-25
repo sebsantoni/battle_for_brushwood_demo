@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://comhtheupdjtc"]
+
+[ext_resource type="Script" path="res://moves/royal_protection.gd" id="1_hfpam"]
+
+[resource]
+script = ExtResource("1_hfpam")
+block = 0
+target_type = 0
+effect_type = 0

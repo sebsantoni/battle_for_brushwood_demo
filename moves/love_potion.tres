@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://ddt6kpy14b4w7"]
+
+[ext_resource type="Script" path="res://moves/love_potion.gd" id="1_yjcaj"]
+
+[resource]
+script = ExtResource("1_yjcaj")
+stacks = 1
+target_type = 2
+effect_type = 2

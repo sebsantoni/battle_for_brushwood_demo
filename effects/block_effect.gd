@@ -4,7 +4,9 @@ extends Effect
 var amount: int
 
 func apply_effect(_from, to):
-	to.gain_block(amount)
+	var defence_boost = to.status_handler.get_status_stacks("Defence")
+	
+	to.gain_block(amount + defence_boost)
 
 
 func set_amount(dmg: int):

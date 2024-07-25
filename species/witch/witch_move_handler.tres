@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MoveHandler" load_steps=5 format=3 uid="uid://c1qeu7mogb0g7"]
+
+[ext_resource type="Resource" uid="uid://b2psaqvv3cig6" path="res://moves/heal.tres" id="1_0wycm"]
+[ext_resource type="Script" path="res://custom_resources/move_handler.gd" id="1_vhexd"]
+[ext_resource type="Resource" uid="uid://ddt6kpy14b4w7" path="res://moves/love_potion.tres" id="2_531dh"]
+[ext_resource type="Resource" uid="uid://dgnakutavh7vj" path="res://moves/zap.tres" id="3_qi58e"]
+
+[resource]
+script = ExtResource("1_vhexd")
+move_pool = {
+ExtResource("1_0wycm"): 2,
+ExtResource("2_531dh"): 3,
+ExtResource("3_qi58e"): 1
+}

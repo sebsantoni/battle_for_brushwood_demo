@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://pshorbrkrwys"]
+
+[ext_resource type="Script" path="res://moves/bite.gd" id="1_ppghu"]
+
+[resource]
+script = ExtResource("1_ppghu")
+damage = 5
+target_type = 2
+effect_type = 0

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://ctyrqrsbpwcgv"]
+
+[ext_resource type="Script" path="res://moves/roar.gd" id="1_rvp75"]
+
+[resource]
+script = ExtResource("1_rvp75")
+stacks = 2
+target_type = 0
+effect_type = 3

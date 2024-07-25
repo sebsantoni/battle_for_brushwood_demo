@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://c5kw633270v6p"]
+
+[ext_resource type="Script" path="res://moves/reinforcements.gd" id="1_xahjp"]
+
+[resource]
+script = ExtResource("1_xahjp")
+stacks = 1
+target_type = 5
+effect_type = 3

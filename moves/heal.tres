@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://b2psaqvv3cig6"]
+
+[ext_resource type="Script" path="res://moves/heal.gd" id="1_dey12"]
+
+[resource]
+script = ExtResource("1_dey12")
+heal = 5
+target_type = 5
+effect_type = 3

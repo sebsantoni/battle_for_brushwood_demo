@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AsleepStatus" load_steps=2 format=3 uid="uid://ol1nekpljdvg"]
+
+[ext_resource type="Script" path="res://status_effects/charmed.gd" id="1_45v5q"]
+
+[resource]
+script = ExtResource("1_45v5q")
+name = "Charmed"
+stack_type = 0
+activation_type = 0
+unique = false

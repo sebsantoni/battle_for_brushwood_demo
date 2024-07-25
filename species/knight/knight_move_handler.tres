@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="MoveHandler" load_steps=4 format=3 uid="uid://1smu262xrmgf"]
+
+[ext_resource type="Script" path="res://custom_resources/move_handler.gd" id="1_ildhf"]
+[ext_resource type="Resource" uid="uid://jkbcsk6q7635" path="res://moves/lance.tres" id="1_ucbo6"]
+[ext_resource type="Resource" uid="uid://c5kw633270v6p" path="res://moves/reinforcements.tres" id="2_176wa"]
+
+[resource]
+script = ExtResource("1_ildhf")
+move_pool = {
+ExtResource("1_ucbo6"): 1,
+ExtResource("2_176wa"): 2
+}
