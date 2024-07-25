@@ -37,3 +37,7 @@ func draw_cards(num_cards: int) -> Array[Card]:
 
 func size() -> int:
 	return cards.size()
+
+
+func shuffle() -> void:
+	cards.shuffle()

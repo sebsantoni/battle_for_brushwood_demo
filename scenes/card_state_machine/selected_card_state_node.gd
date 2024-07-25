@@ -1,6 +1,13 @@
 extends CardStateNode
 
 
+func enter() -> void:
+	if card_handler.imagined:
+		card_handler.chosen = true
+		Events.imagination_ended.emit()
+		transition_requested.emit(self, CardState.Idle)
+	
+
 func _on_input(event: InputEvent) -> void:
 	if event.is_action_pressed("right_click"):
 		transition_requested.emit(self, CardState.Idle)

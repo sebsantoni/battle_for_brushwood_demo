@@ -6,6 +6,8 @@ extends Control
 @export var card: Card
 
 var disabled = false
+var imagined = false
+var chosen = false
 
 signal return_to_hand(card_handler: CardHandler)
 signal card_played(card_handler: CardHandler)

@@ -88,7 +88,7 @@ func draw_cards() -> void:
 	if num_cards > draw_pile.size():
 		draw_pile.add_to_pile(discard_pile.draw_from_pile(discard_pile.size()))
 	
-	hand.add_to_hand(draw_pile, num_cards)
+	hand.add_cards_from_pile(draw_pile, num_cards)
 	hand.disable()
 
 

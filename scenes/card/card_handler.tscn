@@ -14,6 +14,8 @@ offset_right = -231.0
 offset_bottom = -114.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1, 1.16)
+size_flags_vertical = 4
 script = ExtResource("1_u7neb")
 
 [node name="CardUI" parent="." instance=ExtResource("7_pvtpx")]
@@ -23,7 +25,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1, 1.16)
 
 [node name="CardStateMachine" parent="." instance=ExtResource("3_x6trq")]
 

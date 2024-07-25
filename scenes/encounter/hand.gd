@@ -22,20 +22,16 @@ func _ready() -> void:
 		card_handlers.append(handler)
 		
 	cards = get_cards_from_handlers(card_handlers)
+	
+	Events.add_to_hand_requested.connect(_on_add_to_hand_requested)
 
 
-func add_to_hand(from: CardPileHandler, num_cards: int) -> void:
+func add_cards_from_pile(from: CardPileHandler, num_cards: int) -> void:
 	var cards_ = from.draw_from_pile(num_cards)
 	for card in cards_:
-		var card_handler = Card_Handler_Scene.instantiate()
-		card_handler.init(CardUI.new(), CardStateMachine.new(),card)
-		card_handlers.append(card_handler)
-		cards.append(card)
-		
-		card_handler.card_played.connect(_on_card_played)
-		card_handler.return_to_hand.connect(_on_return_to_hand)
-		
-		self.add_child(card_handler)
+		add_to_hand(card)
+
+	arrange_hand()
 
 
 func remove_from_hand(to: CardPileHandler, handlers: Array[CardHandler]) -> void:
@@ -109,4 +105,20 @@ func remove_index(index: int) -> void:
 	for child in self.get_children():
 		if child.get_index() > index:
 			self.move_child(child, child.get_index() - 1)
+
+
+func add_to_hand(card: Card) -> void:
+	var card_handler = Card_Handler_Scene.instantiate()
+	card_handler.init(CardUI.new(), CardStateMachine.new(),card)
+	card_handlers.append(card_handler)
+	cards.append(card)
 	
+	card_handler.card_played.connect(_on_card_played)
+	card_handler.return_to_hand.connect(_on_return_to_hand)
+	
+	self.add_child(card_handler)
+
+
+func _on_add_to_hand_requested(card: Card) -> void:
+	add_to_hand(card)
+	arrange_hand()

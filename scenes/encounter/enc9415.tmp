@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bet53ce76yvgq" path="res://scenes/card_pile/card_pile_handler.tscn" id="8_2mlyr"]
 [ext_resource type="Script" path="res://scenes/encounter/hand.gd" id="8_3r3gv"]
 [ext_resource type="Texture2D" uid="uid://cx82c8trplb56" path="res://assets/draw_pile.png" id="9_cvykl"]
-[ext_resource type="Script" path="res://scenes/encounter/imagination_container.gd" id="9_sny4h"]
+[ext_resource type="Script" path="res://scenes/encounter/imagination_handler.gd" id="9_hxj0v"]
 [ext_resource type="Script" path="res://scenes/encounter/intent_arrow_drawer.gd" id="10_si42p"]
 [ext_resource type="Resource" uid="uid://dc5j2e1bura03" path="res://card_piles/discard_pile.tres" id="11_s4gtd"]
 [ext_resource type="Resource" uid="uid://bxtp6np3rum47" path="res://heroes/writer/writer_starting_deck.tres" id="12_p2gqg"]
@@ -78,25 +78,29 @@ shape = SubResource("RectangleShape2D_qfuuj")
 end_turn_button = NodePath("../EndTurnButton")
 
 [node name="ImaginationUI" type="CanvasLayer" parent="."]
+layer = 2
 
-[node name="ImaginationContainer" type="HBoxContainer" parent="ImaginationUI"]
-visible = false
+[node name="ImaginationHandler" type="Node" parent="ImaginationUI"]
+script = ExtResource("9_hxj0v")
+
+[node name="ImaginationHand" type="Control" parent="ImaginationUI"]
+layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -115.0
-offset_top = -53.0
-offset_right = 116.0
-offset_bottom = 35.0
+offset_left = -81.5
+offset_top = -15.0
+offset_right = 81.5
+offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_vertical = 4
-theme_override_constants/separation = 20
-alignment = 1
-script = ExtResource("9_sny4h")
-imagination_pool = ExtResource("12_p2gqg")
+mouse_filter = 2
+script = ExtResource("8_3r3gv")
+width_curve = SubResource("Curve_km6a5")
+height_curve = SubResource("Curve_5bdem")
+rotation_curve = SubResource("Curve_7vexd")
 
 [node name="EncounterUI" type="CanvasLayer" parent="."]
 
