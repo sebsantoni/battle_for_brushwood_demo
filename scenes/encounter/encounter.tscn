@@ -121,11 +121,10 @@ card_pile = ExtResource("13_dej20")
 card_pile_icon = ExtResource("14_lyeb2")
 
 [node name="ManaIcon" parent="EncounterUI" node_paths=PackedStringArray("player") instance=ExtResource("15_t88gb")]
-offset_left = 3.0
-offset_top = 104.0
-offset_right = 35.0
-offset_bottom = 136.0
-scale = Vector2(0.5, 0.5)
+offset_left = -2.0
+offset_top = 97.0
+offset_right = 30.0
+offset_bottom = 129.0
 player = NodePath("../../Player")
 
 [node name="EndTurnButton" parent="." instance=ExtResource("16_fl6ay")]

@@ -1,5 +1,5 @@
 class_name ManaIcon
-extends Panel
+extends TextureRect
 
 @onready var mana_label = $ManaLabel
 
