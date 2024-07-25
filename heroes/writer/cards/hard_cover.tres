@@ -12,5 +12,5 @@ targeted = false
 target_type = 0
 rarity = 0
 art = ExtResource("1_v12r3")
-name = ""
+name = "Hardcover"
 description = "Gain 5 block"
