@@ -5,21 +5,23 @@
 [ext_resource type="PackedScene" uid="uid://dafsp0qjlnyks" path="res://scenes/card_pile/card_pile_view.tscn" id="2_18hts"]
 
 [node name="CardPileHandler" type="Control"]
-custom_minimum_size = Vector2(32, 32)
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -224.0
-offset_bottom = -112.0
+offset_right = -236.0
+offset_bottom = -124.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7mb7f")
 
 [node name="CardPileUI" parent="." instance=ExtResource("1_luipc")]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 1
 offset_right = 0.0
 offset_bottom = 0.0
 
 [node name="CardPileView" parent="." instance=ExtResource("2_18hts")]
+custom_minimum_size = Vector2(20, 20)
 layout_mode = 1

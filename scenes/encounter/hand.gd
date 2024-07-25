@@ -1,11 +1,17 @@
 class_name Hand
-extends HBoxContainer
+extends Control
 
 var card_handlers: Array[CardHandler]
 var cards: Array[Card]
 @onready var discard_pile: CardPileHandler = $"../DiscardPile"
 
 const Card_Handler_Scene = preload("res://scenes/card/card_handler.tscn")
+
+@export var width_curve: Curve
+@export var height_curve: Curve
+@export var rotation_curve: Curve
+
+var max_hand_size = 10
 
 
 func _ready() -> void:
@@ -40,6 +46,7 @@ func remove_from_hand(to: CardPileHandler, handlers: Array[CardHandler]) -> void
 		card_handlers.erase(handler)
 		cards.erase(handler.card)
 		handler.queue_free()
+		self.remove_child(handler)
 	
 	to.add_to_pile(cards_)
 
@@ -62,11 +69,44 @@ func get_cards_from_handlers(handlers: Array[CardHandler]) -> Array[Card]:
 
 
 func _on_card_played(handler: CardHandler) -> void:
+	var handler_index = handler.get_index()
 	card_handlers.erase(handler)
 	cards.erase(handler.card)
 	discard_pile.add_to_pile([handler.card])
 	handler.queue_free()
+	remove_index(handler_index)
+	arrange_hand()
 
 
 func _on_return_to_hand(card_handler: CardHandler) -> void:
 	card_handler.card_ui.position = Vector2(0,0)
+	arrange_hand()
+
+
+func arrange_hand() -> void:
+	var num_cards = self.get_child_count()
+	
+	self.size.x = num_cards * 15
+	self.position.x = (get_viewport_rect().size.x - self.size.x)/2
+	
+	for handler in card_handlers:
+		handler.position = Vector2((self.size.x - handler.size.x)/2, 0)
+
+		var ratio = 0.5
+		
+		if num_cards > 1:
+			ratio = float(handler.get_index()) / float(num_cards - 1)
+			
+			if ratio < 0.5:
+				handler.pivot_offset = Vector2(handler.size.x, 0)
+			
+			handler.position.x += width_curve.sample(ratio) * self.size.x / 2
+			handler.position.y -= height_curve.sample(ratio) * 5
+			handler.rotation = rotation_curve.sample(ratio) * -0.3
+
+
+func remove_index(index: int) -> void:
+	for child in self.get_children():
+		if child.get_index() > index:
+			self.move_child(child, child.get_index() - 1)
+	

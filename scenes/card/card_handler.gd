@@ -59,11 +59,6 @@ func play(player: Player, dropped: bool, target: Unit) -> bool:
 	'''Returns whether the card was successfully played'''
 	var success: bool = card.play(player, dropped, target)
 	
-	if not success:
-		return_to_hand.emit(self)
-	else:
-		self.queue_free()
-	
 	return success
 
 

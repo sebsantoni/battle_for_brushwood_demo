@@ -30,6 +30,7 @@ func start_turn() -> void:
 	enemy_handler.activate_turn_start_statuses()
 	
 	draw_cards()
+	hand.arrange_hand()
 	
 	character_handler.declare_intents()
 	enemy_handler.declare_intents()

@@ -44,7 +44,7 @@ func _ready() -> void:
 	
 	turn_manager.start_turn()
 	
-	draw_pile.init(preload("res://heroes/writer/warrior_starting_deck.tres"))
+	draw_pile.init(preload("res://heroes/writer/writer_starting_deck.tres"))
 	discard_pile.init(preload("res://card_piles/discard_pile.tres"))
 
 func init_unit_handlers() -> void:
