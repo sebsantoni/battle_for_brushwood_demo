@@ -4,6 +4,7 @@ extends Control
 var card_handlers: Array[CardHandler]
 var cards: Array[Card]
 @onready var discard_pile: CardPileHandler = $"../DiscardPile"
+@onready var exhaust_pile: CardPileHandler = $"../ExhaustPile"
 
 const Card_Handler_Scene = preload("res://scenes/card/card_handler.tscn")
 
@@ -71,6 +72,8 @@ func _on_card_played(handler: CardHandler) -> void:
 	
 	if not handler.card.exhaustable:
 		discard_pile.add_to_pile([handler.card])
+	else:
+		exhaust_pile.add_to_pile([handler.card])
 	
 	handler.queue_free()
 	remove_index(handler_index)

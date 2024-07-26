@@ -22,6 +22,7 @@ and the hand/cards being played.
 
 @onready var draw_pile = $EncounterUI/DrawPile
 @onready var discard_pile = $EncounterUI/DiscardPile
+@onready var exhaust_pile = $EncounterUI/ExhaustPile
 
 @onready var mana_icon: ManaIcon = $EncounterUI/ManaIcon
 @onready var end_turn_button = $EndTurnButton
@@ -46,6 +47,8 @@ func _ready() -> void:
 	
 	draw_pile.init(preload("res://heroes/writer/writer_starting_deck.tres"))
 	discard_pile.init(preload("res://card_piles/discard_pile.tres"))
+	exhaust_pile.init(preload("res://card_piles/exhaust_pile.tres"))
+
 
 func init_unit_handlers() -> void:
 	allies = character_handler.get_children() + [player]
