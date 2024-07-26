@@ -87,10 +87,11 @@ func _on_card_released(card_ui: CardUI) -> void:
 	# let's stick to enemies for now
 	
 	var in_drop_area = card_in_drop_area(card_ui)
-	var enemy = targeted_enemy(card_ui) # can be expanded to unit instead of enemy
+	var unit = targeted_unit(card_ui)[0]
+	var is_enemy = targeted_unit(card_ui)[1]
 	
 	# we will be passing it onto the player, actually!
-	player.play(card_ui.card_handler, in_drop_area, enemy)
+	player.play(card_ui.card_handler, in_drop_area, unit, is_enemy)
 
 
 func card_in_drop_area(card_ui: CardUI) -> bool:
@@ -101,18 +102,25 @@ func card_in_drop_area(card_ui: CardUI) -> bool:
 	return false
 
 
-func targeted_enemy(card_ui) -> Unit:
+func targeted_unit(card_ui):
 	# assume the card is played on a single enemy for now...
 	# returns the enemy targeted by the card on release.
 	# if no enemy is targeted, returns null
-	var target: Unit = null
+	var target = null
+	var is_enemy = false
 	
 	for enemy in enemies:
 		if enemy != null:
 			if card_ui.card_area in enemy.hitbox.get_overlapping_areas():
 				target = enemy
+				is_enemy = true
 	
-	return target
+	for ally in allies:
+		if ally != null:
+			if card_ui.card_area in ally.hitbox.get_overlapping_areas():
+				target = ally
+	
+	return [target, is_enemy]
 
 
 func _on_unit_hovered(unit: Unit) -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://csu3ntbxsjk2f"]
+[gd_scene load_steps=7 format=3 uid="uid://csu3ntbxsjk2f"]
 
 [ext_resource type="Texture2D" uid="uid://d1am2na83lri2" path="res://assets/writer.png" id="1_4mqhr"]
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="2_h230n"]
@@ -6,11 +6,20 @@
 [ext_resource type="PackedScene" uid="uid://vfew7l2hp267" path="res://scenes/ui/stat_bar.tscn" id="3_o2s8i"]
 [ext_resource type="PackedScene" uid="uid://cepbv1hggl6qj" path="res://scenes/status_handler/status_handler.tscn" id="5_bfx1g"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n4oo7"]
+size = Vector2(32.3171, 31.3415)
+
 [node name="Player" type="Sprite2D"]
 scale = Vector2(1.025, 1.025)
 texture = ExtResource("1_4mqhr")
 script = ExtResource("2_h230n")
 hero = ExtResource("3_ipmqi")
+gold = null
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_n4oo7")
 
 [node name="StatBar" parent="." instance=ExtResource("3_o2s8i")]
 offset_left = -18.5366

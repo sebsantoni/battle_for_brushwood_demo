@@ -57,9 +57,9 @@ func _on_mouse_exited():
 		card_state_machine._on_mouse_exited()
 
 
-func play(player: Player, dropped: bool, target: Unit) -> bool:
+func play(player: Player, dropped: bool, target, is_enemy: bool) -> bool:
 	'''Returns whether the card was successfully played'''
-	var success: bool = card.play(player, dropped, target)
+	var success: bool = card.play(player, dropped, target, is_enemy)
 	
 	return success
 

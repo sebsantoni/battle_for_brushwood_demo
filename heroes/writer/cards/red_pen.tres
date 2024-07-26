@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bn4nqa4ui3oca"]
+
+[ext_resource type="Script" path="res://heroes/writer/cards/red_pen.gd" id="1_87rg7"]
+[ext_resource type="Texture2D" uid="uid://b5gex7ul276cf" path="res://assets/red_pen.png" id="1_nhqj2"]
+
+[resource]
+script = ExtResource("1_87rg7")
+card_type = 1
+cost = 2
+targeted = true
+target_type = 3
+exhaustable = true
+rarity = 0
+art = ExtResource("1_nhqj2")
+name = "Red Pen"
+description = "Silence a unit."

@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="DamageEffect" load_steps=2 format=3 uid="uid://8fkn2vryvhy1"]
+
+[ext_resource type="Script" path="res://effects/silence_effect.gd" id="1_qkgkh"]
+
+[resource]
+script = ExtResource("1_qkgkh")

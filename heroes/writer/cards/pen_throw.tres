@@ -10,6 +10,7 @@ card_type = 0
 cost = 1
 targeted = true
 target_type = 3
+exhaustable = false
 rarity = 0
 art = ExtResource("1_7pqb7")
 name = "Pen Throw"

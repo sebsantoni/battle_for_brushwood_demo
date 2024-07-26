@@ -2,7 +2,7 @@ extends Card
 
 @export var block: int
 
-func play(player: Player, dropped: bool, target: Unit) ->bool:
+func play(player: Player, dropped: bool, target, is_enemy: bool) ->bool:
 	if targeted:
 		return false
 	else:

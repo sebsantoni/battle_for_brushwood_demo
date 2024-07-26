@@ -14,6 +14,7 @@ var block: int = 0
 
 @onready var stat_bar: StatBar = $StatBar
 @onready var status_handler: StatusHandler = $StatusHandler
+@onready var hitbox = $Hitbox
 
 
 func _ready() -> void:
@@ -22,7 +23,7 @@ func _ready() -> void:
 	status_handler.status_owner = self
 
 
-func play(card_handler: CardHandler, dropped: bool, enemy: Unit) -> void:
+func play(card_handler: CardHandler, dropped: bool, target, is_enemy: bool) -> void:
 	'''
 	Plays the given card on the given targets (if any...)
 	WHO should be responsible for the logic of determining targets, etc...?
@@ -35,7 +36,7 @@ func play(card_handler: CardHandler, dropped: bool, enemy: Unit) -> void:
 	# modify the Hero anyway...)
 	var success = false
 	if card_handler.card.cost <= self.mana:
-		success = card_handler.play(self, dropped, enemy)
+		success = card_handler.play(self, dropped, target, is_enemy)
 	
 	if success:
 		self.mana -= card_handler.card.cost

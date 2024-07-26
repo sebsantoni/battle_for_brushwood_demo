@@ -83,3 +83,8 @@ func get_status_stacks(status: String) -> int:
 		return 0
 	else:
 		return statuses[status].stacks
+
+
+func clear_statuses() -> void:
+	statuses.clear()
+	status_owner.update_ui()

@@ -2,18 +2,19 @@ extends Card
 
 @export var damage: int
 
-func play(player: Player, dropped: bool, target: Unit) ->bool:
+func play(player: Player, dropped: bool, target, is_enemy: bool) ->bool:
 	if targeted:
 		if not target:
 			return false
-		else:
+		elif is_enemy:
 			var dmg_effect = DamageEffect.new()
 			dmg_effect.set_amount(damage)
 			dmg_effect.apply_effect(player, target)
 			return true
+		else:
+			return false
 	else:
 		if target or not dropped:
 			return false
 		else:
-			print("non-targeted card played")
 			return true

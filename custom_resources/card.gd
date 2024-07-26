@@ -2,7 +2,7 @@ class_name Card
 extends Resource
 
 enum CardType {Attack, Spell, Aura, Character}
-enum TargetType {Self, All_Enemies, Everyone, Enemy}
+enum TargetType {Self, All_Enemies, Everyone, Enemy, Anyone}
 enum Rarity {Common, Uncommon, Rare}
 
 @export_group("Gameplay Attributes")
@@ -22,6 +22,6 @@ enum Rarity {Common, Uncommon, Rare}
 @export var species: Species
 
 
-func play(_player: Player, _dropped: bool, _target: Unit) -> bool:
+func play(_player: Player, _dropped: bool, _target, is_enemy: bool) -> bool:
 	'''Returns whether this card was successfully played'''
 	return true
