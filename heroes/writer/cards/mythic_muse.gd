@@ -1,6 +1,7 @@
 extends Card
 
-@export var block: int
+const Fantasy_Characters = preload("res://card_piles/fantasy_characters.tres")
+
 
 func play(player: Player, dropped: bool, target: Unit) ->bool:
 	if targeted:
@@ -9,7 +10,5 @@ func play(player: Player, dropped: bool, target: Unit) ->bool:
 		if target or not dropped:
 			return false
 		else:
-			var block_effect = BlockEffect.new()
-			block_effect.set_amount(block)
-			block_effect.apply_effect(player, player)
+			Events.imagination_started.emit(Fantasy_Characters)
 			return true

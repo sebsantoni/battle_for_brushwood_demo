@@ -8,6 +8,10 @@ signal add_to_hand_requested(card: Card)
 signal unit_hovered(unit: Unit)
 signal unit_unhovered()
 signal unit_died(unit: Unit)
+signal unit_summoned(unit: Unit, handler: UnitHandler)
+
+# Character Events
+signal character_summon_requested(species: Species)
 
 # Player Events
 signal player_died(player: Player)

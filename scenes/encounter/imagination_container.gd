@@ -11,7 +11,6 @@ const Card_Handler_Scene = preload("res://scenes/card/card_handler.tscn")
 func _ready() -> void:
 	Events.imagination_started.connect(_on_imagination_started)
 	Events.imagination_ended.connect(_on_imagination_ended)
-	_on_imagination_started(imagination_pool)
 
 
 func _on_imagination_started(pool: CardPile) -> void:

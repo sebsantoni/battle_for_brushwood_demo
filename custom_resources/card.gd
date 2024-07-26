@@ -10,6 +10,7 @@ enum Rarity {Common, Uncommon, Rare}
 @export var cost: int
 @export var targeted: bool
 @export var target_type: TargetType
+@export var exhaustable: bool = false
 
 @export_group("Visual Attributes")
 @export var rarity: Rarity

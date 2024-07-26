@@ -1,3 +1,4 @@
+class_name IntentHandler
 extends Control
 
 var unit: Unit

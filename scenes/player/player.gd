@@ -76,7 +76,7 @@ func gain_block(amount: int) -> void:
 
 
 func heal(amount: int) -> void:
-	self.health = clampi(hp + amount, hp + amount, hero.max_hp)
+	self.hp = clampi(hp + amount, hp + amount, hero.max_hp)
 	update_ui()
 
 

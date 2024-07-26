@@ -25,6 +25,7 @@ func start_turn() -> void:
 	if player:
 		player.status_handler.activate_turn_start()
 		player.set_mana(player.hero.max_mana)
+		player.mana_changed.emit()
 		
 	character_handler.activate_turn_start_statuses()
 	enemy_handler.activate_turn_start_statuses()

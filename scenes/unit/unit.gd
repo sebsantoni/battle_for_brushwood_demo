@@ -1,10 +1,10 @@
 class_name Unit
 extends Node
 
-@onready var hitbox = $Hitbox
-@onready var intent_ui = $IntentUI
-@onready var intent_handler = $IntentHandler
-@onready var stat_bar = $StatBar
+@onready var hitbox: Area2D = $Hitbox
+@onready var intent_ui: IntentUI = $IntentUI
+@onready var intent_handler: IntentHandler = $IntentHandler
+@onready var stat_bar: StatBar = $StatBar
 @onready var status_handler: StatusHandler = $StatusHandler
 
 @export var species: Species
@@ -13,13 +13,45 @@ var hp: int
 var block: int = 0
 
 
-func _ready() -> void:
+func init(
+	hitbox_: Area2D = null, intent_ui_: IntentUI = null, 
+	intent_handler_: IntentHandler = null, stat_bar_: StatBar = null,
+	stat_handler: StatusHandler = null, species_: Species = null
+) -> void:
+	
+	if not hitbox:
+		hitbox = hitbox_
+	
+	if not intent_ui:
+		intent_ui = intent_ui_
+	
+	if not intent_handler:
+		intent_handler = intent_handler_
+	
+	if not stat_bar:
+		stat_bar = stat_bar_
+	
+	if not status_handler:
+		status_handler = stat_handler
+	
+	if species_:
+		species = species_
+	
+	if not intent_handler.is_node_ready():
+		await ready 
+		
 	intent_handler.init(self)
+	
+	if not status_handler.is_node_ready():
+		await ready
+	
+	status_handler.status_owner = self
+	
+	self.texture = species.sprite
+	species.move_handler.init()
+	
 	init_stats()
 	update_ui()
-	status_handler.status_owner = self
-	species.move_handler.init()
-	self.texture = species.sprite
 
 
 func prepare(allies, enemies) -> void:
@@ -59,7 +91,7 @@ func gain_block(amount: int) -> void:
 
 
 func heal(amount: int) -> void:
-	self.health = clampi(hp + amount, hp + amount, species.max_hp)
+	self.hp = clampi(hp + amount, hp + amount, species.max_hp)
 	update_ui()
 
 

@@ -1,6 +1,5 @@
 extends Card
 
-@export var block: int
 
 func play(player: Player, dropped: bool, target: Unit) ->bool:
 	if targeted:
@@ -9,7 +8,5 @@ func play(player: Player, dropped: bool, target: Unit) ->bool:
 		if target or not dropped:
 			return false
 		else:
-			var block_effect = BlockEffect.new()
-			block_effect.set_amount(block)
-			block_effect.apply_effect(player, player)
+			Events.character_summon_requested.emit(species)
 			return true

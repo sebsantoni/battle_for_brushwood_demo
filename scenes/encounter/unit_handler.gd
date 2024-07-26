@@ -8,13 +8,23 @@ var units: Array[Unit]
 var allies: Array
 var enemies: Array
 
+enum HandlerType {Character, Enemy}
+@export var type: HandlerType
+
+const Unit_Scene = preload("res://scenes/unit/unit.tscn")
+
 
 func _ready() -> void:
 	for unit: Unit in self.get_children():
 		units.append(unit)
+		unit.init()
 	
 	Events.unit_died.connect(_on_unit_died)
 	Events.player_died.connect(_on_player_died)
+	Events.unit_summoned.connect(_on_unit_summoned)
+	
+	if type == HandlerType.Character:
+		Events.character_summon_requested.connect(summon_character)
 
 
 func activate_turn_start_statuses() -> void:
@@ -59,6 +69,11 @@ func _on_unit_died(unit: Unit) -> void:
 	remove_dead_target(unit)
 
 
+func _on_unit_summoned(unit: Unit, handler: UnitHandler) -> void:
+	if handler != self:
+		enemies.append(unit)
+
+
 func _on_player_died(player: Player) -> void:
 	if player in allies:
 		allies.erase(player)
@@ -76,3 +91,22 @@ func remove_dead_target(target) -> void:
 			move_handler.remove_target(target)
 			declare_intent(unit)
 
+
+func summon_character(species: Species) -> void:
+	print(species.max_hp)
+	var character = Unit_Scene.instantiate()
+	character.init(Area2D.new(), IntentUI.new(),
+	IntentHandler.new(), StatBar.new(), StatusHandler.new(),
+	species)
+	
+	self.add_child(character)
+	units.append(character)
+	allies.append(character)
+	Events.unit_summoned.emit(character, self)
+	
+	declare_intent(character)
+	position_unit(character)
+
+
+func position_unit(unit: Unit) -> void:
+	unit.position = Vector2(80, 80)

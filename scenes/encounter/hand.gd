@@ -68,7 +68,10 @@ func _on_card_played(handler: CardHandler) -> void:
 	var handler_index = handler.get_index()
 	card_handlers.erase(handler)
 	cards.erase(handler.card)
-	discard_pile.add_to_pile([handler.card])
+	
+	if not handler.card.exhaustable:
+		discard_pile.add_to_pile([handler.card])
+	
 	handler.queue_free()
 	remove_index(handler_index)
 	arrange_hand()

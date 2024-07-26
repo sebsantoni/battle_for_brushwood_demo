@@ -58,6 +58,7 @@ script = ExtResource("4_hsm72")
 
 [node name="EnemyHandler" type="Node2D" parent="."]
 script = ExtResource("4_hsm72")
+type = 1
 
 [node name="Enemy1" parent="EnemyHandler" instance=ExtResource("5_r3ti5")]
 position = Vector2(184, 65)
