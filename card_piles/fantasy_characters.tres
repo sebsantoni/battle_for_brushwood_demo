@@ -1,8 +1,11 @@
-[gd_resource type="Resource" script_class="CardPile" load_steps=2 format=3 uid="uid://blrorpitnxxtp"]
+[gd_resource type="Resource" script_class="CardPile" load_steps=5 format=3 uid="uid://blrorpitnxxtp"]
 
 [ext_resource type="Script" path="res://custom_resources/card_pile.gd" id="1_fyxm1"]
+[ext_resource type="Resource" uid="uid://dgsw5q8gvc23n" path="res://heroes/writer/cards/dragonling.tres" id="1_lbryb"]
+[ext_resource type="Resource" uid="uid://cq7cxcu47qwbr" path="res://heroes/writer/cards/knight.tres" id="2_flk2j"]
+[ext_resource type="Resource" uid="uid://cf3ede5kajf87" path="res://heroes/writer/cards/witch.tres" id="3_gbcsp"]
 
 [resource]
 script = ExtResource("1_fyxm1")
-cards = Array[Resource("res://custom_resources/card.gd")]([null, null, null])
+cards = Array[Resource("res://custom_resources/card.gd")]([ExtResource("1_lbryb"), ExtResource("2_flk2j"), ExtResource("3_gbcsp")])
 label_right = false

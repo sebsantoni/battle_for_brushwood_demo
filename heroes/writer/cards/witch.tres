@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Card" load_steps=4 format=3 uid="uid://cf3ede5kajf87"]
+
+[ext_resource type="Script" path="res://custom_resources/card.gd" id="1_5yulr"]
+[ext_resource type="Texture2D" uid="uid://dyquxh0juagfp" path="res://assets/witch_card.png" id="1_m3k4p"]
+[ext_resource type="Resource" uid="uid://8ycgepkiwhkn" path="res://species/witch/witch.tres" id="3_qwvdi"]
+
+[resource]
+script = ExtResource("1_5yulr")
+card_type = 3
+cost = 2
+targeted = false
+target_type = 0
+rarity = 1
+art = ExtResource("1_m3k4p")
+name = "Witch"
+description = ""
+species = ExtResource("3_qwvdi")

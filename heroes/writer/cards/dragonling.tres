@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Card" load_steps=4 format=3 uid="uid://dgsw5q8gvc23n"]
+
+[ext_resource type="Script" path="res://custom_resources/card.gd" id="1_udflq"]
+[ext_resource type="Texture2D" uid="uid://bnrgv636i7dln" path="res://assets/dragonling_card.png" id="1_v8vtc"]
+[ext_resource type="Resource" uid="uid://xob1rp1bfd0u" path="res://species/dragonling/dragonling.tres" id="3_tw48b"]
+
+[resource]
+script = ExtResource("1_udflq")
+card_type = 3
+cost = 1
+targeted = false
+target_type = 0
+rarity = 1
+art = ExtResource("1_v8vtc")
+name = "Dragonling"
+description = ""
+species = ExtResource("3_tw48b")

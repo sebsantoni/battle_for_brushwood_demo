@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dtyxobf7c1d8e"]
+[gd_scene load_steps=26 format=3 uid="uid://dtyxobf7c1d8e"]
 
 [ext_resource type="Script" path="res://scenes/encounter/encounter.gd" id="1_dg5hd"]
 [ext_resource type="Texture2D" uid="uid://8krrv8djaems" path="res://assets/battle_for_brushwood_demo_encounter_bg.png" id="1_dte00"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://scenes/encounter/hand.gd" id="8_3r3gv"]
 [ext_resource type="Texture2D" uid="uid://cx82c8trplb56" path="res://assets/draw_pile.png" id="9_cvykl"]
 [ext_resource type="Script" path="res://scenes/encounter/imagination_container.gd" id="9_sny4h"]
+[ext_resource type="Resource" uid="uid://blrorpitnxxtp" path="res://card_piles/fantasy_characters.tres" id="10_cnjkk"]
 [ext_resource type="Script" path="res://scenes/encounter/intent_arrow_drawer.gd" id="10_si42p"]
 [ext_resource type="Resource" uid="uid://dc5j2e1bura03" path="res://card_piles/discard_pile.tres" id="11_s4gtd"]
 [ext_resource type="Resource" uid="uid://bxtp6np3rum47" path="res://heroes/writer/writer_starting_deck.tres" id="12_p2gqg"]
@@ -96,7 +97,7 @@ size_flags_vertical = 4
 theme_override_constants/separation = 20
 alignment = 1
 script = ExtResource("9_sny4h")
-imagination_pool = ExtResource("12_p2gqg")
+imagination_pool = ExtResource("10_cnjkk")
 
 [node name="EncounterUI" type="CanvasLayer" parent="."]
 
