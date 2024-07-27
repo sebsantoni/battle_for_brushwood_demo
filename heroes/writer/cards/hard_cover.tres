@@ -14,4 +14,4 @@ exhaustable = false
 rarity = 0
 art = ExtResource("1_v12r3")
 name = "Hardcover"
-description = "Gain 5 block"
+description = "Gain 5 [url=\"Block\"][color=blue]block[/color][/url]"

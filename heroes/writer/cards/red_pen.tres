@@ -13,4 +13,4 @@ exhaustable = true
 rarity = 0
 art = ExtResource("1_nhqj2")
 name = "Red Pen"
-description = "Silence a unit."
+description = "[url=\"Silence\"][color=red]Silence[/color][/url] a unit. [url=\"Exhaust\"][color=blue]Exhaust[/color][/url]."

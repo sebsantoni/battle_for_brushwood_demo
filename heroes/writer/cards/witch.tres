@@ -14,5 +14,5 @@ exhaustable = true
 rarity = 1
 art = ExtResource("1_m3k4p")
 name = "Witch"
-description = "Summon a Witch. Exhaust."
+description = "Summon a [url=\"Witch\"][color=purple]Witch[/color][/url]. [url=\"Exhaust\"][color=blue]Exhaust[/color][/url]."
 species = ExtResource("3_qwvdi")

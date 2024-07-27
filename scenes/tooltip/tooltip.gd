@@ -23,6 +23,16 @@ var target_type_description = {
 	TargetType.All_Allies: " all allies"
 }
 
+var keyword_description = {
+	"Exhaust": "Remove from play this encounter",
+	"Dragonling": "A tiny dragon that burns enemies",
+	"Knight": "A tanky companion that defends allies",
+	"Witch": "A disruptive spellcaster",
+	"Block": "Negates damage received this turn",
+	"Imagine": "Choose 1 of 3 cards to add to your hand",
+	"Silence": "Remove all status effects"
+}
+
 func _ready() -> void:
 	if not description:
 		description = RichTextLabel.new()
@@ -55,3 +65,7 @@ func set_status_text(status: StatusEffect) -> void:
 	var text = status.name + ": " + status.description
 	
 	self.description.text = text
+
+
+func set_card_text(keyword: String) -> void:
+	self.description.text = keyword_description[keyword]

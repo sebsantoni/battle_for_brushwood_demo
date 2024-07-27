@@ -18,6 +18,8 @@ extends Control
 @onready var aura_art_container = $CardBackground/ArtContainer/AuraArtContainer
 @onready var character_art_container = $CardBackground/ArtContainer/CharacterArtContainer
 
+@onready var tooltip = $Tooltip
+
 var card: Card
 var card_handler: CardHandler
 
@@ -40,6 +42,15 @@ var type_icons = {
 	'Aura': preload("res://assets/pixil-frame-0.png"),
 	'Character': preload("res://assets/pixil-frame-0.png")
 }
+
+func _ready() -> void:
+	if not tooltip.is_node_ready():
+		await ready
+	
+	if not description.is_node_ready():
+		await ready
+	
+	description.tooltip = tooltip
 
 
 func load_ui() -> void:
@@ -87,3 +98,4 @@ func update_mana_icon(rarity: Card.Rarity, cost: int) -> void:
 	stylebox.set("bg_color", rarity_colors[Card.Rarity.keys()[rarity]])
 	cost_icon.add_theme_stylebox_override("mana_icon", stylebox)
 	cost_label.text = str(card.cost)
+
