@@ -139,6 +139,7 @@ card_pile = ExtResource("13_dej20")
 card_pile_icon = ExtResource("14_lyeb2")
 
 [node name="IntentArrows" type="CanvasLayer" parent="."]
+layer = 2
 
 [node name="IntentArrowDrawer" type="Control" parent="IntentArrows"]
 layout_mode = 3

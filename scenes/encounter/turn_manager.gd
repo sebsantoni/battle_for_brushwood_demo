@@ -15,8 +15,6 @@ var discard_pile: CardPileHandler
 
 var battle_result_label
 
-const Strength_Status = preload("res://status_effects/strength.tres")
-
 
 func _ready() -> void:
 	end_turn_button.pressed.connect(end_turn)
@@ -54,8 +52,7 @@ func start_turn() -> void:
 		battle_result_label.visible = true
 		end_turn_button.disabled = true
 		return
-	
-	player.status_handler.apply_status(Strength_Status, 2)
+
 
 func end_turn() -> void:
 	end_turn_button.disabled = true

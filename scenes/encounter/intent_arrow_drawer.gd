@@ -9,6 +9,7 @@ func _ready() -> void:
 
 func draw_target_lines(unit: Unit) -> void:
 	'''Draws lines between unit and its targets'''
+	print("drawing target lines")
 	var targets = unit.species.move_handler.current_targets
 	for target in targets:
 		if target == unit or not target:

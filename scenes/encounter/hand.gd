@@ -136,7 +136,6 @@ func _on_add_to_hand_requested(card: Card) -> void:
 
 
 func update_descriptions() -> void:
-	print("updating descriptions...")
 	for handler in card_handlers:
 		handler.card.update_description(player)
 		handler.card_ui.update_description()
