@@ -16,13 +16,29 @@ var block: int = 0
 @onready var status_handler: StatusHandler = $StatusHandler
 @onready var hitbox = $Hitbox
 
+@onready var status_tooltip = $Status_Tooltip
+
 
 func _ready() -> void:
 	init_stats()
 	update_ui()
 	status_handler.status_owner = self
 	status_handler.stats_changed.connect(_on_stats_changed)
-
+	
+	if not status_handler.is_node_ready():
+		await ready
+	
+	status_handler.status_owner = self
+	
+	if not status_handler.stats_changed.is_connected(_on_stats_changed):
+		status_handler.stats_changed.connect(_on_stats_changed)
+	
+	if not status_tooltip.is_node_ready():
+		await ready
+	
+	status_handler.tooltip = status_tooltip
+	status_handler.connect_stat_hovers(stat_bar)
+	
 
 func play(card_handler: CardHandler, dropped: bool, target, is_enemy: bool) -> void:
 	'''

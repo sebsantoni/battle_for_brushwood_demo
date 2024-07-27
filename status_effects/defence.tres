@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="StrengthStatus" load_steps=2 format=3 uid="uid://by28afprflce1"]
+[gd_resource type="Resource" script_class="DefenceStatus" load_steps=2 format=3 uid="uid://by28afprflce1"]
 
 [ext_resource type="Script" path="res://status_effects/defence.gd" id="1_umjpr"]
 
 [resource]
 script = ExtResource("1_umjpr")
 name = "Defence"
+description = "Increases block gained by cards"
 stack_type = 1
 activation_type = 2
 unique = false

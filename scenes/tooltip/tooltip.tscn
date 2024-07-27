@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://clqfl5w368uv0"]
+
+[ext_resource type="Script" path="res://scenes/tooltip/tooltip.gd" id="1_q6b78"]
+[ext_resource type="StyleBox" uid="uid://jb1w7fsspt2" path="res://scenes/unit/tooltip_panel.tres" id="1_tluth"]
+
+[node name="Tooltip" type="PanelContainer"]
+offset_right = 250.0
+offset_bottom = 50.0
+theme_override_styles/panel = ExtResource("1_tluth")
+script = ExtResource("1_q6b78")
+
+[node name="Description" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(240, 25)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/normal_font_size = 20
+text = "Intends to buff all enemies"
+fit_content = true
+scroll_active = false

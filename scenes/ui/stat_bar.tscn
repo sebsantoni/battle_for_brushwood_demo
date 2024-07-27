@@ -1,14 +1,21 @@
-[gd_scene load_steps=11 format=3 uid="uid://vfew7l2hp267"]
+[gd_scene load_steps=18 format=3 uid="uid://vfew7l2hp267"]
 
 [ext_resource type="Script" path="res://scenes/ui/stat_bar.gd" id="1_7v0ek"]
 [ext_resource type="Texture2D" uid="uid://bcjys4tn3aflh" path="res://assets/hp_icon.png" id="1_pti21"]
 [ext_resource type="Texture2D" uid="uid://deg7r3nv7hlbf" path="res://assets/shield_icon.png" id="2_gkbx0"]
+[ext_resource type="Script" path="res://scenes/ui/stat.gd" id="2_n7gjw"]
 [ext_resource type="Texture2D" uid="uid://bukh1qtvveyjs" path="res://assets/drowsy.png" id="4_hqlxx"]
 [ext_resource type="Texture2D" uid="uid://bnvbd0qx6taut" path="res://assets/asleep.png" id="5_6py2c"]
+[ext_resource type="Resource" uid="uid://b72gffxwqv82l" path="res://status_effects/drowsy.tres" id="5_p6sbl"]
 [ext_resource type="Texture2D" uid="uid://dhyiw33lqum8t" path="res://assets/dagger_icon.png" id="6_kxhl8"]
+[ext_resource type="Resource" uid="uid://dkrliy0urm64n" path="res://status_effects/asleep.tres" id="7_47dne"]
 [ext_resource type="Texture2D" uid="uid://dpeescfyokn5l" path="res://assets/burned.png" id="7_83y21"]
 [ext_resource type="Texture2D" uid="uid://duj80hwkkburl" path="res://assets/charmed.png" id="8_sjuuj"]
+[ext_resource type="Resource" uid="uid://bupc6dpqhtgvv" path="res://status_effects/strength.tres" id="9_6vp35"]
 [ext_resource type="Texture2D" uid="uid://c02liiwwp2sgp" path="res://assets/defence.png" id="9_hl4xe"]
+[ext_resource type="Resource" uid="uid://q63pk50efy1a" path="res://status_effects/burned.tres" id="11_kkr3l"]
+[ext_resource type="Resource" uid="uid://ol1nekpljdvg" path="res://status_effects/charmed.tres" id="13_7jn2s"]
+[ext_resource type="Resource" uid="uid://by28afprflce1" path="res://status_effects/defence.tres" id="15_3ju2k"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_niug2"]
 font_size = 50
@@ -28,13 +35,13 @@ grow_vertical = 2
 scale = Vector2(10, 10)
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 2
 script = ExtResource("1_7v0ek")
 
 [node name="HealthStat" type="HBoxContainer" parent="."]
-visible = false
 layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
@@ -102,6 +109,8 @@ visible = false
 layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
+script = ExtResource("2_n7gjw")
+status = ExtResource("5_p6sbl")
 
 [node name="DrowsyIcon" type="TextureRect" parent="DrowsyStat"]
 layout_mode = 2
@@ -134,6 +143,8 @@ visible = false
 layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
+script = ExtResource("2_n7gjw")
+status = ExtResource("7_47dne")
 
 [node name="AsleepIcon" type="TextureRect" parent="AsleepStat"]
 layout_mode = 2
@@ -166,6 +177,8 @@ visible = false
 layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
+script = ExtResource("2_n7gjw")
+status = ExtResource("9_6vp35")
 
 [node name="StrengthIcon" type="TextureRect" parent="StrengthStat"]
 layout_mode = 2
@@ -198,6 +211,8 @@ visible = false
 layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
+script = ExtResource("2_n7gjw")
+status = ExtResource("11_kkr3l")
 
 [node name="BurnedIcon" type="TextureRect" parent="BurnedStat"]
 layout_mode = 2
@@ -230,6 +245,8 @@ visible = false
 layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
+script = ExtResource("2_n7gjw")
+status = ExtResource("13_7jn2s")
 
 [node name="CharmedIcon" type="TextureRect" parent="CharmedStat"]
 layout_mode = 2
@@ -262,6 +279,8 @@ visible = false
 layout_mode = 2
 theme_override_constants/separation = 0
 alignment = 1
+script = ExtResource("2_n7gjw")
+status = ExtResource("15_3ju2k")
 
 [node name="DefenceIcon" type="TextureRect" parent="DefenceStat"]
 layout_mode = 2
@@ -288,3 +307,15 @@ label_settings = SubResource("LabelSettings_niug2")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[connection signal="mouse_entered" from="DrowsyStat" to="DrowsyStat" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="DrowsyStat" to="DrowsyStat" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="AsleepStat" to="AsleepStat" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="StrengthStat" to="StrengthStat" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="StrengthStat" to="StrengthStat" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="BurnedStat" to="BurnedStat" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="BurnedStat" to="BurnedStat" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="CharmedStat" to="CharmedStat" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CharmedStat" to="CharmedStat" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="DefenceStat" to="DefenceStat" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="DefenceStat" to="DefenceStat" method="_on_mouse_exited"]

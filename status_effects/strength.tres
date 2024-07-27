@@ -1,10 +1,11 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bupc6dpqhtgvv"]
+[gd_resource type="Resource" script_class="StrengthStatus" load_steps=2 format=3 uid="uid://bupc6dpqhtgvv"]
 
 [ext_resource type="Script" path="res://status_effects/strength.gd" id="1_18sgv"]
 
 [resource]
 script = ExtResource("1_18sgv")
 name = "Strength"
+description = "Increases damage dealt by cards"
 stack_type = 1
 activation_type = 2
 unique = false

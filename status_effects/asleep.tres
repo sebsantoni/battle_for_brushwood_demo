@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_2lnym")
 name = "Asleep"
+description = "Cannot perform any actions"
 stack_type = 0
 activation_type = 1
 unique = false

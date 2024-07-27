@@ -51,7 +51,7 @@ position = Vector2(128, 72)
 texture = ExtResource("1_dte00")
 
 [node name="Player" parent="." instance=ExtResource("3_asfwf")]
-position = Vector2(40, 78)
+position = Vector2(63, 81)
 scale = Vector2(1, 1)
 gold = 100
 

@@ -2,10 +2,15 @@ class_name Unit
 extends Node
 
 @onready var hitbox: Area2D = $Hitbox
+
 @onready var intent_ui: IntentUI = $IntentUI
 @onready var intent_handler: IntentHandler = $IntentHandler
+
 @onready var stat_bar: StatBar = $StatBar
 @onready var status_handler: StatusHandler = $StatusHandler
+
+@onready var intent_tooltip: Tooltip = $Intent_Tooltip
+@onready var status_tooltip = $Status_Tooltip
 
 @export var species: Species
 
@@ -16,7 +21,8 @@ var block: int = 0
 func init(
 	hitbox_: Area2D = null, intent_ui_: IntentUI = null, 
 	intent_handler_: IntentHandler = null, stat_bar_: StatBar = null,
-	stat_handler: StatusHandler = null, species_: Species = null
+	stat_handler: StatusHandler = null, species_: Species = null, 
+	intent_tooltip_: Tooltip = Tooltip.new(), status_tooltip_ = Tooltip.new()
 ) -> void:
 	
 	if not hitbox:
@@ -37,6 +43,12 @@ func init(
 	if species_:
 		species = species_
 	
+	if not intent_tooltip:
+		intent_tooltip = intent_tooltip_
+		
+	if not status_tooltip_:
+		status_tooltip = status_tooltip_
+	
 	if not intent_handler.is_node_ready():
 		await ready 
 		
@@ -47,6 +59,22 @@ func init(
 	
 	status_handler.status_owner = self
 	status_handler.stats_changed.connect(_on_stats_changed)
+	
+	if not status_tooltip.is_node_ready():
+		await ready
+	
+	status_handler.tooltip = status_tooltip
+	status_handler.connect_stat_hovers(stat_bar)
+	
+	if not intent_ui.is_node_ready():
+		await ready
+	
+	intent_ui.move_handler = species.move_handler
+	
+	if not intent_tooltip.is_node_ready():
+		await ready
+	
+	intent_ui.tooltip = intent_tooltip
 	
 	self.texture = species.sprite
 	species.move_handler.init()
@@ -118,3 +146,4 @@ func update_ui() -> void:
 func _on_stats_changed() -> void:
 	update_ui()
 	intent_handler.update_ui()
+

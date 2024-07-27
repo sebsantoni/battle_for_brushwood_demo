@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://diisfdg42k8he"]
+[gd_scene load_steps=10 format=3 uid="uid://diisfdg42k8he"]
 
 [ext_resource type="Texture2D" uid="uid://dfa8t17kxdln5" path="res://assets/butterfae.png" id="1_wo3po"]
 [ext_resource type="Script" path="res://scenes/unit/unit.gd" id="2_gycxh"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scenes/unit/intent_handler.gd" id="4_c5uhv"]
 [ext_resource type="PackedScene" uid="uid://o8m30crb1uxe" path="res://scenes/ui/intent_ui.tscn" id="4_rpnbn"]
 [ext_resource type="PackedScene" uid="uid://cepbv1hggl6qj" path="res://scenes/status_handler/status_handler.tscn" id="7_x1h6f"]
+[ext_resource type="PackedScene" uid="uid://clqfl5w368uv0" path="res://scenes/tooltip/tooltip.tscn" id="8_cfepq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ihapj"]
 size = Vector2(133.12, 133.12)
@@ -24,15 +25,14 @@ position = Vector2(-5.18797e-06, -5.18797e-06)
 shape = SubResource("RectangleShape2D_ihapj")
 
 [node name="IntentHandler" type="Control" parent="."]
-custom_minimum_size = Vector2(133, 133)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -66.6667
 offset_top = -66.6667
-offset_right = 34.3333
-offset_bottom = 34.3333
+offset_right = -194.667
+offset_bottom = -194.667
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("4_c5uhv")
@@ -55,6 +55,24 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="StatusHandler" parent="." instance=ExtResource("7_x1h6f")]
+offset_right = -128.0
+offset_bottom = -128.0
+
+[node name="Intent_Tooltip" parent="." instance=ExtResource("8_cfepq")]
+visible = false
+offset_left = -117.949
+offset_top = -174.359
+offset_right = 132.051
+offset_bottom = -124.359
+
+[node name="Status_Tooltip" parent="." instance=ExtResource("8_cfepq")]
+visible = false
+offset_left = -117.949
+offset_top = 133.333
+offset_right = 132.051
+offset_bottom = 183.333
 
 [connection signal="mouse_entered" from="IntentHandler" to="IntentHandler" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="IntentHandler" to="IntentHandler" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="IntentUI" to="IntentUI" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="IntentUI" to="IntentUI" method="_on_mouse_exited"]

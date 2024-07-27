@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_nt2vv")
 name = "Burned"
+description = "Takes damage at the end of each turn"
 stack_type = 1
 activation_type = 1
 unique = false

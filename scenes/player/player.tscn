@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://csu3ntbxsjk2f"]
+[gd_scene load_steps=8 format=3 uid="uid://csu3ntbxsjk2f"]
 
 [ext_resource type="Texture2D" uid="uid://d1am2na83lri2" path="res://assets/writer.png" id="1_4mqhr"]
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="2_h230n"]
 [ext_resource type="Resource" uid="uid://cmjyd4rras5mm" path="res://heroes/writer/writer.tres" id="3_ipmqi"]
 [ext_resource type="PackedScene" uid="uid://vfew7l2hp267" path="res://scenes/ui/stat_bar.tscn" id="3_o2s8i"]
 [ext_resource type="PackedScene" uid="uid://cepbv1hggl6qj" path="res://scenes/status_handler/status_handler.tscn" id="5_bfx1g"]
+[ext_resource type="PackedScene" uid="uid://clqfl5w368uv0" path="res://scenes/tooltip/tooltip.tscn" id="6_apjne"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n4oo7"]
 size = Vector2(32.3171, 31.3415)
@@ -28,3 +29,14 @@ offset_bottom = -6.5122
 scale = Vector2(2, 2)
 
 [node name="StatusHandler" parent="." instance=ExtResource("5_bfx1g")]
+offset_right = -32.0
+offset_bottom = -32.0
+mouse_filter = 2
+
+[node name="Status_Tooltip" parent="." instance=ExtResource("6_apjne")]
+visible = false
+offset_left = -25.3659
+offset_top = 31.2195
+offset_right = 224.634
+offset_bottom = 81.2195
+scale = Vector2(0.2, 0.2)

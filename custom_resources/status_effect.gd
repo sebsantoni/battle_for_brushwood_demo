@@ -8,6 +8,7 @@ enum ActivationType {Turn_Start, Turn_End, Non_Activable}
 var stacks: int
 
 @export var name: String
+@export var description: String
 @export var stack_type: StackType
 @export var activation_type: ActivationType
 @export var unique: bool

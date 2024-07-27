@@ -10,6 +10,8 @@ const Non_Activable = StatusEffect.ActivationType.Non_Activable
 var statuses: Dictionary = {} # status name : status effect
 var status_owner # the entity who owns this handler
 
+var tooltip: Tooltip
+
 signal stats_changed
 
 
@@ -91,3 +93,19 @@ func get_status_stacks(status: String) -> int:
 func clear_statuses() -> void:
 	statuses.clear()
 	stats_changed.emit()
+
+
+func connect_stat_hovers(stat_bar: StatBar) -> void:
+	for child in stat_bar.get_children():
+		if child is Stat:
+			child.open_stat_tooltip.connect(_on_open_tooltip)
+			child.close_stat_tooltip.connect(_on_close_tooltip)
+
+
+func _on_open_tooltip(status: StatusEffect) -> void:
+	tooltip.set_status_text(status)
+	tooltip.show()
+
+
+func _on_close_tooltip() -> void:
+	tooltip.hide()

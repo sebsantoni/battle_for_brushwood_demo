@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_86jnw")
 name = "Drowsy"
+description = "Will fall asleep, becoming unable to act"
 stack_type = 0
 activation_type = 1
 unique = true

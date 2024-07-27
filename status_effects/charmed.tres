@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_45v5q")
 name = "Charmed"
+description = "Cannot perform damaging moves"
 stack_type = 0
 activation_type = 1
 unique = false
