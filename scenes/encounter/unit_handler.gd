@@ -70,8 +70,9 @@ func _on_unit_died(unit: Unit) -> void:
 
 
 func _on_unit_summoned(unit: Unit, handler: UnitHandler) -> void:
-	if handler != self:
-		enemies.append(unit)
+	#if handler != self:
+		#enemies.append(unit)
+	pass
 
 
 func _on_player_died(player: Player) -> void:
@@ -93,7 +94,6 @@ func remove_dead_target(target) -> void:
 
 
 func summon_character(species: Species) -> void:
-	print(species.max_hp)
 	var character = Unit_Scene.instantiate()
 	character.init(Area2D.new(), IntentUI.new(),
 	IntentHandler.new(), StatBar.new(), StatusHandler.new(),
@@ -102,10 +102,10 @@ func summon_character(species: Species) -> void:
 	self.add_child(character)
 	units.append(character)
 	allies.append(character)
-	Events.unit_summoned.emit(character, self)
-	
+	#Events.unit_summoned.emit(character, self)
 	declare_intent(character)
 	position_unit(character)
+
 
 
 func position_unit(unit: Unit) -> void:

@@ -9,6 +9,6 @@
 script = ExtResource("1_vhexd")
 move_pool = {
 ExtResource("1_0wycm"): 2,
-ExtResource("2_531dh"): 3,
+ExtResource("2_531dh"): 2,
 ExtResource("3_qi58e"): 1
 }

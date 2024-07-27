@@ -21,6 +21,7 @@ func _ready() -> void:
 	init_stats()
 	update_ui()
 	status_handler.status_owner = self
+	status_handler.stats_changed.connect(_on_stats_changed)
 
 
 func play(card_handler: CardHandler, dropped: bool, target, is_enemy: bool) -> void:
@@ -57,6 +58,9 @@ func update_ui() -> void:
 	stat_bar.update_drowsy_label(status_handler.get_status_stacks("Drowsy"))
 	stat_bar.update_asleep_label(status_handler.get_status_stacks("Asleep"))
 	stat_bar.update_strength_label(status_handler.get_status_stacks("Strength"))
+	stat_bar.update_burned_label(status_handler.get_status_stacks("Burned"))
+	stat_bar.update_charmed_label(status_handler.get_status_stacks("Charmed"))
+	stat_bar.update_defence_label(status_handler.get_status_stacks("Defence"))
 	
 
 func take_damage(amount: int) -> void:
@@ -85,20 +89,5 @@ func set_mana(amount: int) -> void:
 	self.mana = amount
 
 
-'''
-Player HAS a hero, since this hero is chosen by the player
-In addition, they have temporary stats rather than max ones:
-	hp
-	block
-	mana
-	any statuses/buffs/debuffs
-	gold
-	etc.
-
-Player is also responsible for the play() function which allows
-them to play a card! very important for a card game :3
-
-I'm finding it hard to differentiate between the player in battle, and
-the overall player playing the game... but I guess they can be made into one
-for now? Can be refactored later
-'''
+func _on_stats_changed() -> void:
+	update_ui()

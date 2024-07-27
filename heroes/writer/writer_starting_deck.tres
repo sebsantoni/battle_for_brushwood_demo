@@ -1,11 +1,12 @@
-[gd_resource type="Resource" script_class="CardPile" load_steps=5 format=3 uid="uid://bxtp6np3rum47"]
+[gd_resource type="Resource" script_class="CardPile" load_steps=6 format=3 uid="uid://bxtp6np3rum47"]
 
 [ext_resource type="Resource" uid="uid://cxo4qw1ig145t" path="res://heroes/writer/cards/pen_throw.tres" id="1_288k7"]
 [ext_resource type="Resource" uid="uid://dnqveyaacxtq" path="res://heroes/writer/cards/hard_cover.tres" id="2_hfak8"]
 [ext_resource type="Script" path="res://custom_resources/card_pile.gd" id="3_gfnxs"]
+[ext_resource type="Resource" uid="uid://bo4qt71oal23f" path="res://heroes/writer/cards/mythic_muse.tres" id="3_x3jx5"]
 [ext_resource type="Resource" uid="uid://bn4nqa4ui3oca" path="res://heroes/writer/cards/red_pen.tres" id="4_tdolx"]
 
 [resource]
 script = ExtResource("3_gfnxs")
-cards = Array[Resource("res://custom_resources/card.gd")]([ExtResource("1_288k7"), ExtResource("1_288k7"), ExtResource("1_288k7"), ExtResource("1_288k7"), ExtResource("2_hfak8"), ExtResource("4_tdolx"), ExtResource("4_tdolx"), ExtResource("4_tdolx"), ExtResource("4_tdolx"), ExtResource("4_tdolx")])
+cards = Array[Resource("res://custom_resources/card.gd")]([ExtResource("1_288k7"), ExtResource("1_288k7"), ExtResource("1_288k7"), ExtResource("1_288k7"), ExtResource("2_hfak8"), ExtResource("2_hfak8"), ExtResource("2_hfak8"), ExtResource("2_hfak8"), ExtResource("4_tdolx"), ExtResource("3_x3jx5")])
 label_right = true

@@ -14,7 +14,6 @@ scale = Vector2(1.025, 1.025)
 texture = ExtResource("1_4mqhr")
 script = ExtResource("2_h230n")
 hero = ExtResource("3_ipmqi")
-gold = null
 
 [node name="Hitbox" type="Area2D" parent="."]
 

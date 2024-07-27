@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="CharmedStatus" load_steps=2 format=3 uid="uid://q63pk50efy1a"]
+[gd_resource type="Resource" script_class="BurnedStatus" load_steps=2 format=3 uid="uid://q63pk50efy1a"]
 
-[ext_resource type="Script" path="res://status_effects/charmed.gd" id="1_kvep8"]
+[ext_resource type="Script" path="res://status_effects/burned.gd" id="1_nt2vv"]
 
 [resource]
-script = ExtResource("1_kvep8")
+script = ExtResource("1_nt2vv")
 name = "Burned"
 stack_type = 1
 activation_type = 1

@@ -38,9 +38,9 @@ grow_vertical = 2
 script = ExtResource("4_c5uhv")
 
 [node name="StatBar" parent="." instance=ExtResource("3_ts8e2")]
-offset_left = -87.1795
+offset_left = -102.564
 offset_top = 76.9231
-offset_right = -194.179
+offset_right = -210.564
 offset_bottom = -46.0769
 
 [node name="IntentUI" parent="." instance=ExtResource("4_rpnbn")]

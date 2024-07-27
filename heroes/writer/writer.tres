@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("2_g7tae")
 max_mana = 3
-max_hp = 20
+max_hp = 25
 cards_per_turn = 5
 starting_deck = ""
 name = "Writer"

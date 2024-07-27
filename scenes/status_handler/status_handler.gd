@@ -10,6 +10,8 @@ const Non_Activable = StatusEffect.ActivationType.Non_Activable
 var statuses: Dictionary = {} # status name : status effect
 var status_owner # the entity who owns this handler
 
+signal stats_changed
+
 
 func apply_status(status, stacks: int) -> void:
 	'''
@@ -17,7 +19,6 @@ func apply_status(status, stacks: int) -> void:
 	Applies status to the status holder, either incrementing it
 	or adding it for the first time
 	'''
-	
 	if status.unique and status.name in statuses:
 		return
 	
@@ -30,8 +31,8 @@ func apply_status(status, stacks: int) -> void:
 	else:
 		statuses[status.name] = status.duplicate()
 		statuses[status.name].increase_stacks(stacks)
-	
-	status_owner.update_ui()
+
+	stats_changed.emit()
 
 
 func activate_turn_start() -> void:
@@ -56,6 +57,8 @@ func activate_statuses_by_activation_type(type: StatusEffect.ActivationType) -> 
 		
 		if stat.stacks == 0:
 			statuses.erase(stat.name)
+	
+	stats_changed.emit()
 
 
 func get_statuses_by_activation_type(type: StatusEffect.ActivationType) -> Array[StatusEffect]:
@@ -87,4 +90,4 @@ func get_status_stacks(status: String) -> int:
 
 func clear_statuses() -> void:
 	statuses.clear()
-	status_owner.update_ui()
+	stats_changed.emit()

@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_d0qt6")
-stacks = 1
+stacks = 2
 target_type = 4
 effect_type = 2

@@ -46,6 +46,7 @@ func init(
 		await ready
 	
 	status_handler.status_owner = self
+	status_handler.stats_changed.connect(_on_stats_changed)
 	
 	self.texture = species.sprite
 	species.move_handler.init()
@@ -56,6 +57,7 @@ func init(
 
 func prepare(allies, enemies) -> void:
 	species.move_handler.prepare(self, allies, enemies)
+	
 	var current_move = species.move_handler.current_move
 	
 	var damaging_effects = [
@@ -64,12 +66,15 @@ func prepare(allies, enemies) -> void:
 		Move.EffectType.Damage_Debuff]
 	
 	if status_handler.has_status("Charmed"):
-		while current_move.EffectType in damaging_effects:
+		while current_move.effect_type in damaging_effects:
 			species.move_handler.prepare(self, allies, enemies)
 			current_move = species.move_handler.current_move
 
 
 func move() -> void:
+	if status_handler.has_status("Asleep"):
+		return
+		
 	species.move_handler.execute(self)
 
 
@@ -105,3 +110,11 @@ func update_ui() -> void:
 	stat_bar.update_drowsy_label(status_handler.get_status_stacks("Drowsy"))
 	stat_bar.update_asleep_label(status_handler.get_status_stacks("Asleep"))
 	stat_bar.update_strength_label(status_handler.get_status_stacks("Strength"))
+	stat_bar.update_burned_label(status_handler.get_status_stacks("Burned"))
+	stat_bar.update_charmed_label(status_handler.get_status_stacks("Charmed"))
+	stat_bar.update_defence_label(status_handler.get_status_stacks("Defence"))
+
+
+func _on_stats_changed() -> void:
+	update_ui()
+	intent_handler.update_ui()

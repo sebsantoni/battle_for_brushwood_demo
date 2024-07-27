@@ -14,5 +14,5 @@ exhaustable = true
 rarity = 1
 art = ExtResource("1_m3k4p")
 name = "Witch"
-description = "Summon a Dragonling. Exhaust."
+description = "Summon a Witch. Exhaust."
 species = ExtResource("3_qwvdi")

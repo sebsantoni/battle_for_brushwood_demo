@@ -13,6 +13,8 @@ var Effect_Icons: Dictionary = {
 	'Damage_Debuff': preload("res://assets/dagger_debuff_icon.png")
 }
 
+const Asleep_Icon = preload("res://assets/asleep.png")
+
 
 func init(unit_: Unit) -> void:
 	unit = unit_
@@ -30,6 +32,15 @@ func _on_mouse_exited():
 
 func update_ui() -> void:
 	var move = move_handler.current_move
+	
+	if unit.status_handler.has_status("Asleep"):
+		intent_ui.icon.texture = Asleep_Icon
+		intent_ui.label.text = str(unit.status_handler.get_status_stacks("Asleep"))
+		return
+	
+	if not move:
+		return
+	
 	var effect = Move.EffectType.keys()[move.effect_type]
 	
 	var text: String = ""

@@ -79,6 +79,7 @@ func end_turn() -> void:
 		return
 	
 	player.block = 0
+	player.update_ui()
 		
 	start_turn()
 
