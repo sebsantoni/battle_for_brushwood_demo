@@ -18,10 +18,17 @@ func init(card_pile_: CardPile) -> void:
 	card_pile_ui.card_pile = card_pile
 	card_pile_ui.card_pile_handler = self
 	card_pile_ui.load_ui()
-
+	
+	if not card_pile_view.is_node_ready():
+		await ready
+	
+	card_pile_view.card_pile = card_pile
+	card_pile_view.instantiate_card_handlers()
+	
 
 func _on_card_pile_size_changed() -> void:
 	card_pile_ui.update_count()
+	card_pile_view.update_card_handlers()
 
 
 func add_to_pile(cards: Array[Card]) -> void:
@@ -42,3 +49,8 @@ func size() -> int:
 func _on_gui_input(event: InputEvent):
 	if event.is_action_pressed("left_click"):
 		card_pile_view.show()
+
+
+func _input(event: InputEvent):
+	if event.is_action_pressed("right_click"):
+		card_pile_view.hide()

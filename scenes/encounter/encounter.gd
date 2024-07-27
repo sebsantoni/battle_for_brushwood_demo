@@ -20,17 +20,17 @@ and the hand/cards being played.
 @onready var card_drop_area = $CardDropArea
 @onready var hand: Hand = $EncounterUI/Hand
 
-@onready var deck = $EncounterUI/Deck
-@onready var draw_pile = $EncounterUI/DrawPile
-@onready var discard_pile = $EncounterUI/DiscardPile
-@onready var exhaust_pile = $EncounterUI/ExhaustPile
+@onready var deck = $DeckUI/Deck
+@onready var draw_pile = $DeckUI/DrawPile
+@onready var discard_pile = $DeckUI/DiscardPile
+@onready var exhaust_pile = $DeckUI/ExhaustPile
 
 @onready var mana_icon: ManaIcon = $EncounterUI/ManaIcon
-@onready var end_turn_button = $EndTurnButton
+@onready var end_turn_button = $EncounterUI/EndTurnButton
 
 @onready var intent_arrow_drawer: IntentArrowDrawer = $IntentArrows/IntentArrowDrawer
 
-@onready var battle_result_label = $BattleResultLabel
+@onready var battle_result_label = $EncounterUI/BattleResultLabel
 
 var enemies: Array = []
 var allies: Array = []

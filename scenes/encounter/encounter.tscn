@@ -79,9 +79,10 @@ position = Vector2(128, 50)
 shape = SubResource("RectangleShape2D_qfuuj")
 
 [node name="TurnManager" parent="." node_paths=PackedStringArray("end_turn_button") instance=ExtResource("6_yj30r")]
-end_turn_button = NodePath("../EndTurnButton")
+end_turn_button = NodePath("../EncounterUI/EndTurnButton")
 
 [node name="ImaginationUI" type="CanvasLayer" parent="."]
+layer = 4
 
 [node name="ImaginationContainer" type="HBoxContainer" parent="ImaginationUI"]
 visible = false
@@ -102,15 +103,50 @@ alignment = 1
 script = ExtResource("9_sny4h")
 imagination_pool = ExtResource("10_cnjkk")
 
-[node name="EncounterUI" type="CanvasLayer" parent="."]
+[node name="DeckUI" type="CanvasLayer" parent="."]
+layer = 3
 
-[node name="Deck" parent="EncounterUI" instance=ExtResource("8_2mlyr")]
-offset_left = 223.0
-offset_top = 1.0
-offset_right = -1.0
-offset_bottom = -111.0
+[node name="Deck" parent="DeckUI" instance=ExtResource("8_2mlyr")]
+offset_left = 101.0
+offset_top = -65.0
+offset_right = 121.0
+offset_bottom = -45.0
 card_pile = ExtResource("12_sojy7")
 card_pile_icon = ExtResource("13_hrgm7")
+
+[node name="DrawPile" parent="DeckUI" instance=ExtResource("8_2mlyr")]
+offset_left = -121.0
+offset_top = 51.0
+offset_right = -101.0
+offset_bottom = 71.0
+card_pile = ExtResource("12_p2gqg")
+card_pile_icon = ExtResource("9_cvykl")
+
+[node name="DiscardPile" parent="DeckUI" instance=ExtResource("8_2mlyr")]
+offset_left = 93.0
+offset_top = 29.0
+offset_right = 113.0
+offset_bottom = 49.0
+card_pile = ExtResource("11_s4gtd")
+card_pile_icon = ExtResource("12_vflg6")
+
+[node name="ExhaustPile" parent="DeckUI" instance=ExtResource("8_2mlyr")]
+offset_left = 102.0
+offset_top = 42.0
+offset_right = 122.0
+offset_bottom = 62.0
+card_pile = ExtResource("13_dej20")
+card_pile_icon = ExtResource("14_lyeb2")
+
+[node name="IntentArrows" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="IntentArrowDrawer" type="Control" parent="IntentArrows"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("10_si42p")
+
+[node name="EncounterUI" type="CanvasLayer" parent="."]
 
 [node name="Hand" type="Control" parent="EncounterUI"]
 layout_mode = 3
@@ -130,30 +166,6 @@ width_curve = SubResource("Curve_km6a5")
 height_curve = SubResource("Curve_5bdem")
 rotation_curve = SubResource("Curve_7vexd")
 
-[node name="DrawPile" parent="EncounterUI" instance=ExtResource("8_2mlyr")]
-offset_left = 1.0
-offset_top = 117.0
-offset_right = -223.0
-offset_bottom = 5.0
-card_pile = ExtResource("12_p2gqg")
-card_pile_icon = ExtResource("9_cvykl")
-
-[node name="DiscardPile" parent="EncounterUI" instance=ExtResource("8_2mlyr")]
-offset_left = 215.0
-offset_top = 95.0
-offset_right = -9.0
-offset_bottom = -17.0
-card_pile = ExtResource("11_s4gtd")
-card_pile_icon = ExtResource("12_vflg6")
-
-[node name="ExhaustPile" parent="EncounterUI" instance=ExtResource("8_2mlyr")]
-offset_left = 224.0
-offset_top = 108.0
-offset_right = 0.0
-offset_bottom = -4.0
-card_pile = ExtResource("13_dej20")
-card_pile_icon = ExtResource("14_lyeb2")
-
 [node name="ManaIcon" parent="EncounterUI" node_paths=PackedStringArray("player") instance=ExtResource("15_t88gb")]
 offset_left = -2.0
 offset_top = 97.0
@@ -161,33 +173,25 @@ offset_right = 30.0
 offset_bottom = 129.0
 player = NodePath("../../Player")
 
-[node name="EndTurnButton" parent="." instance=ExtResource("16_fl6ay")]
+[node name="EndTurnButton" parent="EncounterUI" instance=ExtResource("16_fl6ay")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 104.0
-offset_top = 73.0
-offset_right = 277.0
-offset_bottom = 112.0
+offset_left = -24.0
+offset_top = 1.0
+offset_right = 149.0
+offset_bottom = 40.0
 
-[node name="IntentArrows" type="CanvasLayer" parent="."]
-layer = 2
-
-[node name="IntentArrowDrawer" type="Control" parent="IntentArrows"]
-layout_mode = 3
-anchors_preset = 0
-script = ExtResource("10_si42p")
-
-[node name="BattleResultLabel" type="Label" parent="."]
+[node name="BattleResultLabel" type="Label" parent="EncounterUI"]
 visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 42.0
+offset_left = -86.0
 offset_top = 37.0
-offset_right = 218.0
+offset_right = 90.0
 offset_bottom = 76.0
 grow_horizontal = 2
 text = "Battle won!"

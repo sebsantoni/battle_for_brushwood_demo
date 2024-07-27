@@ -3,8 +3,8 @@ extends Control
 
 var card_handlers: Array[CardHandler]
 var cards: Array[Card]
-@onready var discard_pile: CardPileHandler = $"../DiscardPile"
-@onready var exhaust_pile: CardPileHandler = $"../ExhaustPile"
+@onready var discard_pile: CardPileHandler = $"../../DeckUI/DiscardPile"
+@onready var exhaust_pile: CardPileHandler = $"../../DeckUI/ExhaustPile"
 
 const Card_Handler_Scene = preload("res://scenes/card/card_handler.tscn")
 
