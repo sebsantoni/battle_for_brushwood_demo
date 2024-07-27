@@ -1,8 +1,11 @@
 class_name Hand
 extends Control
 
+@export var player: Player
+
 var card_handlers: Array[CardHandler]
 var cards: Array[Card]
+
 @onready var discard_pile: CardPileHandler = $"../../DeckUI/DiscardPile"
 @onready var exhaust_pile: CardPileHandler = $"../../DeckUI/ExhaustPile"
 
@@ -25,6 +28,8 @@ func _ready() -> void:
 	cards = get_cards_from_handlers(card_handlers)
 	
 	Events.add_to_hand_requested.connect(_on_add_to_hand_requested)
+	
+	player.status_handler.stats_changed.connect(update_descriptions)
 
 
 func add_cards_from_pile(from: CardPileHandler, num_cards: int) -> void:
@@ -128,3 +133,10 @@ func add_to_hand(card: Card) -> void:
 func _on_add_to_hand_requested(card: Card) -> void:
 	add_to_hand(card)
 	arrange_hand()
+
+
+func update_descriptions() -> void:
+	print("updating descriptions...")
+	for handler in card_handlers:
+		handler.card.update_description(player)
+		handler.card_ui.update_description()

@@ -25,3 +25,7 @@ enum Rarity {Common, Uncommon, Rare}
 func play(_player: Player, _dropped: bool, _target, is_enemy: bool) -> bool:
 	'''Returns whether this card was successfully played'''
 	return true
+
+
+func update_description(_player: Player) -> void:
+	pass

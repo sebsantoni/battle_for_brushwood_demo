@@ -18,3 +18,10 @@ func play(player: Player, dropped: bool, target, is_enemy: bool) ->bool:
 			return false
 		else:
 			return true
+
+
+func update_description(player: Player) -> void:
+	var strength_stacks = player.status_handler.get_status_stacks("Strength")
+	var dmg = damage + strength_stacks
+	var text = "Deal [color=red]" + str(dmg) + "[/color] damage to an enemy."
+	self.description = text

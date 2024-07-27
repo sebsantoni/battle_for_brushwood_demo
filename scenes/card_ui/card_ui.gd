@@ -58,6 +58,10 @@ func load_ui() -> void:
 	display_card_type(card.card_type, card.art)
 	update_mana_icon(card.rarity, card.cost)
 	name_label.text = card.name
+	update_description()
+
+
+func update_description() -> void:
 	description.text = card.description 
 
 

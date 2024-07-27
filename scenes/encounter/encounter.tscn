@@ -139,7 +139,6 @@ card_pile = ExtResource("13_dej20")
 card_pile_icon = ExtResource("14_lyeb2")
 
 [node name="IntentArrows" type="CanvasLayer" parent="."]
-layer = 2
 
 [node name="IntentArrowDrawer" type="Control" parent="IntentArrows"]
 layout_mode = 3
@@ -148,7 +147,7 @@ script = ExtResource("10_si42p")
 
 [node name="EncounterUI" type="CanvasLayer" parent="."]
 
-[node name="Hand" type="Control" parent="EncounterUI"]
+[node name="Hand" type="Control" parent="EncounterUI" node_paths=PackedStringArray("player")]
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
@@ -162,6 +161,7 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
 script = ExtResource("8_3r3gv")
+player = NodePath("../../Player")
 width_curve = SubResource("Curve_km6a5")
 height_curve = SubResource("Curve_5bdem")
 rotation_curve = SubResource("Curve_7vexd")

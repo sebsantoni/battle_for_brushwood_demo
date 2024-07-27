@@ -3,6 +3,7 @@ extends CardStateNode
 
 func enter() -> void:
 	card_ui.position.y -= 10
+	
 
 
 func _on_gui_input(event: InputEvent) -> void:
