@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dtyxobf7c1d8e"]
+[gd_scene load_steps=28 format=3 uid="uid://dtyxobf7c1d8e"]
 
 [ext_resource type="Script" path="res://scenes/encounter/encounter.gd" id="1_dg5hd"]
 [ext_resource type="Texture2D" uid="uid://8krrv8djaems" path="res://assets/battle_for_brushwood_demo_encounter_bg.png" id="1_dte00"]
@@ -16,8 +16,10 @@
 [ext_resource type="Script" path="res://scenes/encounter/intent_arrow_drawer.gd" id="10_si42p"]
 [ext_resource type="Resource" uid="uid://dc5j2e1bura03" path="res://card_piles/discard_pile.tres" id="11_s4gtd"]
 [ext_resource type="Resource" uid="uid://bxtp6np3rum47" path="res://heroes/writer/writer_starting_deck.tres" id="12_p2gqg"]
+[ext_resource type="Resource" uid="uid://d15invsa54xcv" path="res://card_piles/deck.tres" id="12_sojy7"]
 [ext_resource type="Texture2D" uid="uid://cauf8k3r0qfto" path="res://assets/discard_pile.png" id="12_vflg6"]
 [ext_resource type="Resource" uid="uid://wj0cgj0llff4" path="res://card_piles/exhaust_pile.tres" id="13_dej20"]
+[ext_resource type="Texture2D" uid="uid://dpjhenk4jwh5s" path="res://assets/writer_deck.png" id="13_hrgm7"]
 [ext_resource type="Texture2D" uid="uid://bpusytqhvtxka" path="res://assets/exhaust_pile.png" id="14_lyeb2"]
 [ext_resource type="PackedScene" uid="uid://bifykv8cqiqdx" path="res://scenes/encounter/mana_icon.tscn" id="15_t88gb"]
 [ext_resource type="PackedScene" uid="uid://ctbfvs0813ybe" path="res://scenes/encounter/end_turn_button.tscn" id="16_fl6ay"]
@@ -101,6 +103,14 @@ script = ExtResource("9_sny4h")
 imagination_pool = ExtResource("10_cnjkk")
 
 [node name="EncounterUI" type="CanvasLayer" parent="."]
+
+[node name="Deck" parent="EncounterUI" instance=ExtResource("8_2mlyr")]
+offset_left = 223.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = -111.0
+card_pile = ExtResource("12_sojy7")
+card_pile_icon = ExtResource("13_hrgm7")
 
 [node name="Hand" type="Control" parent="EncounterUI"]
 layout_mode = 3

@@ -20,6 +20,7 @@ and the hand/cards being played.
 @onready var card_drop_area = $CardDropArea
 @onready var hand: Hand = $EncounterUI/Hand
 
+@onready var deck = $EncounterUI/Deck
 @onready var draw_pile = $EncounterUI/DrawPile
 @onready var discard_pile = $EncounterUI/DiscardPile
 @onready var exhaust_pile = $EncounterUI/ExhaustPile
@@ -48,6 +49,7 @@ func _ready() -> void:
 	draw_pile.init(preload("res://heroes/writer/writer_starting_deck.tres"))
 	discard_pile.init(preload("res://card_piles/discard_pile.tres"))
 	exhaust_pile.init(preload("res://card_piles/exhaust_pile.tres"))
+	deck.init(preload("res://card_piles/deck.tres"))
 
 
 func init_unit_handlers() -> void:

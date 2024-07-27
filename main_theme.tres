@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=10 format=3 uid="uid://bydp08q78nl2i"]
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://bydp08q78nl2i"]
 
 [ext_resource type="StyleBox" uid="uid://hwj6ueqxtlug" path="res://scenes/encounter/base_button.tres" id="1_4lepn"]
 [ext_resource type="FontFile" uid="uid://c2ecs3t284mc4" path="res://assets/pixel_rpg.ttf" id="1_oq3w0"]
@@ -8,6 +8,19 @@
 [ext_resource type="StyleBox" uid="uid://1ssobb3gwr7r" path="res://scenes/encounter/pressed_button.tres" id="3_5650c"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_68pbl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qqkno"]
+bg_color = Color(0.410977, 0.221009, 0.119024, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hodte"]
 content_margin_left = 4.0
@@ -48,7 +61,7 @@ Button/styles/normal = ExtResource("1_4lepn")
 Button/styles/pressed = ExtResource("3_5650c")
 Label/font_sizes/font_size = 32
 Label/fonts/font = ExtResource("1_xjbuf")
-PanelContainer/styles/panel = null
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_qqkno")
 RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
 RichTextLabel/colors/font_outline_color = Color(1, 1, 1, 1)
 RichTextLabel/colors/font_selected_color = Color(0, 0, 0, 0)

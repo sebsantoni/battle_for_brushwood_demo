@@ -37,3 +37,8 @@ func draw_from_pile(num_cards: int) -> Array[Card]:
 
 func size() -> int:
 	return card_pile.size()
+
+
+func _on_gui_input(event: InputEvent):
+	if event.is_action_pressed("left_click"):
+		card_pile_view.show()
